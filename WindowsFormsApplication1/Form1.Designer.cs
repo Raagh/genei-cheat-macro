@@ -45,6 +45,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.sourceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,21 +73,21 @@
             // saveConfigToolStripMenuItem
             // 
             this.saveConfigToolStripMenuItem.Name = "saveConfigToolStripMenuItem";
-            this.saveConfigToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveConfigToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.saveConfigToolStripMenuItem.Text = "Save Config";
             this.saveConfigToolStripMenuItem.Click += new System.EventHandler(this.saveConfigToolStripMenuItem_Click);
             // 
             // loadConfigToolStripMenuItem
             // 
             this.loadConfigToolStripMenuItem.Name = "loadConfigToolStripMenuItem";
-            this.loadConfigToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loadConfigToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.loadConfigToolStripMenuItem.Text = "Load Config";
             this.loadConfigToolStripMenuItem.Click += new System.EventHandler(this.loadConfigToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -95,7 +96,8 @@
             this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.raaghToolStripMenuItem,
             this.argentumOnlineToolStripMenuItem,
-            this.cheatAppToolStripMenuItem});
+            this.cheatAppToolStripMenuItem,
+            this.sourceToolStripMenuItem});
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
@@ -103,8 +105,8 @@
             // raaghToolStripMenuItem
             // 
             this.raaghToolStripMenuItem.Name = "raaghToolStripMenuItem";
-            this.raaghToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.raaghToolStripMenuItem.Text = "Raagh";
+            this.raaghToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.raaghToolStripMenuItem.Text = "About Me - Raagh -";
             this.raaghToolStripMenuItem.Click += new System.EventHandler(this.raaghToolStripMenuItem_Click);
             // 
             // argentumOnlineToolStripMenuItem
@@ -118,7 +120,7 @@
             // 
             this.cheatAppToolStripMenuItem.Name = "cheatAppToolStripMenuItem";
             this.cheatAppToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.cheatAppToolStripMenuItem.Text = "Cheat App";
+            this.cheatAppToolStripMenuItem.Text = "Cheat App Info";
             this.cheatAppToolStripMenuItem.Click += new System.EventHandler(this.cheatAppToolStripMenuItem_Click);
             // 
             // button1
@@ -184,6 +186,13 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Value Setted:";
             // 
+            // sourceToolStripMenuItem
+            // 
+            this.sourceToolStripMenuItem.Name = "sourceToolStripMenuItem";
+            this.sourceToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.sourceToolStripMenuItem.Text = "Source";
+            this.sourceToolStripMenuItem.Click += new System.EventHandler(this.sourceToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,6 +234,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolStripMenuItem sourceToolStripMenuItem;
     }
 }
 

@@ -27,7 +27,8 @@ namespace WindowsFormsApplication1
 
         private void raaghToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Raagh is an OldSchool Argentum Online player. He started developing C/C++ on android just a year ago(Genei ROM LG G2). Now its Working as C# dev(MS Dynamics AX/CRM), and this is his first WinAPP.");
+            AboutMeForm formNew = new AboutMeForm();
+            formNew.ShowDialog();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -99,7 +100,7 @@ namespace WindowsFormsApplication1
                 // assigned to Button2.
                 SaveFileDialog saveFileDialog1 = new SaveFileDialog();
                 saveFileDialog1.Filter = "Text|*.txt";
-                saveFileDialog1.Title = "Save a Config File";
+                saveFileDialog1.Title = "Save Config File";
 
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
@@ -120,15 +121,13 @@ namespace WindowsFormsApplication1
                }
         }
 
-        #endregion
-
         private void loadConfigToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Displays a SaveFileDialog so the user can save the Image
             // assigned to Button2.
             OpenFileDialog OpenFileDialog1 = new OpenFileDialog();
             OpenFileDialog1.Filter = "Text|*.txt";
-            OpenFileDialog1.Title = "Load a Config File";
+            OpenFileDialog1.Title = "Load Config File";
             Config configNew = new Config();
 
             if (OpenFileDialog1.ShowDialog() == DialogResult.OK)
@@ -136,7 +135,7 @@ namespace WindowsFormsApplication1
                 // If the file name is not an empty string open it for saving.
                 if (OpenFileDialog1.FileName != "")
                 {
-                    configNew=Data.LoadFile(OpenFileDialog1.FileName);
+                    configNew = Data.LoadFile(OpenFileDialog1.FileName);
                     timer1.Interval = configNew.timerInterval;
                     listBox1.SelectedItem = configNew.timerInterval;
                     textBox1.Text = Convert.ToString(timer1.Interval);
@@ -148,5 +147,15 @@ namespace WindowsFormsApplication1
         {
             Process.Start("http://ComunidadArgentum.com");
         }
+
+        private void sourceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Blocked Till RELEASE,its on the internet (only for Devs) if you find it, its yours.");
+            //Process.Start("http://github.com/Raagh");
+        }
+
+        #endregion
+
+
     }
 }
