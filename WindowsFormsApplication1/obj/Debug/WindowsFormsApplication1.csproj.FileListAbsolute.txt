@@ -10,3 +10,12 @@ c:\users\patricio.ferraggi\documents\visual studio 2012\Projects\WindowsFormsApp
 C:\Users\patricio.ferraggi\Documents\GitHub\Raagh Cheat\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
 C:\Users\patricio.ferraggi\Documents\GitHub\Raagh Cheat\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
 C:\Users\patricio.ferraggi\Documents\GitHub\Raagh Cheat\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
