@@ -46,6 +46,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.sourceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,8 +97,8 @@
             this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.raaghToolStripMenuItem,
             this.argentumOnlineToolStripMenuItem,
-            this.cheatAppToolStripMenuItem,
-            this.sourceToolStripMenuItem});
+            this.sourceToolStripMenuItem,
+            this.cheatAppToolStripMenuItem});
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
@@ -119,8 +120,8 @@
             // cheatAppToolStripMenuItem
             // 
             this.cheatAppToolStripMenuItem.Name = "cheatAppToolStripMenuItem";
-            this.cheatAppToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.cheatAppToolStripMenuItem.Text = "Cheat App Info";
+            this.cheatAppToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.cheatAppToolStripMenuItem.Text = "Version";
             this.cheatAppToolStripMenuItem.Click += new System.EventHandler(this.cheatAppToolStripMenuItem_Click);
             // 
             // button1
@@ -135,6 +136,7 @@
             // 
             // timer1
             // 
+            this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // button2
@@ -174,6 +176,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(237, 69);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(35, 20);
             this.textBox1.TabIndex = 5;
             // 
@@ -205,6 +208,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "AO Cheat";
@@ -235,6 +239,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem sourceToolStripMenuItem;
+        private System.Windows.Forms.Timer timer2;
     }
 }
 
