@@ -152,8 +152,6 @@ namespace WindowsFormsApplication1
             //Process.Start("http://github.com/Raagh");
         }
 
-        #endregion
-
         private void button3_Click(object sender, EventArgs e)
         {
             Color color1 = new Color();
@@ -188,8 +186,8 @@ namespace WindowsFormsApplication1
                 while (colorRojas == Color.Black)
                 {
                     SendKeys.Send("u");
-                    colorRojas = Win32.GetPixelColor(912, 695); //Tomamos como esta la barra de vida(rojas)                    
-                }                
+                    colorRojas = Win32.GetPixelColor(912, 695);                 
+                }
                 faltaVida = true;
                 selectAzules = false;
                 selectRojas = true;
@@ -199,8 +197,8 @@ namespace WindowsFormsApplication1
                 while (colorRojas == Color.Black)
                 {
                     SendKeys.Send("u");
-                    colorRojas = Win32.GetPixelColor(912, 695); //Tomamos como esta la barra de vida(rojas)
-                }               
+                    colorRojas = Win32.GetPixelColor(912, 695); 
+                }
                 faltaVida = true;
                 selectAzules = false;
             }
@@ -211,7 +209,7 @@ namespace WindowsFormsApplication1
                     while (colorAzules == Color.Black)
                     {
                         SendKeys.Send("u");
-                        colorAzules = Win32.GetPixelColor(912, 670); //Tomamos como esta la barra de mana(azules)
+                        colorAzules = Win32.GetPixelColor(912, 670); 
                     }
                     selectRojas = false;
                 }
@@ -223,7 +221,7 @@ namespace WindowsFormsApplication1
                     while (colorAzules == Color.Black)
                     {
                         SendKeys.Send("u");
-                        colorAzules = Win32.GetPixelColor(912, 670); //Tomamos como esta la barra de mana(azules)
+                        colorAzules = Win32.GetPixelColor(912, 670); 
                     }
                     selectRojas = false;
                     selectAzules = true;
@@ -246,5 +244,9 @@ namespace WindowsFormsApplication1
                 this.button1_Click(sender, e);
             }
         }
+
+        #endregion
+
+   
     }
 }
