@@ -37,6 +37,7 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.raaghToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.argentumOnlineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sourceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cheatAppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -45,8 +46,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.sourceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.button3 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -113,9 +114,16 @@
             // argentumOnlineToolStripMenuItem
             // 
             this.argentumOnlineToolStripMenuItem.Name = "argentumOnlineToolStripMenuItem";
-            this.argentumOnlineToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.argentumOnlineToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
             this.argentumOnlineToolStripMenuItem.Text = "ArgentumOnline";
             this.argentumOnlineToolStripMenuItem.Click += new System.EventHandler(this.argentumOnlineToolStripMenuItem_Click);
+            // 
+            // sourceToolStripMenuItem
+            // 
+            this.sourceToolStripMenuItem.Name = "sourceToolStripMenuItem";
+            this.sourceToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.sourceToolStripMenuItem.Text = "Source";
+            this.sourceToolStripMenuItem.Click += new System.EventHandler(this.sourceToolStripMenuItem_Click);
             // 
             // cheatAppToolStripMenuItem
             // 
@@ -136,7 +144,7 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 1;
+            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // button2
@@ -189,18 +197,26 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Value Setted:";
             // 
-            // sourceToolStripMenuItem
+            // timer2
             // 
-            this.sourceToolStripMenuItem.Name = "sourceToolStripMenuItem";
-            this.sourceToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.sourceToolStripMenuItem.Text = "Source";
-            this.sourceToolStripMenuItem.Click += new System.EventHandler(this.sourceToolStripMenuItem_Click);
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(12, 197);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(78, 22);
+            this.button3.TabIndex = 7;
+            this.button3.Text = "Set RedPots";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
@@ -209,8 +225,10 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AO Cheat";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -240,6 +258,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem sourceToolStripMenuItem;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Button button3;
     }
 }
 

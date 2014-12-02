@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", "WindowsFormsApplication1\WindowsFormsApplication1.csproj", "{B51718C7-3E45-4DB7-B626-771B567ADF1A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Google Chrome - Facebook", "WindowsFormsApplication1\Google Chrome - Facebook.csproj", "{B51718C7-3E45-4DB7-B626-771B567ADF1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

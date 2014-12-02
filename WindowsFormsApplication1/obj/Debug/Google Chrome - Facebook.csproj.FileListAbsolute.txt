@@ -1,0 +1,14 @@
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.csprojResolveAssemblyReference.cache
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.AboutMeForm.resources
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.csproj.GenerateResource.Cache
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.manifest
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.application
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe.manifest
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.application
