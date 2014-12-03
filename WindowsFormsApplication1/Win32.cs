@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Runtime.InteropServices;
 
-namespace WindowsFormsApplication1
+namespace Lync
 {
     sealed class Win32
     {

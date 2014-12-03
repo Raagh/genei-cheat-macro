@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 using System.Drawing;
 using System.Threading;
 
-namespace WindowsFormsApplication1
+namespace Lync
 {
     static class Operaciones
     {
@@ -86,11 +86,14 @@ namespace WindowsFormsApplication1
 
        static public void AutoRemo()
        {
-           Operaciones.Clickear(960, 325); //Hechizos
-           Operaciones.Clickear(877, 539); //Remo
-           Operaciones.Clickear(871, 563); //Lanzar
+           //Operaciones.Clickear(960, 325); //Hechizos
+           //Operaciones.Clickear(877, 539); //Remo
+           //Operaciones.Clickear(871, 563); //Lanzar
+           Operaciones.Clickear(718, 125); //Hechizos
+           Operaciones.Clickear(636, 163); //Remo
+           Operaciones.Clickear(639, 360); //Lanzar
            Thread.Sleep(175);
-           Operaciones.Clickear(525, 570); //PJ
+           Operaciones.Clickear(280, 337); //PJ
            Operaciones.BorrarCartel();
        }
 

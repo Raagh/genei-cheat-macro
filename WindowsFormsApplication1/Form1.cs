@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
 
-namespace WindowsFormsApplication1
+namespace Lync
 {
     public partial class Form1 : Form
     {
@@ -48,13 +48,16 @@ namespace WindowsFormsApplication1
                 if (timer1.Enabled == false)
                 {
                     timer2.Enabled = true;
-                    timer1.Enabled = true;
+                    //timer1.Enabled = true;
                     button1.Text = "Desactivar";
+                    Operaciones.Clickear(608, 120);  //Inventario                                                                                                                       
+                    Operaciones.Clickear(641, 176);  // Azules 
+                    Operaciones.Clickear(718, 125);  //Hechizos
                 }
                 else
                 {
                     timer2.Enabled = false;
-                    timer1.Enabled = false;
+                    //timer1.Enabled = false;
                     button1.Text = "Activar";
                 }
             }
@@ -155,8 +158,13 @@ namespace WindowsFormsApplication1
         private void button3_Click(object sender, EventArgs e)
         {
             Color color1 = new Color();
-            color1 = Win32.GetPixelColor(200, 32);
+            color1 = Win32.GetPixelColor(667, 496);
             MessageBox.Show(Convert.ToString(color1));
+            int x = 0;
+            int y = 0;
+            x = Cursor.Position.X;
+            y = Cursor.Position.Y;
+            textBox2.Text = "x:" + x + ",  y:" + y;
         }
 
 
@@ -168,27 +176,33 @@ namespace WindowsFormsApplication1
         private void timer2_Tick(object sender, EventArgs e)
         {
             //SendKeys.Send(Convert.ToString(Keys.U)); // PARA TESTEAR AMIGO
-            Operaciones.Clickear(858, 321);  //Inventario                                                                                                                       
-            Operaciones.Clickear(880, 380);  // Azules 
-            Operaciones.Clickear(960, 325);  //Hechizos
+            //Operaciones.Clickear(858, 321);  //Inventario                                                                                                                       
+            //Operaciones.Clickear(880, 380);  // Azules        // COORDENADAS DE PRUEBA
+            //Operaciones.Clickear(960, 325);  //Hechizos
             bool faltaVida = false;
+ 
             bool selectRojas = false;  // Si estan seleccionadas las rojas
             bool selectAzules = true;  // Si estan seleccionadas las azules( por defecto azules)
             Color colorRojas = new Color();
             Color colorAzules = new Color();
-            colorRojas = Win32.GetPixelColor(912, 695); //Tomamos como esta la barra de vida(rojas)
-            colorAzules = Win32.GetPixelColor(912, 670); //Tomamos como esta la barra de mana(azules)
+            //colorRojas = Win32.GetPixelColor(912, 695); //Tomamos como esta la barra de vida(rojas)       // COORDENADAS DE PRUEBA
+            //colorAzules = Win32.GetPixelColor(912, 670); //Tomamos como esta la barra de mana(azules)
+            colorRojas = Win32.GetPixelColor(667, 496); //Tomamos como esta la barra de vida(rojas)
+            colorAzules = Win32.GetPixelColor(667, 469); //Tomamos como esta la barra de mana(azules)
             if (colorRojas == Color.Black && selectAzules == true) // si falta vida y estan seleccionadas las azules, cambiamos a las rojas y tomamos)
             {
-                Operaciones.Clickear(858, 321);  //Inventario
-                Operaciones.Clickear(847, 380);  //Rojas
-                Operaciones.Clickear(960, 325);  //Hechizos
+                //Operaciones.Clickear(858, 321);  //Inventario
+                //Operaciones.Clickear(847, 380);  //Rojas              // COORDENADAS DE PRUEBA
+                //Operaciones.Clickear(960, 325);  //Hechizos
+                Operaciones.Clickear(608, 120);  //Inventario
+                Operaciones.Clickear(603, 183);  //Rojas
+                Operaciones.Clickear(718, 125);  //Hechizos
                 while (colorRojas == Color.Black)
                 {
                     SendKeys.Send("u");
-                    colorRojas = Win32.GetPixelColor(912, 695);                 
+                    colorRojas = Win32.GetPixelColor(912, 695);
                 }
-                faltaVida = true;
+                faltaVida = false;
                 selectAzules = false;
                 selectRojas = true;
             }
@@ -197,9 +211,9 @@ namespace WindowsFormsApplication1
                 while (colorRojas == Color.Black)
                 {
                     SendKeys.Send("u");
-                    colorRojas = Win32.GetPixelColor(912, 695); 
+                    colorRojas = Win32.GetPixelColor(912, 695);
                 }
-                faltaVida = true;
+                faltaVida = false;
                 selectAzules = false;
             }
             if (faltaVida == false) // Siempre se prioriza la toma de rojas antes que las de azules, si te moris no hay mana que te sirva :)
@@ -209,19 +223,22 @@ namespace WindowsFormsApplication1
                     while (colorAzules == Color.Black)
                     {
                         SendKeys.Send("u");
-                        colorAzules = Win32.GetPixelColor(912, 670); 
+                        colorAzules = Win32.GetPixelColor(912, 670);
                     }
                     selectRojas = false;
                 }
                 else if (colorAzules == Color.Black && selectAzules == false) // si falta mana y estan seleccionadas las rojas, cambiamos a las azules y tomamos)
                 {
-                    Operaciones.Clickear(858, 321);  //Inventario                                                                                                                       
-                    Operaciones.Clickear(880, 380);  // Azules 
-                    Operaciones.Clickear(960, 325);  //Hechizos
+                    //Operaciones.Clickear(858, 321);  //Inventario                                                                                                                       
+                    //Operaciones.Clickear(880, 380);  // Azules         // COORDENADAS DE PRUEBA
+                    //Operaciones.Clickear(960, 325);  //Hechizos
+                    Operaciones.Clickear(608, 120);  //Inventario                                                                                                                       
+                    Operaciones.Clickear(641, 176);  // Azules 
+                    Operaciones.Clickear(718, 125);  //Hechizos
                     while (colorAzules == Color.Black)
                     {
                         SendKeys.Send("u");
-                        colorAzules = Win32.GetPixelColor(912, 670); 
+                        colorAzules = Win32.GetPixelColor(912, 670);
                     }
                     selectRojas = false;
                     selectAzules = true;
@@ -242,6 +259,7 @@ namespace WindowsFormsApplication1
             if (e.KeyCode == Keys.F5)
             {
                 this.button1_Click(sender, e);
+                //this.button3_Click(sender, e);
             }
         }
 
