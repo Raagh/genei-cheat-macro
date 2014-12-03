@@ -202,7 +202,8 @@ namespace Lync
                 while (colorRojas == Color.Black)
                 {
                     SendKeys.Send("u");
-                    colorRojas = Win32.GetPixelColor(912, 695);
+                    colorRojas = Win32.GetPixelColor(667, 496);
+                    colorRojas = Operaciones.IfColorBlack(colorRojas);
                 }
                 faltaVida = false;
                 selectAzules = false;
@@ -213,7 +214,8 @@ namespace Lync
                 while (colorRojas == Color.Black)
                 {
                     SendKeys.Send("u");
-                    colorRojas = Win32.GetPixelColor(912, 695);
+                    colorRojas = Win32.GetPixelColor(667, 496);
+                    colorRojas = Operaciones.IfColorBlack(colorRojas);
                 }
                 faltaVida = false;
                 selectAzules = false;
@@ -225,7 +227,8 @@ namespace Lync
                     while (colorAzules == Color.Black)
                     {
                         SendKeys.Send("u");
-                        colorAzules = Win32.GetPixelColor(912, 670);
+                        colorAzules = Win32.GetPixelColor(667, 469);
+                        colorAzules = Operaciones.IfColorBlack(colorAzules);
                     }
                     selectRojas = false;
                 }
@@ -240,7 +243,8 @@ namespace Lync
                     while (colorAzules == Color.Black)
                     {
                         SendKeys.Send("u");
-                        colorAzules = Win32.GetPixelColor(912, 670);
+                        colorAzules = Win32.GetPixelColor(667, 469);
+                        colorAzules = Operaciones.IfColorBlack(colorAzules);
                     }
                     selectRojas = false;
                     selectAzules = true;
