@@ -87,7 +87,7 @@ namespace Lync
        static public void AutoRemo()
        {
            //Operaciones.Clickear(960, 325); //Hechizos
-           //Operaciones.Clickear(877, 539); //Remo
+           //Operaciones.Clickear(877, 539); //Remo                 // COORDENADAS DE PRUEBA
            //Operaciones.Clickear(871, 563); //Lanzar
            Operaciones.Clickear(718, 125); //Hechizos
            Operaciones.Clickear(636, 163); //Remo
@@ -111,7 +111,7 @@ namespace Lync
 
        public static Color IfColorBlack(Color colorPotas)
        {
-           if (colorPotas.B == Color.Black.B && colorPotas.G == Color.Black.G && colorPotas.R == Color.Black.R && colorPotas.A == Color.Black.A)
+           if (colorPotas.B == Color.Black.B && colorPotas.G == Color.Black.G && colorPotas.R == Color.Black.R  /*&& colorPotas.A == Color.Black.A*/)
            {
                colorPotas = Color.Black;
            }

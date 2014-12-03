@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
+using System.Drawing;
 
 namespace Lync
 {
@@ -48,16 +49,16 @@ namespace Lync
                 if (timer1.Enabled == false)
                 {
                     timer2.Enabled = true;
-                    //timer1.Enabled = true;
+                    //timer1.Enabled = true;  // REMO POR AHORA NO
                     button1.Text = "Desactivar";
                     Operaciones.Clickear(608, 120);  //Inventario                                                                                                                       
                     Operaciones.Clickear(641, 176);  // Azules 
-                    Operaciones.Clickear(718, 125);  //Hechizos
+                    Operaciones.Clickear(718, 125);  //Hechizos                    
                 }
                 else
                 {
                     timer2.Enabled = false;
-                    //timer1.Enabled = false;
+                    //timer1.Enabled = false;       // REMO POR AHORA NO
                     button1.Text = "Activar";
                 }
             }
@@ -97,20 +98,14 @@ namespace Lync
 
         private void saveConfigToolStripMenuItem_Click(object sender, EventArgs e)
         {
-                // Displays a SaveFileDialog so the user can save the Image
-                // assigned to Button2.
                 SaveFileDialog saveFileDialog1 = new SaveFileDialog();
                 saveFileDialog1.Filter = "Text|*.txt";
                 saveFileDialog1.Title = "Save Config File";
 
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    // If the file name is not an empty string open it for saving.
                     if(saveFileDialog1.FileName != "")
-                     {
-                        // Saves the Image in the appropriate ImageFormat based upon the
-                        // File type selected in the dialog box.
-                        // NOTE that the FilterIndex property is one-based.                
+                     {        
                         using (StreamWriter sw = File.CreateText(saveFileDialog1.FileName)) 
                         {
                             sw.WriteLine("------------------------------------------");
@@ -124,8 +119,6 @@ namespace Lync
 
         private void loadConfigToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Displays a SaveFileDialog so the user can save the Image
-            // assigned to Button2.
             OpenFileDialog OpenFileDialog1 = new OpenFileDialog();
             OpenFileDialog1.Filter = "Text|*.txt";
             OpenFileDialog1.Title = "Load Config File";
@@ -133,7 +126,6 @@ namespace Lync
 
             if (OpenFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                // If the file name is not an empty string open it for saving.
                 if (OpenFileDialog1.FileName != "")
                 {
                     configNew = Operaciones.LoadFile(OpenFileDialog1.FileName);
@@ -158,14 +150,14 @@ namespace Lync
         private void button3_Click(object sender, EventArgs e)
         {
             Color color1 = new Color();
-            color1 = Win32.GetPixelColor(667, 496);
-            MessageBox.Show(Convert.ToString(color1));
+            color1 = Win32.GetPixelColor(Cursor.Position.X, Cursor.Position.Y);
+            textBox3.Text = "R:" + color1.R + " G:" + color1.G + " B:" + color1.B;
             int x = 0;
             int y = 0;
             x = Cursor.Position.X;
             y = Cursor.Position.Y;
             textBox2.Text = "x:" + x + ",  y:" + y;
-        }
+        }  //BOTON TEST
 
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -270,6 +262,11 @@ namespace Lync
         }
 
         #endregion
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
 
    
     }

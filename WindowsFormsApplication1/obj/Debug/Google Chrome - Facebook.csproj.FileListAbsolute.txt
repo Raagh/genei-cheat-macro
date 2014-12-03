@@ -27,8 +27,6 @@ C:\Users\Pato\Desktop\My projects\RaaghCheat-AO-App\WindowsFormsApplication1\obj
 C:\Users\Pato\Desktop\My projects\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.pdb
 C:\Users\Pato\Desktop\My projects\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.csprojResolveAssemblyReference.cache
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Google Chrome - Facebook.exe.config
-C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.exe
-C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.pdb
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Google Chrome - Facebook.exe.manifest
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Google Chrome - Facebook.application
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Google Chrome - Facebook.exe
@@ -39,3 +37,6 @@ C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplic
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.csproj.GenerateResource.Cache
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.exe.manifest
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.application
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.exe
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.pdb
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.csprojResolveAssemblyReference.cache
