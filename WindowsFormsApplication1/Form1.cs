@@ -189,6 +189,8 @@ namespace Lync
             //colorAzules = Win32.GetPixelColor(912, 670); //Tomamos como esta la barra de mana(azules)
             colorRojas = Win32.GetPixelColor(667, 496); //Tomamos como esta la barra de vida(rojas)
             colorAzules = Win32.GetPixelColor(667, 469); //Tomamos como esta la barra de mana(azules)
+            colorAzules = Operaciones.IfColorBlack(colorAzules);
+            colorRojas = Operaciones.IfColorBlack(colorRojas);
             if (colorRojas == Color.Black && selectAzules == true) // si falta vida y estan seleccionadas las azules, cambiamos a las rojas y tomamos)
             {
                 //Operaciones.Clickear(858, 321);  //Inventario

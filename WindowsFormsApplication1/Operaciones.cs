@@ -108,5 +108,14 @@ namespace Lync
         #endregion
 
 
+
+       public static Color IfColorBlack(Color colorPotas)
+       {
+           if (colorPotas.B == Color.Black.B && colorPotas.G == Color.Black.G && colorPotas.R == Color.Black.R && colorPotas.A == Color.Black.A)
+           {
+               colorPotas = Color.Black;
+           }
+           return colorPotas;
+       }
     }
 }
