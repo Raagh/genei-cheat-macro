@@ -11,13 +11,13 @@ namespace Lync
     {
         public int timerInterval;
         public string extra;
-        //public Point coordRojas;
-        //public Point coordAzules;
-        //public Point coordHechizos;
-        //public Point coordInventario;
-        //public Point coordLanzar;                     // Para cuando lo haga Multi Mod de Argentum
-        //public Point coordBarraVida;
-        //public Point coordBarraMana;
-        //public Point coordPJ;                 
+        static public Point coordRojas;
+        static public Point coordAzules;
+        static public Point coordHechizos;
+        static public Point coordInventario;
+        static public Point coordLanzar;                     // Para cuando lo haga Multi Mod de Argentum
+        static public Point coordBarraVida;
+        static public Point coordBarraMana;
+        static public Point coordPJ;                 
     }
 }
