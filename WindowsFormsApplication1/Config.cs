@@ -18,6 +18,7 @@ namespace Lync
         static public Point coordLanzar;                     // Para cuando lo haga Multi Mod de Argentum
         static public Point coordBarraVida;
         static public Point coordBarraMana;
-        static public Point coordPJ;                 
+        static public Point coordPJ;
+        static public bool tomoCoord = true;        
     }
 }

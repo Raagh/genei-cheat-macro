@@ -42,56 +42,57 @@ namespace Lync
         #endregion
 
 
-      //  #region Global Keyboard Hooks
+      #region Global Keyboard Hooks
 
-      //[DllImport("user32.dll")]
-      //static extern IntPtr SetWindowsHookEx(int idHook, LowLevelKeyboardProc callback, IntPtr hInstance, uint threadId);
+      [DllImport("user32.dll")]
+      static extern IntPtr SetWindowsHookEx(int idHook, LowLevelKeyboardProc callback, IntPtr hInstance, uint threadId);
 
-      //[DllImport("user32.dll")]
-      //static extern bool UnhookWindowsHookEx(IntPtr hInstance);
+      [DllImport("user32.dll")]
+      static extern bool UnhookWindowsHookEx(IntPtr hInstance);
 
-      //[DllImport("user32.dll")]
-      //static extern IntPtr CallNextHookEx(IntPtr idHook, int nCode, int wParam, IntPtr lParam);
+      [DllImport("user32.dll")]
+      static extern IntPtr CallNextHookEx(IntPtr idHook, int nCode, int wParam, IntPtr lParam);
 
-      //[DllImport("kernel32.dll")]
-      //static extern IntPtr LoadLibrary(string lpFileName);
+      [DllImport("kernel32.dll")]
+      static extern IntPtr LoadLibrary(string lpFileName);
 
-      //private delegate IntPtr LowLevelKeyboardProc(int nCode, IntPtr wParam, IntPtr lParam);
+      private delegate IntPtr LowLevelKeyboardProc(int nCode, IntPtr wParam, IntPtr lParam);
 
-      //const int WH_KEYBOARD_LL = 13; 
-      //const int WM_KEYDOWN = 0x100; 
+      const int WH_KEYBOARD_LL = 13;
+      const int WM_KEYDOWN = 0x100;
 
-      //private static LowLevelKeyboardProc _proc = hookProc;
+      private static LowLevelKeyboardProc _proc = hookProc;
 
-      //private static IntPtr hhook = IntPtr.Zero;
+      private static IntPtr hhook = IntPtr.Zero;
 
-      //public static void SetHook()
-      //{
-      //    IntPtr hInstance = LoadLibrary("User32");
-      //    hhook = SetWindowsHookEx(WH_KEYBOARD_LL, _proc, hInstance, 0);
-      //}
+      public static void SetHook()
+      {
+          IntPtr hInstance = LoadLibrary("User32");
+          hhook = SetWindowsHookEx(WH_KEYBOARD_LL, _proc, hInstance, 0);
+      }
 
-      //public static void UnHook()
-      //{
-      //    UnhookWindowsHookEx(hhook);
-      //}
+      public static void UnHook()
+      {
+          UnhookWindowsHookEx(hhook);
+      }
 
-      //public static IntPtr hookProc(int code, IntPtr wParam, IntPtr lParam)
-      //{
-      //    if (code >= 0 && wParam == (IntPtr)WM_KEYDOWN)
-      //    {
-      //        int vkCode = Marshal.ReadInt32(lParam);
-      //        if (vkCode.ToString() == "116")
-      //        {
-      //            MessageBox.Show("The App will Start NOW");
-      //        }
-      //        return (IntPtr)1;
-      //    }
-      //    else
-      //        return CallNextHookEx(hhook, code, (int)wParam, lParam);
-      //}
+      public static IntPtr hookProc(int code, IntPtr wParam, IntPtr lParam)
+      {
+          if (code >= 0 && wParam == (IntPtr)WM_KEYDOWN)
+          {
+              int vkCode = Marshal.ReadInt32(lParam);
+              if (vkCode.ToString() == "13")
+              {
+                  Operaciones.AutoRemo();
+                 
+              }
+              return (IntPtr)1;
+          }
+          else
+              return CallNextHookEx(hhook, code, (int)wParam, lParam);
+      }
 
-      //#endregion
+      #endregion
 
 
       

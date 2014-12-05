@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
+using System.Threading;
 
 
 namespace Lync
@@ -19,6 +20,7 @@ namespace Lync
         {
             InitializeComponent();
         }
+        private readonly ManualResetEvent mre = new ManualResetEvent(false);
 
         #region Events
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -35,7 +37,7 @@ namespace Lync
         private void Form1_Load(object sender, EventArgs e)
         {
             textBox1.Text = Convert.ToString(timer1.Interval);
-            //Win32.SetHook();
+           // Win32.SetHook();
         }
 
         private void cheatAppToolStripMenuItem_Click(object sender, EventArgs e)
@@ -271,66 +273,94 @@ namespace Lync
 
         private void Form1_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            // убираем хук
-            //Win32.UnHook();
-
+            Win32.UnHook();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Hace click en Hechisos");
             this.Cursor = Cursors.Cross;
-            Point pointNew = new Point (Cursor.Position.X,Cursor.Position.Y);
-            Config.coordHechizos = pointNew;
+            Point pointNew = new Point();
+            Config.tomoCoord = false;
+            while (Config.tomoCoord == false)
+            {
+                pointNew.X = Cursor.Position.X;
+                pointNew.Y = Cursor.Position.Y;
+                Config.coordHechizos = pointNew;
+            }
             this.Cursor = Cursors.Default;
-            MessageBox.Show("Hace click en Inventario");
-            this.Cursor = Cursors.Cross;       
-            pointNew.X = Cursor.Position.X;
-            pointNew.Y = Cursor.Position.Y;
-            Config.coordInventario = pointNew;
+            MessageBox.Show("Hace click en Inventario");                     
+            this.Cursor = Cursors.Cross;
+            while (Config.tomoCoord == false)
+            {
+                pointNew.X = Cursor.Position.X;
+                pointNew.Y = Cursor.Position.Y;
+                Config.coordInventario = pointNew;
+            }
             this.Cursor = Cursors.Default;
             MessageBox.Show("Hace click en las pociones Rojas");
             this.Cursor = Cursors.Cross;
-            pointNew.X = Cursor.Position.X;
-            pointNew.Y = Cursor.Position.Y;
-            Config.coordRojas = pointNew;
+            while (Config.tomoCoord == false)
+            {
+                pointNew.X = Cursor.Position.X;
+                pointNew.Y = Cursor.Position.Y;
+                Config.coordRojas = pointNew;
+            }
             this.Cursor = Cursors.Default;
             MessageBox.Show("Hace click en las pociones Azules");
             this.Cursor = Cursors.Cross;
-            pointNew.X = Cursor.Position.X;
-            pointNew.Y = Cursor.Position.Y;
-            Config.coordAzules = pointNew;
+            while (Config.tomoCoord == false)
+            {
+                pointNew.X = Cursor.Position.X;
+                pointNew.Y = Cursor.Position.Y;
+                Config.coordAzules = pointNew;
+            }
             this.Cursor = Cursors.Default;
             MessageBox.Show("Hace click en la barra de Vida");
             this.Cursor = Cursors.Cross;
-            pointNew.X = Cursor.Position.X;
-            pointNew.Y = Cursor.Position.Y;
-            Config.coordBarraVida = pointNew;
+            while (Config.tomoCoord == false)
+            {
+                pointNew.X = Cursor.Position.X;
+                pointNew.Y = Cursor.Position.Y;
+                Config.coordBarraVida = pointNew;
+            }
             this.Cursor = Cursors.Default;
             MessageBox.Show("Hace click en la barra de Mana");
             this.Cursor = Cursors.Cross;
-            pointNew.X = Cursor.Position.X;
-            pointNew.Y = Cursor.Position.Y;
-            Config.coordBarraMana = pointNew;
+            while (Config.tomoCoord == false)
+            {
+                pointNew.X = Cursor.Position.X;
+                pointNew.Y = Cursor.Position.Y;
+                Config.coordBarraMana = pointNew;
+            }
             this.Cursor = Cursors.Default;
             MessageBox.Show("Hace click en el boton Lanzar");
             this.Cursor = Cursors.Cross;
-            pointNew.X = Cursor.Position.X;
-            pointNew.Y = Cursor.Position.Y;
-            Config.coordLanzar = pointNew;
+            while (Config.tomoCoord == false)
+            {
+                pointNew.X = Cursor.Position.X;
+                pointNew.Y = Cursor.Position.Y;
+                Config.coordLanzar = pointNew;
+            }
             this.Cursor = Cursors.Default;
             MessageBox.Show("Hace click en tu PJ");
             this.Cursor = Cursors.Cross;
-            pointNew.X = Cursor.Position.X;
-            pointNew.Y = Cursor.Position.Y;
-            Config.coordPJ = pointNew;
+            while (Config.tomoCoord == false)
+            {
+                pointNew.X = Cursor.Position.X;
+                pointNew.Y = Cursor.Position.Y;
+                Config.coordPJ = pointNew;
+            }  
             this.Cursor = Cursors.Default;
             MessageBox.Show("Terminaste de Configurar las Coordenadas");
         }
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
-
+            if (Config.tomoCoord == false)
+            {
+                Config.tomoCoord = true;
+            }
         }
    
     }
