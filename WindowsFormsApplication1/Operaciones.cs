@@ -144,10 +144,6 @@ namespace Lync
        {
            if (Config.tomoCoord == false)
            {
-               Point pointNew = new Point();
-               pointNew.X = Cursor.Position.X;
-               pointNew.Y = Cursor.Position.Y;
-               Config.coordHechizos = pointNew;
                Config.tomoCoord = true;
                Operaciones.Deactivate();
            }   
