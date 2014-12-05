@@ -278,89 +278,78 @@ namespace Lync
 
         private void button4_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hace click en Hechisos");
-            this.Cursor = Cursors.Cross;
-            Point pointNew = new Point();
+            
+            MessageBox.Show("Hace click en Hechizos");
+            Operaciones.Activate();
+            this.Cursor = Cursors.Cross;                     
             Config.tomoCoord = false;
-            while (Config.tomoCoord == false)
-            {
-                pointNew.X = Cursor.Position.X;
-                pointNew.Y = Cursor.Position.Y;
-                Config.coordHechizos = pointNew;
-            }
-            this.Cursor = Cursors.Default;
-            MessageBox.Show("Hace click en Inventario");                     
-            this.Cursor = Cursors.Cross;
-            while (Config.tomoCoord == false)
-            {
-                pointNew.X = Cursor.Position.X;
-                pointNew.Y = Cursor.Position.Y;
-                Config.coordInventario = pointNew;
-            }
-            this.Cursor = Cursors.Default;
-            MessageBox.Show("Hace click en las pociones Rojas");
-            this.Cursor = Cursors.Cross;
-            while (Config.tomoCoord == false)
-            {
-                pointNew.X = Cursor.Position.X;
-                pointNew.Y = Cursor.Position.Y;
-                Config.coordRojas = pointNew;
-            }
-            this.Cursor = Cursors.Default;
-            MessageBox.Show("Hace click en las pociones Azules");
-            this.Cursor = Cursors.Cross;
-            while (Config.tomoCoord == false)
-            {
-                pointNew.X = Cursor.Position.X;
-                pointNew.Y = Cursor.Position.Y;
-                Config.coordAzules = pointNew;
-            }
-            this.Cursor = Cursors.Default;
-            MessageBox.Show("Hace click en la barra de Vida");
-            this.Cursor = Cursors.Cross;
-            while (Config.tomoCoord == false)
-            {
-                pointNew.X = Cursor.Position.X;
-                pointNew.Y = Cursor.Position.Y;
-                Config.coordBarraVida = pointNew;
-            }
-            this.Cursor = Cursors.Default;
-            MessageBox.Show("Hace click en la barra de Mana");
-            this.Cursor = Cursors.Cross;
-            while (Config.tomoCoord == false)
-            {
-                pointNew.X = Cursor.Position.X;
-                pointNew.Y = Cursor.Position.Y;
-                Config.coordBarraMana = pointNew;
-            }
-            this.Cursor = Cursors.Default;
-            MessageBox.Show("Hace click en el boton Lanzar");
-            this.Cursor = Cursors.Cross;
-            while (Config.tomoCoord == false)
-            {
-                pointNew.X = Cursor.Position.X;
-                pointNew.Y = Cursor.Position.Y;
-                Config.coordLanzar = pointNew;
-            }
-            this.Cursor = Cursors.Default;
-            MessageBox.Show("Hace click en tu PJ");
-            this.Cursor = Cursors.Cross;
-            while (Config.tomoCoord == false)
-            {
-                pointNew.X = Cursor.Position.X;
-                pointNew.Y = Cursor.Position.Y;
-                Config.coordPJ = pointNew;
-            }  
-            this.Cursor = Cursors.Default;
+            
+            MessageBox.Show("Hace click en Inventario");
+            #region testConfiguraciones
+            //Config.coordInventario = pointNew;
+            //this.Cursor = Cursors.Default;
+            //MessageBox.Show("Hace click en las pociones Rojas");
+            //this.Cursor = Cursors.Cross;
+            //while (Config.tomoCoord == false)
+            //{
+            //    pointNew.X = Cursor.Position.X;
+            //    pointNew.Y = Cursor.Position.Y;
+            //    Config.coordRojas = pointNew;
+            //}
+            //this.Cursor = Cursors.Default;
+            //MessageBox.Show("Hace click en las pociones Azules");
+            //this.Cursor = Cursors.Cross;
+            //while (Config.tomoCoord == false)
+            //{
+            //    pointNew.X = Cursor.Position.X;
+            //    pointNew.Y = Cursor.Position.Y;
+            //    Config.coordAzules = pointNew;
+            //}
+            //this.Cursor = Cursors.Default;
+            //MessageBox.Show("Hace click en la barra de Vida");
+            //this.Cursor = Cursors.Cross;
+            //while (Config.tomoCoord == false)
+            //{
+            //    pointNew.X = Cursor.Position.X;
+            //    pointNew.Y = Cursor.Position.Y;
+            //    Config.coordBarraVida = pointNew;
+            //}
+            //this.Cursor = Cursors.Default;
+            //MessageBox.Show("Hace click en la barra de Mana");
+            //this.Cursor = Cursors.Cross;
+            //while (Config.tomoCoord == false)
+            //{
+            //    pointNew.X = Cursor.Position.X;
+            //    pointNew.Y = Cursor.Position.Y;
+            //    Config.coordBarraMana = pointNew;
+            //}
+            //this.Cursor = Cursors.Default;
+            //MessageBox.Show("Hace click en el boton Lanzar");
+            //this.Cursor = Cursors.Cross;
+            //while (Config.tomoCoord == false)
+            //{
+            //    pointNew.X = Cursor.Position.X;
+            //    pointNew.Y = Cursor.Position.Y;
+            //    Config.coordLanzar = pointNew;
+            //}
+            //this.Cursor = Cursors.Default;
+            //MessageBox.Show("Hace click en tu PJ");
+            //this.Cursor = Cursors.Cross;
+            //while (Config.tomoCoord == false)
+            //{
+            //    pointNew.X = Cursor.Position.X;
+            //    pointNew.Y = Cursor.Position.Y;
+            //    Config.coordPJ = pointNew;
+            //}  
+            //this.Cursor = Cursors.Default;
+            #endregion
             MessageBox.Show("Terminaste de Configurar las Coordenadas");
+            Operaciones.Deactivate();
         }
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
-            if (Config.tomoCoord == false)
-            {
-                Config.tomoCoord = true;
-            }
+            
         }
    
     }

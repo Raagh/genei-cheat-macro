@@ -83,8 +83,7 @@ namespace Lync
               int vkCode = Marshal.ReadInt32(lParam);
               if (vkCode.ToString() == "13")
               {
-                  Operaciones.AutoRemo();
-                 
+                  Operaciones.AutoRemo();              
               }
               return (IntPtr)1;
           }

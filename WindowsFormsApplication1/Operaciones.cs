@@ -8,6 +8,9 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Drawing;
 using System.Threading;
+using MouseKeyboardActivityMonitor.HotKeys;
+using MouseKeyboardActivityMonitor;
+using MouseKeyboardActivityMonitor.WinApi;
 
 namespace Lync
 {
@@ -27,6 +30,8 @@ namespace Lync
         //public const MOUSEEVENTF_LEFTDOWN = &H2;
         //public const MOUSEEVENTF_LEFTUP = &H4;
        #endregion
+
+       private static  MouseHookListener m_mouseListener;
 
        static public Config LoadFile(string path)
        {
@@ -108,6 +113,23 @@ namespace Lync
         #endregion
 
 
+       public static void Activate()
+       {
+           // Note: for an application hook, use the AppHooker class instead
+           m_mouseListener = new MouseHookListener(new GlobalHooker());
+
+           // The listener is not enabled by default
+           m_mouseListener.Enabled = true;
+
+           // Set the event handler
+           // recommended to use the Extended handlers, which allow input suppression among other additional information
+           m_mouseListener.MouseDownExt += MouseListener_MouseDownExt;
+       }
+
+       public static void Deactivate()
+       {
+           m_mouseListener.Dispose();
+       }
 
        public static Color IfColorBlack(Color colorPotas)
        {
@@ -116,6 +138,19 @@ namespace Lync
                colorPotas = Color.Black;
            }
            return colorPotas;
+       }
+
+       private static void MouseListener_MouseDownExt(object sender, MouseEventExtArgs e)
+       {
+           if (Config.tomoCoord == false)
+           {
+               Point pointNew = new Point();
+               pointNew.X = Cursor.Position.X;
+               pointNew.Y = Cursor.Position.Y;
+               Config.coordHechizos = pointNew;
+               Config.tomoCoord = true;
+               Operaciones.Deactivate();
+           }   
        }
     }
 }
