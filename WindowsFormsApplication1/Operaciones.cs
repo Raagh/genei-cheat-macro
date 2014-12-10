@@ -98,20 +98,27 @@ namespace Lync
        static public void BorrarCartel()
        {
            SendKeys.Send(Convert.ToString(Keys.Enter));
-           SendKeys.Send("");
+           SendKeys.Send(" ");
            SendKeys.Send(Convert.ToString(Keys.Enter));       
        }
 
        static public void AutoRemo()
        {
-           //Operaciones.Clickear(960, 325); //Hechizos
-           //Operaciones.Clickear(877, 539); //Remo                 // COORDENADAS DE PRUEBA
-           //Operaciones.Clickear(871, 563); //Lanzar
-           Operaciones.Clickear(718, 125); //Hechizos
-           Operaciones.Clickear(636, 163); //Remo
-           Operaciones.Clickear(639, 360); //Lanzar
+           Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
+           Operaciones.Clickear(Config.coordRemo.X, Config.coordRemo.Y); //Remo
+           Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar
            Thread.Sleep(175);
-           Operaciones.Clickear(280, 337); //PJ
+           Operaciones.Clickear(Config.coordPJ.X, Config.coordPJ.Y); //PJ
+           Operaciones.BorrarCartel();
+       }
+
+       static public void AutoInvi()
+       {
+           Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
+           Operaciones.Clickear(Config.coordInvi.X, Config.coordInvi.Y); //Remo
+           Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar
+           Thread.Sleep(175);
+           Operaciones.Clickear(Config.coordPJ.X, Config.coordPJ.Y); //PJ
            Operaciones.BorrarCartel();
        }
 
@@ -156,15 +163,18 @@ namespace Lync
 
        #endregion
 
-       public static Color IfColorBlack(Color colorPotas)
-       {
-           if (colorPotas.B == Color.Black.B && colorPotas.G == Color.Black.G && colorPotas.R == Color.Black.R  /*&& colorPotas.A == Color.Black.A*/)
-           {
-               colorPotas = Color.Black;
-           }
-           return colorPotas;
-       }
+        // No lo uso mas, comparar contra negro era muy inefectivo. Tomo Color de las barras llenas,lo guardo. y dsp comparo siempre contra ese color.
+       //public static Color IfColorBlack(Color colorPotas)
+       //{
+       //    if (colorPotas.B == Color.Black.B && colorPotas.G == Color.Black.G && colorPotas.R == Color.Black.R  /*&& colorPotas.A == Color.Black.A*/)
+       //    {
+       //        colorPotas = Color.Black;
+       //    }
+       //    return colorPotas;
+       //} 
 
 
+
+  
     }
 }

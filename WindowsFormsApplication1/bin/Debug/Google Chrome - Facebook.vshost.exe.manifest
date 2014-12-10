@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Google Chrome - Facebook.exe" size="266752">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Google Chrome - Facebook.exe" size="487936">
       <assemblyIdentity name="Google Chrome - Facebook" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>4ecih6jqM/gHZUbPQQr3MdJltCufrv2ojccvNezHNUQ=</dsig:DigestValue>
+        <dsig:DigestValue>pPZO7OUYkslTQHieGrhiHvjt79MGlRX+ex6miH9GWHg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

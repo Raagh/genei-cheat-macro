@@ -83,6 +83,10 @@ namespace Lync
               {
                   Operaciones.AutoRemo();              
               }
+              if (vkCode.ToString() == "16")
+              {
+                  Operaciones.AutoInvi();
+              }
               return (IntPtr)1;
           }
           else

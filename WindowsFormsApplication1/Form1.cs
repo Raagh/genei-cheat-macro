@@ -36,34 +36,49 @@ namespace Lync
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            textBox1.Text = Convert.ToString(timer1.Interval);
-           // Win32.SetHook();
+            textBox1.Text = Convert.ToString(timer2.Interval);
+            MessageBox.Show("Recorda SIEMPRE configurar la barra de vida/mana estando full vida/mana." +Environment.NewLine+ "(la configuracion de las barras no se guardan en el SaveConfig)");
+            //Win32.SetHook();
         }
 
         private void cheatAppToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Raagh's AO Cheat 1.0 @CopyLeft 2014");
+            MessageBox.Show("Genei Cheat 1.0 for Argentum Online @CopyLeft 2014");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (Operaciones.valuesSET == true)
             {
-                if (timer2.Enabled == false)
+                foreach (object itemChecked in checkedListBox1.CheckedItems)
                 {
-                    timer2.Enabled = true;
-                    //timer1.Enabled = true;  // REMO POR AHORA NO
-                    button1.Text = "Desactivar";
-                    Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
-                    Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);  //Rojas
-                    Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y);  //Hechizos              
-                }
-                else
-                {
-                    timer2.Enabled = false;
-                    //timer1.Enabled = false;       // REMO POR AHORA NO
-                    button1.Text = "Activar";
-                }
+                    if (itemChecked.ToString() == "AutoPotas")
+                    {
+                        if (timer2.Enabled == false)
+                        {
+                            timer2.Enabled = true;
+                            this.WindowState = FormWindowState.Minimized;
+                            button1.Text = "Desactivar";
+                            Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
+                            Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);  //Rojas
+                            Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y);  //Hechizos              
+                        }
+                        else
+                        {
+                            timer2.Enabled = false;
+                            this.WindowState = FormWindowState.Normal;
+                            button1.Text = "Activar";
+                        }
+                    }
+                    if (itemChecked.ToString() == "Remover Paralisis" || itemChecked.ToString() == "Invisibilidad" )
+                    {
+                        Win32.SetHook();
+                    }
+                    else
+                    {
+                        Win32.UnHook();
+                    }
+                }                 
             }
             else
             {
@@ -71,7 +86,6 @@ namespace Lync
             }
           
         }
-
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -83,9 +97,9 @@ namespace Lync
             string elString = Convert.ToString(listBox1.SelectedItem);
             if (!string.IsNullOrEmpty(elString))
             {
-                timer1.Interval = int.Parse(elString);
-                MessageBox.Show("Se Setearon Los Valores");
-                textBox1.Text = Convert.ToString(timer1.Interval);
+                timer2.Interval = int.Parse(elString);
+                MessageBox.Show("Se setearon los valores");
+                textBox1.Text = Convert.ToString(timer2.Interval);
                 Operaciones.valuesSET = true;
             }
             else
@@ -111,10 +125,10 @@ namespace Lync
                      {        
                         using (StreamWriter sw = File.CreateText(saveFileDialog1.FileName)) 
                         {
-                            sw.WriteLine("------------------------------------------");
-                            sw.WriteLine("Configuracion Raagh's Cheat Argentum Online");
-                            sw.WriteLine("------------------------------------------");
-                            sw.WriteLine(timer1.Interval + ";" + Config.coordRojas.X + ";" + Config.coordRojas.Y + ";" + Config.coordAzules.X + ";" + Config.coordAzules.Y + ";" + Config.coordBarraVida.X + ";" + Config.coordBarraVida.Y + ";" + Config.coordBarraMana.X + ";" + Config.coordBarraMana.Y + ";" + Config.coordHechizos.X + ";" + Config.coordHechizos.Y + ";" + Config.coordInventario.X + ";" + Config.coordInventario.Y + ";" + Config.coordLanzar.X + ";" + Config.coordLanzar.Y + ";" + Config.coordRemo.X + ";" + Config.coordRemo.Y + ";" + Config.coordPJ.X + ";" + Config.coordPJ.Y);
+                            sw.WriteLine("-----------------------------------------------");
+                            sw.WriteLine("Configuracion Genei Cheat For Argentum Online");
+                            sw.WriteLine("-----------------------------------------------");
+                            sw.WriteLine(timer2.Interval + ";" + Config.coordRojas.X + ";" + Config.coordRojas.Y + ";" + Config.coordAzules.X + ";" + Config.coordAzules.Y + ";" + Config.coordBarraVida.X + ";" + Config.coordBarraVida.Y + ";" + Config.coordBarraMana.X + ";" + Config.coordBarraMana.Y + ";" + Config.coordHechizos.X + ";" + Config.coordHechizos.Y + ";" + Config.coordInventario.X + ";" + Config.coordInventario.Y + ";" + Config.coordLanzar.X + ";" + Config.coordLanzar.Y + ";" + Config.coordRemo.X + ";" + Config.coordRemo.Y + ";" + Config.coordPJ.X + ";" + Config.coordPJ.Y);
                         }                           
                      }
                }
@@ -131,9 +145,9 @@ namespace Lync
                 if (OpenFileDialog1.FileName != "")
                 {
                     Operaciones.LoadFile(OpenFileDialog1.FileName);
-                    timer1.Interval = Config.timerInterval;
+                    timer2.Interval = Config.timerInterval;
                     listBox1.SelectedItem = Config.timerInterval;
-                    textBox1.Text = Convert.ToString(timer1.Interval);
+                    textBox1.Text = Convert.ToString(timer2.Interval);
 
                 }
             }
@@ -146,26 +160,19 @@ namespace Lync
 
         private void sourceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Blocked Till RELEASE,its on the internet (only for Devs) if you find it, its yours.");
+            MessageBox.Show("Bloqueado hasta el Release, esta en internet, si lo encontas es tuyo");
             //Process.Start("http://github.com/Raagh");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Color color1 = new Color();
-            color1 = Win32.GetPixelColor(Cursor.Position.X, Cursor.Position.Y);
-            textBox3.Text = "R:" + color1.R + " G:" + color1.G + " B:" + color1.B;
-            int x = 0;
-            int y = 0;
-            x = Cursor.Position.X;
-            y = Cursor.Position.Y;
-            textBox2.Text = "x:" + x + ",  y:" + y;
-        }  //BOTON TEST
+            MessageBox.Show("Todavia Nada");
 
+        }  //BOTON TEST
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Operaciones.AutoRemo();
+            //Operaciones.AutoRemo();
         }   // TIMER AUTOREMO
 
         private void timer2_Tick(object sender, EventArgs e)
@@ -222,14 +229,6 @@ namespace Lync
             }
         }   // TIMER AUTOPOTAS
 
-        private void RemoHandler(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Return)
-            {
-                Operaciones.AutoRemo();
-            }
-        }
-
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F5)
@@ -237,9 +236,7 @@ namespace Lync
                 this.button1_Click(sender, e);
                 //this.button3_Click(sender, e);
             }
-        }
-
-        #endregion
+        }  
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
@@ -266,6 +263,21 @@ namespace Lync
         {
 
         }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        //private void RemoHandler(object sender, KeyEventArgs e)
+        //{
+        //    if (e.KeyCode == Keys.Return)
+        //    {
+        //        Operaciones.AutoRemo();
+        //    }
+        //} 
 
         //private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         //{
