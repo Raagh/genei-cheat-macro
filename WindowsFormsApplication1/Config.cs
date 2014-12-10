@@ -7,18 +7,20 @@ using System.Drawing;
 
 namespace Lync
 {
-    class Config
+     static class Config
     {
-        public int timerInterval;
-        public string extra;
+        static public int timerInterval;
         static public Point coordRojas;
         static public Point coordAzules;
         static public Point coordHechizos;
         static public Point coordInventario;
-        static public Point coordLanzar;                     // Para cuando lo haga Multi Mod de Argentum
+        static public Point coordLanzar;                     // Para MULTI AO CONFIG
         static public Point coordBarraVida;
         static public Point coordBarraMana;
         static public Point coordPJ;
-        static public bool tomoCoord = true;        
+        static public Point coordRemo;
+        static public Point coordInvi;
+        static public Color ColorBarraVida;
+        static public Color ColorBarraMana;
     }
 }

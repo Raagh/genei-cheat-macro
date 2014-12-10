@@ -12,8 +12,6 @@ using System.Text.RegularExpressions;
 using System.IO;
 using System.Drawing.Imaging;
 
-using System.Runtime.InteropServices;
-
 namespace Lync
 {
     sealed class Win32

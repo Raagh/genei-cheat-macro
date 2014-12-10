@@ -42,3 +42,18 @@ C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplic
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.csprojResolveAssemblyReference.cache
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\MouseKeyboardActivityMonitor.dll
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\MouseKeyboardActivityMonitor.xml
+C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Google Chrome - Facebook.exe.config
+C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Google Chrome - Facebook.exe.manifest
+C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Google Chrome - Facebook.application
+C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Google Chrome - Facebook.exe
+C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Google Chrome - Facebook.pdb
+C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Lync.AboutMeForm.resources
+C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Lync.ConfigForm.resources
+C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Lync.Form1.resources
+C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Lync.Properties.Resources.resources
+C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.csproj.GenerateResource.Cache
+C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.exe.manifest
+C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.application
+C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.exe
+C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.pdb
+C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.csprojResolveAssemblyReference.cache

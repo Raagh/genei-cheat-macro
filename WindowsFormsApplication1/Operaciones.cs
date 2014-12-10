@@ -33,9 +33,8 @@ namespace Lync
 
        private static  MouseHookListener m_mouseListener;
 
-       static public Config LoadFile(string path)
+       static public void LoadFile(string path)
        {
-           Config configNew = new Config();
            string s;
            if (File.Exists(path))
            {
@@ -51,23 +50,37 @@ namespace Lync
                        }
                        else
                        {
-                           configNew = Operaciones.SplitDataFile(s);
+                            Operaciones.SplitDataFile(s);
                        }
                    }
                }
            }
-           return configNew;
        
        }
 
-       static public Config SplitDataFile(string s)
+       static public void SplitDataFile(string s)
        {
            string[] split = s.Split(new Char[] { ';' });
-           Config configNew = new Config();
 
-           configNew.timerInterval = int.Parse(split[0]);
-           configNew.extra = (split[1]);
-           return configNew;
+           Config.timerInterval = int.Parse(split[0]);
+           Config.coordRojas.X = int.Parse(split[1]);
+           Config.coordRojas.Y = int.Parse(split[2]);
+           Config.coordAzules.X = int.Parse(split[3]);
+           Config.coordAzules.Y = int.Parse(split[4]);
+           Config.coordBarraVida.X = int.Parse(split[5]);
+           Config.coordBarraVida.Y = int.Parse(split[6]);
+           Config.coordBarraMana.X = int.Parse(split[7]);
+           Config.coordBarraMana.Y = int.Parse(split[8]);
+           Config.coordHechizos.X = int.Parse(split[9]);
+           Config.coordHechizos.Y = int.Parse(split[10]);
+           Config.coordInventario.X = int.Parse(split[11]);
+           Config.coordInventario.Y = int.Parse(split[12]);
+           Config.coordLanzar.X = int.Parse(split[13]);
+           Config.coordLanzar.Y = int.Parse(split[14]);
+           Config.coordRemo.X = int.Parse(split[15]);
+           Config.coordRemo.Y = int.Parse(split[16]);
+           Config.coordPJ.X = int.Parse(split[17]);
+           Config.coordPJ.Y = int.Parse(split[18]);
        }
 
        static public void Clickear(int x, int y)
@@ -113,23 +126,35 @@ namespace Lync
         #endregion
 
 
-       public static void Activate()
-       {
-           // Note: for an application hook, use the AppHooker class instead
-           m_mouseListener = new MouseHookListener(new GlobalHooker());
+       #region Mouse Global Hooks
+       //public static void Activate()
+       //{
+       //    // Note: for an application hook, use the AppHooker class instead
+       //    m_mouseListener = new MouseHookListener(new GlobalHooker());
 
-           // The listener is not enabled by default
-           m_mouseListener.Enabled = true;
+       //    // The listener is not enabled by default
+       //    m_mouseListener.Enabled = true;
 
-           // Set the event handler
-           // recommended to use the Extended handlers, which allow input suppression among other additional information
-           m_mouseListener.MouseDownExt += MouseListener_MouseDownExt;
-       }
+       //    // Set the event handler
+       //    // recommended to use the Extended handlers, which allow input suppression among other additional information
+       //    m_mouseListener.MouseDownExt += MouseListener_MouseDownExt;
+       //}
 
-       public static void Deactivate()
-       {
-           m_mouseListener.Dispose();
-       }
+       //public static void Deactivate()
+       //{
+       //    m_mouseListener.Dispose();
+       //}
+
+       //private static void MouseListener_MouseDownExt(object sender, MouseEventExtArgs e)
+       //{
+       //    //if (Config.tomoCoord == false)
+       //    //{
+       //    //    Config.tomoCoord = true;
+       //    //    Operaciones.Deactivate();
+       //    //}   
+       //}
+
+       #endregion
 
        public static Color IfColorBlack(Color colorPotas)
        {
@@ -140,13 +165,6 @@ namespace Lync
            return colorPotas;
        }
 
-       private static void MouseListener_MouseDownExt(object sender, MouseEventExtArgs e)
-       {
-           if (Config.tomoCoord == false)
-           {
-               Config.tomoCoord = true;
-               Operaciones.Deactivate();
-           }   
-       }
+
     }
 }

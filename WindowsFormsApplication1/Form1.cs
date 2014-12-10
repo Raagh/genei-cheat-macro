@@ -49,14 +49,14 @@ namespace Lync
         {
             if (Operaciones.valuesSET == true)
             {
-                if (timer1.Enabled == false)
+                if (timer2.Enabled == false)
                 {
                     timer2.Enabled = true;
                     //timer1.Enabled = true;  // REMO POR AHORA NO
                     button1.Text = "Desactivar";
-                    Operaciones.Clickear(608, 120);  //Inventario                                                                                                                       
-                    Operaciones.Clickear(641, 176);  // Azules 
-                    Operaciones.Clickear(718, 125);  //Hechizos                    
+                    Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
+                    Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);  //Rojas
+                    Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y);  //Hechizos              
                 }
                 else
                 {
@@ -113,8 +113,8 @@ namespace Lync
                         {
                             sw.WriteLine("------------------------------------------");
                             sw.WriteLine("Configuracion Raagh's Cheat Argentum Online");
-                            sw.WriteLine("------------------------------------------"); 
-                            sw.WriteLine(timer1.Interval + ";" + "Tu Vieja");
+                            sw.WriteLine("------------------------------------------");
+                            sw.WriteLine(timer1.Interval + ";" + Config.coordRojas.X + ";" + Config.coordRojas.Y + ";" + Config.coordAzules.X + ";" + Config.coordAzules.Y + ";" + Config.coordBarraVida.X + ";" + Config.coordBarraVida.Y + ";" + Config.coordBarraMana.X + ";" + Config.coordBarraMana.Y + ";" + Config.coordHechizos.X + ";" + Config.coordHechizos.Y + ";" + Config.coordInventario.X + ";" + Config.coordInventario.Y + ";" + Config.coordLanzar.X + ";" + Config.coordLanzar.Y + ";" + Config.coordRemo.X + ";" + Config.coordRemo.Y + ";" + Config.coordPJ.X + ";" + Config.coordPJ.Y);
                         }                           
                      }
                }
@@ -125,16 +125,16 @@ namespace Lync
             OpenFileDialog OpenFileDialog1 = new OpenFileDialog();
             OpenFileDialog1.Filter = "Text|*.txt";
             OpenFileDialog1.Title = "Load Config File";
-            Config configNew = new Config();
 
             if (OpenFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 if (OpenFileDialog1.FileName != "")
                 {
-                    configNew = Operaciones.LoadFile(OpenFileDialog1.FileName);
-                    timer1.Interval = configNew.timerInterval;
-                    listBox1.SelectedItem = configNew.timerInterval;
+                    Operaciones.LoadFile(OpenFileDialog1.FileName);
+                    timer1.Interval = Config.timerInterval;
+                    listBox1.SelectedItem = Config.timerInterval;
                     textBox1.Text = Convert.ToString(timer1.Interval);
+
                 }
             }
         }
@@ -171,76 +171,51 @@ namespace Lync
         private void timer2_Tick(object sender, EventArgs e)
         {
             //SendKeys.Send(Convert.ToString(Keys.U)); // PARA TESTEAR AMIGO
-            //Operaciones.Clickear(858, 321);  //Inventario                                                                                                                       
-            //Operaciones.Clickear(880, 380);  // Azules        // COORDENADAS DE PRUEBA
-            //Operaciones.Clickear(960, 325);  //Hechizos
             bool faltaVida = false;
- 
             bool selectRojas = false;  // Si estan seleccionadas las rojas
             bool selectAzules = true;  // Si estan seleccionadas las azules( por defecto azules)
             Color colorRojas = new Color();
             Color colorAzules = new Color();
-            //colorRojas = Win32.GetPixelColor(912, 695); //Tomamos como esta la barra de vida(rojas)       // COORDENADAS DE PRUEBA
-            //colorAzules = Win32.GetPixelColor(912, 670); //Tomamos como esta la barra de mana(azules)
-            colorRojas = Win32.GetPixelColor(667, 496); //Tomamos como esta la barra de vida(rojas)
-            colorAzules = Win32.GetPixelColor(667, 469); //Tomamos como esta la barra de mana(azules)
-            colorAzules = Operaciones.IfColorBlack(colorAzules);
-            colorRojas = Operaciones.IfColorBlack(colorRojas);
-            if (colorRojas == Color.Black && selectAzules == true) // si falta vida y estan seleccionadas las azules, cambiamos a las rojas y tomamos)
+            colorRojas = Win32.GetPixelColor(Config.coordBarraVida.X, Config.coordBarraVida.Y); //Tomamos como esta la barra de vida(rojas)
+            colorAzules = Win32.GetPixelColor(Config.coordBarraMana.X, Config.coordBarraMana.Y); //Tomamos como esta la barra de mana(azules)
+            //colorAzules = Operaciones.IfColorBlack(colorAzules);
+            //colorRojas = Operaciones.IfColorBlack(colorRojas);
+            if (colorRojas != Config.ColorBarraVida && selectAzules == true) // si falta vida y estan seleccionadas las azules, cambiamos a las rojas y tomamos)
             {
-                //Operaciones.Clickear(858, 321);  //Inventario
-                //Operaciones.Clickear(847, 380);  //Rojas              // COORDENADAS DE PRUEBA
-                //Operaciones.Clickear(960, 325);  //Hechizos
-                Operaciones.Clickear(608, 120);  //Inventario
-                Operaciones.Clickear(603, 183);  //Rojas
-                Operaciones.Clickear(718, 125);  //Hechizos
-                while (colorRojas == Color.Black)
-                {
-                    SendKeys.Send("u");
-                    colorRojas = Win32.GetPixelColor(667, 496);
-                    colorRojas = Operaciones.IfColorBlack(colorRojas);
-                }
-                faltaVida = false;
+                Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
+                Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);  //Rojas
+                Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y);  //Hechizos
+                SendKeys.Send("u");
+                faltaVida = true;
                 selectAzules = false;
                 selectRojas = true;
             }
-            else if (colorRojas == Color.Black && selectRojas == true) // si falta vida y estan seleccionadas las rojas,tomamos)
+            else if (colorRojas != Config.ColorBarraVida && selectRojas == true) // si falta vida y estan seleccionadas las rojas,tomamos)
             {
-                while (colorRojas == Color.Black)
-                {
-                    SendKeys.Send("u");
-                    colorRojas = Win32.GetPixelColor(667, 496);
-                    colorRojas = Operaciones.IfColorBlack(colorRojas);
-                }
-                faltaVida = false;
+                SendKeys.Send("u");
+                faltaVida = true;
                 selectAzules = false;
+            }
+            else if (colorRojas == Config.ColorBarraVida)
+            {
+                faltaVida = false;
             }
             if (faltaVida == false) // Siempre se prioriza la toma de rojas antes que las de azules, si te moris no hay mana que te sirva :)
             {
-                if (colorAzules == Color.Black && selectAzules == true) // si falta mana y estan seleccionadas las azules, tomamos)
+                if (colorAzules != Config.ColorBarraMana && selectAzules == true) // si falta mana y estan seleccionadas las azules, tomamos)
                 {
-                    while (colorAzules == Color.Black)
-                    {
-                        SendKeys.Send("u");
-                        colorAzules = Win32.GetPixelColor(667, 469);
-                        colorAzules = Operaciones.IfColorBlack(colorAzules);
-                    }
+
+                    SendKeys.Send("u");
+                    //colorAzules = Operaciones.IfColorBlack(colorAzules);
                     selectRojas = false;
                 }
-                else if (colorAzules == Color.Black && selectAzules == false) // si falta mana y estan seleccionadas las rojas, cambiamos a las azules y tomamos)
+                else if (colorAzules != Config.ColorBarraMana && selectAzules == false) // si falta mana y estan seleccionadas las rojas, cambiamos a las azules y tomamos)
                 {
-                    //Operaciones.Clickear(858, 321);  //Inventario                                                                                                                       
-                    //Operaciones.Clickear(880, 380);  // Azules         // COORDENADAS DE PRUEBA
-                    //Operaciones.Clickear(960, 325);  //Hechizos
-                    Operaciones.Clickear(608, 120);  //Inventario                                                                                                                       
-                    Operaciones.Clickear(641, 176);  // Azules 
-                    Operaciones.Clickear(718, 125);  //Hechizos
-                    while (colorAzules == Color.Black)
-                    {
-                        SendKeys.Send("u");
-                        colorAzules = Win32.GetPixelColor(667, 469);
-                        colorAzules = Operaciones.IfColorBlack(colorAzules);
-                    }
+                    Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
+                    Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);  //Rojas
+                    Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y);  //Hechizos
+                    SendKeys.Send("u");               
+                    //colorAzules = Operaciones.IfColorBlack(colorAzules);
                     selectRojas = false;
                     selectAzules = true;
                 }
@@ -278,73 +253,8 @@ namespace Lync
 
         private void button4_Click(object sender, EventArgs e)
         {
-            
-            MessageBox.Show("Hace click en Hechizos");
-            //Operaciones.Activate();
-            this.Cursor = Cursors.Cross;                     
-            Config.tomoCoord = false;
-            
-            MessageBox.Show("Hace click en Inventario");
-
-            Config.coordInventario = pointNew;
-            this.Cursor = Cursors.Default;
-            MessageBox.Show("Hace click en las pociones Rojas");
-            this.Cursor = Cursors.Cross;
-            while (Config.tomoCoord == false)
-            {
-                pointNew.X = Cursor.Position.X;
-                pointNew.Y = Cursor.Position.Y;
-                Config.coordRojas = pointNew;
-            }
-            this.Cursor = Cursors.Default;
-            MessageBox.Show("Hace click en las pociones Azules");
-            this.Cursor = Cursors.Cross;
-            while (Config.tomoCoord == false)
-            {
-                pointNew.X = Cursor.Position.X;
-                pointNew.Y = Cursor.Position.Y;
-                Config.coordAzules = pointNew;
-            }
-            this.Cursor = Cursors.Default;
-            MessageBox.Show("Hace click en la barra de Vida");
-            this.Cursor = Cursors.Cross;
-            while (Config.tomoCoord == false)
-            {
-                pointNew.X = Cursor.Position.X;
-                pointNew.Y = Cursor.Position.Y;
-                Config.coordBarraVida = pointNew;
-            }
-            this.Cursor = Cursors.Default;
-            MessageBox.Show("Hace click en la barra de Mana");
-            this.Cursor = Cursors.Cross;
-            while (Config.tomoCoord == false)
-            {
-                pointNew.X = Cursor.Position.X;
-                pointNew.Y = Cursor.Position.Y;
-                Config.coordBarraMana = pointNew;
-            }
-            this.Cursor = Cursors.Default;
-            MessageBox.Show("Hace click en el boton Lanzar");
-            this.Cursor = Cursors.Cross;
-            while (Config.tomoCoord == false)
-            {
-                pointNew.X = Cursor.Position.X;
-                pointNew.Y = Cursor.Position.Y;
-                Config.coordLanzar = pointNew;
-            }
-            this.Cursor = Cursors.Default;
-            MessageBox.Show("Hace click en tu PJ");
-            this.Cursor = Cursors.Cross;
-            while (Config.tomoCoord == false)
-            {
-                pointNew.X = Cursor.Position.X;
-                pointNew.Y = Cursor.Position.Y;
-                Config.coordPJ = pointNew;
-            }
-            this.Cursor = Cursors.Default;
-   
-            MessageBox.Show("Terminaste de Configurar las Coordenadas");
-            //Operaciones.Deactivate();
+            ConfigForm ConfigNew = new ConfigForm();
+            ConfigNew.ShowDialog();
         }
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
@@ -352,17 +262,22 @@ namespace Lync
             
         }
 
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        private void label4_Click(object sender, EventArgs e)
         {
-            if (Config.tomoCoord == false)
-            {
-                Point pointNew = new Point();
-                pointNew.X = Cursor.Position.X;
-                pointNew.Y = Cursor.Position.Y;
-                Config.coordHechizos = pointNew;
-            }
-            
+
         }
+
+        //private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        //{
+        //    if (Config.tomoCoord == false)
+        //    {
+        //        Point pointNew = new Point();
+        //        pointNew.X = Cursor.Position.X;
+        //        pointNew.Y = Cursor.Position.Y;
+        //        Config.coordHechizos = pointNew;
+        //    }
+            
+        //}
    
     }
 }
