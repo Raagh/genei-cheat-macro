@@ -61,7 +61,7 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>logoohy.ico</ApplicationIcon>
+    <ApplicationIcon>Dakirby309-Simply-Styled-Microsoft-Lync-2013.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MouseKeyboardActivityMonitor, Version=4.0.5150.10665, Culture=neutral, processorArchitecture=MSIL">
@@ -154,6 +154,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Dakirby309-Simply-Styled-Microsoft-Lync-2013.ico" />
     <Content Include="logoohy.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

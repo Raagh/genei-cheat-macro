@@ -269,7 +269,13 @@ namespace Lync
 
         }
 
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         #endregion
+
 
         //private void RemoHandler(object sender, KeyEventArgs e)
         //{
