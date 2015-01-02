@@ -22,5 +22,7 @@ namespace Lync
         static public Point coordInvi;
         static public Color ColorBarraVida;
         static public Color ColorBarraMana;
+        static public string TeclaRemo;
+        static public string TeclaInvi;
     }
 }

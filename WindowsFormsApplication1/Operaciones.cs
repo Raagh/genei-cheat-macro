@@ -16,7 +16,7 @@ namespace Lync
 {
     static class Operaciones
     {
-       static public bool valuesSET = false;
+       static public bool valuesSET = true;
 
        #region Dll IMPORT for Mouse Events
        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]

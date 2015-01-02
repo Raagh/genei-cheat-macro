@@ -108,5 +108,50 @@ namespace Lync
             Config.coordPJ = pointNew;
             MessageBox.Show("PJ configurado");
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Config.TeclaRemo = label3.Text;
+            Config.TeclaInvi = label4.Text;
+            label5.Text = "Teclas seteadas";
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            textBox1.Text = Convert.ToString(e.KeyCode);
+            label3.Text = Convert.ToString(e.KeyValue);
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            textBox2.Text = Convert.ToString(e.KeyCode);
+            label4.Text = Convert.ToString(e.KeyValue);
+        }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = string.Empty;
+            label3.Text = string.Empty;
+        }
+
+        private void textBox2_Click(object sender, EventArgs e)
+        {
+            textBox2.Text = string.Empty;
+            label4.Text = string.Empty;
+        }
+
+        private void ConfigForm_Load(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(Config.TeclaRemo) && !String.IsNullOrEmpty(Config.TeclaInvi)) ;
+            {
+                textBox1.Text = Config.TeclaRemo;
+                textBox2.Text = Config.TeclaInvi;         
+            }
+        }
     }
 }

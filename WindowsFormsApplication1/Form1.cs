@@ -37,7 +37,7 @@ namespace Lync
         private void Form1_Load(object sender, EventArgs e)
         {
             textBox1.Text = Convert.ToString(timer2.Interval);
-            MessageBox.Show("Recorda SIEMPRE configurar la barra de vida/mana estando full vida/mana." +Environment.NewLine+ "(la configuracion de las barras no se guardan en el SaveConfig)");
+            MessageBox.Show("Recorda SIEMPRE que para configurar la barra de vida y mana, ambas deben estar llenas." +Environment.NewLine+ "(la configuracion de las barras no se guardan en el SaveConfig)");
             //Win32.SetHook();
         }
 
@@ -50,10 +50,11 @@ namespace Lync
         {
             if (Operaciones.valuesSET == true)
             {
-                foreach (object itemChecked in checkedListBox1.CheckedItems)
+                foreach (string itemChecked in checkedListBox1.CheckedItems)
                 {
                     if (itemChecked.ToString() == "AutoPotas")
                     {
+                        Win32.UnHook();
                         if (timer2.Enabled == false)
                         {
                             timer2.Enabled = true;
@@ -70,22 +71,27 @@ namespace Lync
                             button1.Text = "Activar";
                         }
                     }
-                    if (itemChecked.ToString() == "Remover Paralisis" || itemChecked.ToString() == "Invisibilidad" )
-                    {
-                        Win32.SetHook();
-                    }
                     else
                     {
-                        Win32.UnHook();
+                        if (!string.IsNullOrEmpty(Config.TeclaInvi) && !string.IsNullOrEmpty(Config.TeclaRemo))
+                        {
+                            Win32.SetHook();
+                            button1.Text = "Desactivar";
+                        }
+                        else
+                        {
+                            MessageBox.Show("No seteaste las teclas de invi y remo!");
+                        }
                     }
+                    break;
                 }                 
             }
             else
             {
-                MessageBox.Show("Seleccionaste los Valores pero no le diste SET");
+                MessageBox.Show("Setea el intervalo");
             }
           
-        }
+        } //BOTON ACTIVAR
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -104,9 +110,11 @@ namespace Lync
             }
             else
             {
-                MessageBox.Show("No seteaste ningun valor");
+                Operaciones.valuesSET = true;
+                timer2.Interval = int.Parse(textBox1.Text);
+                MessageBox.Show("Se usara el valor por defecto a menos que setees uno");
             }
-        }
+        } //BOTON SET
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {

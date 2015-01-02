@@ -79,13 +79,17 @@ namespace Lync
           if (code >= 0 && wParam == (IntPtr)WM_KEYDOWN)
           {
               int vkCode = Marshal.ReadInt32(lParam);
-              if (vkCode.ToString() == "13")
+              if (vkCode.ToString() == Config.TeclaRemo)
               {
                   Operaciones.AutoRemo();              
               }
-              if (vkCode.ToString() == "16")
+              if (vkCode.ToString() == Config.TeclaInvi)
               {
                   Operaciones.AutoInvi();
+              }
+              if (vkCode.ToString() == "116")
+              {
+                  Application.Exit();
               }
               return (IntPtr)1;
           }
