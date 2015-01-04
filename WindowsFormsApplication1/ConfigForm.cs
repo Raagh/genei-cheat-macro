@@ -120,6 +120,7 @@ namespace Lync
         {
             textBox1.Text = Convert.ToString(e.KeyCode);
             label3.Text = Convert.ToString(e.KeyValue);
+            Config.remo = e.KeyCode;
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -131,6 +132,7 @@ namespace Lync
         {
             textBox2.Text = Convert.ToString(e.KeyCode);
             label4.Text = Convert.ToString(e.KeyValue);
+            Config.invi = e.KeyCode;
         }
 
         private void textBox1_Click(object sender, EventArgs e)
@@ -147,7 +149,7 @@ namespace Lync
 
         private void ConfigForm_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Config.TeclaRemo) && !String.IsNullOrEmpty(Config.TeclaInvi)) ;
+            if (!string.IsNullOrEmpty(Config.TeclaRemo) && !String.IsNullOrEmpty(Config.TeclaInvi)) 
             {
                 textBox1.Text = Config.TeclaRemo;
                 textBox2.Text = Config.TeclaInvi;         

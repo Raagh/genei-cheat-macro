@@ -41,7 +41,6 @@
             this.sourceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cheatAppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button2 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,6 +50,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -145,10 +145,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(223, 96);
@@ -163,8 +159,6 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.Items.AddRange(new object[] {
-            "1",
-            "10",
             "50",
             "100",
             "1000",
@@ -224,10 +218,11 @@
             this.checkedListBox1.Items.AddRange(new object[] {
             "Remover Paralisis",
             "Invisibilidad",
-            "AutoPotas"});
+            "AutoPotas",
+            "AutoLanzar"});
             this.checkedListBox1.Location = new System.Drawing.Point(12, 59);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(116, 45);
+            this.checkedListBox1.Size = new System.Drawing.Size(116, 60);
             this.checkedListBox1.TabIndex = 13;
             this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
@@ -240,6 +235,10 @@
             this.label3.Size = new System.Drawing.Size(56, 13);
             this.label3.TabIndex = 14;
             this.label3.Text = "Funciones";
+            // 
+            // timer3
+            // 
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
             // Form1
             // 
@@ -286,7 +285,6 @@
         private System.Windows.Forms.ToolStripMenuItem argentumOnlineToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cheatAppToolStripMenuItem;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label1;
@@ -297,6 +295,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Timer timer3;
     }
 }
 

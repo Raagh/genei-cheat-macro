@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace Lync
 {
@@ -24,5 +25,8 @@ namespace Lync
         static public Color ColorBarraMana;
         static public string TeclaRemo;
         static public string TeclaInvi;
+        static public Keys remo;
+        static public Keys invi;
+        static public bool AutolanzarON = false;
     }
 }

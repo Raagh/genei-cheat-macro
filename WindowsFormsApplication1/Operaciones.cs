@@ -18,21 +18,6 @@ namespace Lync
     {
        static public bool valuesSET = true;
 
-       #region Dll IMPORT for Mouse Events
-       [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-       public static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint cButtons, uint dwExtraInfo);
-
-       private const int MOUSEEVENTF_LEFTDOWN = 0x02;
-       private const int MOUSEEVENTF_LEFTUP = 0x04;
-       private const int MOUSEEVENTF_RIGHTDOWN = 0x08;
-       private const int MOUSEEVENTF_RIGHTUP = 0x10;
-
-        //public const MOUSEEVENTF_LEFTDOWN = &H2;
-        //public const MOUSEEVENTF_LEFTUP = &H4;
-       #endregion
-
-       private static  MouseHookListener m_mouseListener;
-
        static public void LoadFile(string path)
        {
            string s;
@@ -79,8 +64,10 @@ namespace Lync
            Config.coordLanzar.Y = int.Parse(split[14]);
            Config.coordRemo.X = int.Parse(split[15]);
            Config.coordRemo.Y = int.Parse(split[16]);
-           Config.coordPJ.X = int.Parse(split[17]);
-           Config.coordPJ.Y = int.Parse(split[18]);
+           Config.coordInvi.X = int.Parse(split[17]);
+           Config.coordInvi.Y = int.Parse(split[18]);
+           Config.coordPJ.X = int.Parse(split[19]);
+           Config.coordPJ.Y = int.Parse(split[20]);
        }
 
        static public void Clickear(int x, int y)
@@ -122,7 +109,25 @@ namespace Lync
            Operaciones.BorrarCartel();
        }
 
+       public static void AutoLanzar()
+       {
+           Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
+           Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar
+       }
 
+
+       #region Dll IMPORT for Mouse Events
+       [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+       public static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint cButtons, uint dwExtraInfo);
+
+       private const int MOUSEEVENTF_LEFTDOWN = 0x02;
+       private const int MOUSEEVENTF_LEFTUP = 0x04;
+       private const int MOUSEEVENTF_RIGHTDOWN = 0x08;
+       private const int MOUSEEVENTF_RIGHTUP = 0x10;
+
+        //public const MOUSEEVENTF_LEFTDOWN = &H2;
+        //public const MOUSEEVENTF_LEFTUP = &H4;
+       #endregion
        #region Mouse CLICK VB 6.0
         //Dim XX As Long, YY As Long
         //Call GetMouse(XX, YY)
@@ -133,48 +138,5 @@ namespace Lync
         #endregion
 
 
-       #region Mouse Global Hooks
-       //public static void Activate()
-       //{
-       //    // Note: for an application hook, use the AppHooker class instead
-       //    m_mouseListener = new MouseHookListener(new GlobalHooker());
-
-       //    // The listener is not enabled by default
-       //    m_mouseListener.Enabled = true;
-
-       //    // Set the event handler
-       //    // recommended to use the Extended handlers, which allow input suppression among other additional information
-       //    m_mouseListener.MouseDownExt += MouseListener_MouseDownExt;
-       //}
-
-       //public static void Deactivate()
-       //{
-       //    m_mouseListener.Dispose();
-       //}
-
-       //private static void MouseListener_MouseDownExt(object sender, MouseEventExtArgs e)
-       //{
-       //    //if (Config.tomoCoord == false)
-       //    //{
-       //    //    Config.tomoCoord = true;
-       //    //    Operaciones.Deactivate();
-       //    //}   
-       //}
-
-       #endregion
-
-        // No lo uso mas, comparar contra negro era muy inefectivo. Tomo Color de las barras llenas,lo guardo. y dsp comparo siempre contra ese color.
-       //public static Color IfColorBlack(Color colorPotas)
-       //{
-       //    if (colorPotas.B == Color.Black.B && colorPotas.G == Color.Black.G && colorPotas.R == Color.Black.R  /*&& colorPotas.A == Color.Black.A*/)
-       //    {
-       //        colorPotas = Color.Black;
-       //    }
-       //    return colorPotas;
-       //} 
-
-
-
-  
     }
 }
