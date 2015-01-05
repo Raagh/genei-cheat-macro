@@ -19,7 +19,7 @@ namespace Lync
     {
 
       #region PixelDLL && Methods
-        [DllImport("user32.dll")]
+      [DllImport("user32.dll")]
       static extern IntPtr GetDC(IntPtr hwnd);
 
       [DllImport("user32.dll")]
@@ -182,7 +182,7 @@ namespace Lync
 
         #endregion
 
-
+     
 
       [DllImport("user32.dll")]
       public static extern int GetAsyncKeyState(Keys vKeys); // USO ESTE PARA LAS TECLAS

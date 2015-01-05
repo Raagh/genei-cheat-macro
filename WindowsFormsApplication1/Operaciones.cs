@@ -96,7 +96,6 @@ namespace Lync
            Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
            Operaciones.Clickear(Config.coordRemo.X, Config.coordRemo.Y); //Remo
            Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar
-           Thread.Sleep(175);
            Operaciones.Clickear(Config.coordPJ.X, Config.coordPJ.Y); //PJ
            Operaciones.BorrarCartel();
        }
@@ -104,9 +103,8 @@ namespace Lync
        static public void AutoInvi()
        {
            Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
-           Operaciones.Clickear(Config.coordInvi.X, Config.coordInvi.Y); //Remo
+           Operaciones.Clickear(Config.coordInvi.X, Config.coordInvi.Y); //Invi
            Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar
-           Thread.Sleep(175);
            Operaciones.Clickear(Config.coordPJ.X, Config.coordPJ.Y); //PJ
            Operaciones.BorrarCartel();
        }

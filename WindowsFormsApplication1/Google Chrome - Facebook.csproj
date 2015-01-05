@@ -64,6 +64,9 @@
     <ApplicationIcon>Dakirby309-Simply-Styled-Microsoft-Lync-2013.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="InputSimulator">
+      <HintPath>..\..\..\..\Downloads\InputSimulator.0.1.0.0-bin\InputSimulator.0.1.0.0-bin\Debug\InputSimulator.dll</HintPath>
+    </Reference>
     <Reference Include="MouseKeyboardActivityMonitor, Version=4.0.5150.10665, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Downloads\MouseKeyboardActivityMonitor_v4a2\MouseKeyboardActivityMonitor.dll</HintPath>
@@ -123,6 +126,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Google Chrome - Facebook_TemporaryKey.pfx" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -11,6 +11,9 @@ using System.IO;
 using System.Diagnostics;
 using System.Threading;
 using System.Net;
+using Lync;
+using WindowsInput;
+
 
 
 namespace Lync
@@ -219,50 +222,54 @@ namespace Lync
         private void timer2_Tick(object sender, EventArgs e)
         {
             #region viejo autopotas
-            //SendKeys.Send(Convert.ToString(Keys.U)); // PARA TESTEAR AMIGO          
-            Color colorRojas = new Color();
-            Color colorAzules = new Color();
-            colorRojas = Win32.GetPixelColor(Config.coordBarraVida.X, Config.coordBarraVida.Y); //Tomamos como esta la barra de vida(rojas)
-            colorAzules = Win32.GetPixelColor(Config.coordBarraMana.X, Config.coordBarraMana.Y); //Tomamos como esta la barra de mana(azules)
-            if (colorRojas != Config.ColorBarraVida && selectAzules == true) // si falta vida y estan seleccionadas las azules, cambiamos a las rojas y tomamos)
-            {
-                Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
-                Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);  //Rojas
-                Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y);  //Hechizos
-                SendKeys.Send("u");
-                faltaVida = true;
-                selectAzules = false;
-                selectRojas = true;
-            }
-            else if (colorRojas != Config.ColorBarraVida && selectRojas == true) // si falta vida y estan seleccionadas las rojas,tomamos)
-            {
-                SendKeys.Send("u");
-                faltaVida = true;
-                selectAzules = false;
-            }
-            else if (colorRojas == Config.ColorBarraVida)
-            {
-                faltaVida = false;
-            }
-            if (faltaVida == false) // Siempre se prioriza la toma de rojas antes que las de azules, si te moris no hay mana que te sirva :)
-            {
-                if (colorAzules != Config.ColorBarraMana && selectAzules == true) // si falta mana y estan seleccionadas las azules, tomamos)
-                {
-                    SendKeys.Send("u");
-                    selectRojas = false;
-                }
-                else if (colorAzules != Config.ColorBarraMana && selectAzules == false) // si falta mana y estan seleccionadas las rojas, cambiamos a las azules y tomamos)
-                {
-                    Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
-                    Operaciones.Clickear(Config.coordAzules.X, Config.coordAzules.Y);  //Azules
-                    Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y);  //Hechizos
-                    SendKeys.Send("u");
-                    selectRojas = false;
-                    selectAzules = true;
-                }
-            }
+            InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);   // PARA TESTEAR AMIGO   
+                 
+            //Color colorRojas = new Color();
+            //Color colorAzules = new Color();
+            //colorRojas = Win32.GetPixelColor(Config.coordBarraVida.X, Config.coordBarraVida.Y); //Tomamos como esta la barra de vida(rojas)
+            //colorAzules = Win32.GetPixelColor(Config.coordBarraMana.X, Config.coordBarraMana.Y); //Tomamos como esta la barra de mana(azules)
+            //if (colorRojas != Config.ColorBarraVida && selectAzules == true) // si falta vida y estan seleccionadas las azules, cambiamos a las rojas y tomamos)
+            //{
+            //    Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
+            //    Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);  //Rojas
+            //    Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y);  //Hechizos
+            //    SendKeys.Send("u");
+            //    faltaVida = true;
+            //    selectAzules = false;
+            //    selectRojas = true;
+            //}
+            //else if (colorRojas != Config.ColorBarraVida && selectRojas == true) // si falta vida y estan seleccionadas las rojas,tomamos)
+            //{
+            //    SendKeys.Send("u");
+            //    faltaVida = true;
+            //    selectAzules = false;
+            //}
+            //else if (colorRojas == Config.ColorBarraVida)
+            //{
+            //    faltaVida = false;
+            //}
+            //if (faltaVida == false) // Siempre se prioriza la toma de rojas antes que las de azules, si te moris no hay mana que te sirva :)
+            //{
+            //    if (colorAzules != Config.ColorBarraMana && selectAzules == true) // si falta mana y estan seleccionadas las azules, tomamos)
+            //    {
+            //        SendKeys.Send("u");
+            //        selectRojas = false;
+            //    }
+            //    else if (colorAzules != Config.ColorBarraMana && selectAzules == false) // si falta mana y estan seleccionadas las rojas, cambiamos a las azules y tomamos)
+            //    {
+            //        Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
+            //        Operaciones.Clickear(Config.coordAzules.X, Config.coordAzules.Y);  //Azules
+            //        Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y);  //Hechizos
+            //        SendKeys.Send("u");
+            //        selectRojas = false;
+            //        selectAzules = true;
+            //    }
+            //}
             #endregion
 
+            
+
+            
 
             #region autopotas nuevo
             //Color colorRojas = new Color();
