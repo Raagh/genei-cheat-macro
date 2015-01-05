@@ -68,6 +68,8 @@ namespace Lync
            Config.coordInvi.Y = int.Parse(split[18]);
            Config.coordPJ.X = int.Parse(split[19]);
            Config.coordPJ.Y = int.Parse(split[20]);
+
+
        }
 
        static public void Clickear(int x, int y)
