@@ -43,14 +43,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Google Chrome - Facebook.exe" size="753152">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Google Chrome - Facebook.exe" size="754688">
       <assemblyIdentity name="Google Chrome - Facebook" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>MCa/RRssEGTYBB/zqjwO2yOgEjYREL6l2M/q9Se8XoI=</dsig:DigestValue>
+        <dsig:DigestValue>dPLYl12vf2WlwcH45t9hM3eH7HUfa7UOIfnPM4SRI8s=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="InputSimulator.dll" size="13824">
+      <assemblyIdentity name="InputSimulator" version="0.1.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>Pd1Wg+/747DwxL0iZobuPJoh/rIwYAuwkjH+uic+FNs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -26,6 +26,10 @@ namespace Lync
         }
         private readonly ManualResetEvent mre = new ManualResetEvent(false);
 
+        bool PotasON = false;
+        bool LanzarON = false;
+        bool RemoON = false;
+        bool CheatON = false;
 
         static public bool faltaVida = false;
         static public bool selectRojas = true;  // Si estan seleccionadas las rojas
@@ -46,6 +50,7 @@ namespace Lync
         {
             EstadoCheats();        
             textBox1.Text = Convert.ToString(timer2.Interval);
+            textBox2.Text = Convert.ToString(timer3.Interval);
             MessageBox.Show("Recorda SIEMPRE que para configurar la barra de vida y mana, ambas deben estar llenas." +Environment.NewLine+ "(la configuracion de las barras y las teclas no se guardan en el SaveConfig)");
         }
 
@@ -78,36 +83,13 @@ namespace Lync
                 {
                     if (itemChecked.ToString() == "AutoPotas")
                     {
-                        if (timer2.Enabled == false)
-                        {
-                            timer2.Enabled = true;
-                            this.WindowState = FormWindowState.Minimized;
-                            button1.Text = "Desactivar";
-                            //Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
-                            //Operaciones.Clickear(Config.coordAzules.X, Config.coordAzules.Y);  //Rojas
-                            //Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y);  //Hechizos              
-                        }
-                        else
-                        {
-                            timer2.Enabled = false;
-                            this.WindowState = FormWindowState.Normal;
-                            button1.Text = "Activar";
-                        }
+                        PotasON = true;
                     }
                     if (itemChecked.ToString() == "AutoRemo" || itemChecked.ToString() == "AutoInvi")
                     {
                         if (!string.IsNullOrEmpty(Config.TeclaInvi) && !string.IsNullOrEmpty(Config.TeclaRemo))
                         {
-                            if (timer3.Enabled == false)
-                            {                           
-                                timer3.Enabled = true;
-                                button1.Text = "Desactivar";
-                            }
-                            else
-                            {
-                                timer3.Enabled = false;
-                                button1.Text = "Activar";
-                            }
+                            RemoON = true;
                         }
                         else
                         {
@@ -116,22 +98,62 @@ namespace Lync
                     }
                     if (itemChecked.ToString() == "AutoLanzar")
                     {
-                        if (Config.AutolanzarON == false)
-                        {
-                            Win32._hookID = Win32.SetHook(Win32._proc2);
-                            button1.Text = "Desactivar";
-                            Config.AutolanzarON = true;
-                        }
-                        else if (Config.AutolanzarON == true)
-                        {
-                            //Win32.unHookMouse();  // Por ahora no se puede desactivar u.u
-                            button1.Text = "Activar";
-                            Config.AutolanzarON = false;
-                        }
-                                     
+                        LanzarON = true;        
                     }
-                    break;
-                }                 
+                }               
+                if (RemoON)
+                {
+                    if (timer3.Enabled == false)
+                    {
+                        timer3.Enabled = true;
+                    }
+                    else
+                    {
+                        timer3.Enabled = false;
+                    }
+                }
+                if (LanzarON)
+                {
+                    if (Config.AutolanzarON == false)
+                    {
+                        Win32._hookID = Win32.SetHook(Win32._proc2);                       
+                        Config.AutolanzarON = true;
+                    }
+                    else if (Config.AutolanzarON == true)
+                    {
+                        //Win32.unHookMouse();  // Por ahora no se puede desactivar u.u
+                        Config.AutolanzarON = false;
+                    }    
+                }
+                if (PotasON)
+                {
+                    if (timer2.Enabled == false)
+                    {
+                        timer2.Enabled = true;
+                        this.WindowState = FormWindowState.Minimized;
+                        Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
+                        Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);  //Rojas
+                        Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y);  //Hechizos           
+                    }
+                    else
+                    {
+                        timer2.Enabled = false;
+                        this.WindowState = FormWindowState.Normal;
+                    }
+                }
+                if (checkedListBox1.CheckedItems != null)
+                {
+                    if (CheatON)
+                    {
+                        CheatON = false;
+                        button1.Text = "Activar";
+                    }
+                    else                                       
+                    {
+                        CheatON = true;
+                        button1.Text = "Desactivar";
+                    }
+                }
             }
             else
             {
@@ -147,12 +169,15 @@ namespace Lync
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string elString = Convert.ToString(listBox1.SelectedItem);
-            if (!string.IsNullOrEmpty(elString))
+            string AutopotInterval = Convert.ToString(listBox1.SelectedItem);
+            string AutoLanzarInterval = Convert.ToString(listBox2.SelectedItem);
+            if (!string.IsNullOrEmpty(AutopotInterval))
             {
-                timer2.Interval = int.Parse(elString);
+                timer2.Interval = int.Parse(AutopotInterval);
+                timer3.Interval = int.Parse(AutoLanzarInterval);
                 MessageBox.Show("Se setearon los valores");
                 textBox1.Text = Convert.ToString(timer2.Interval);
+                textBox2.Text = Convert.ToString(timer3.Interval);
                 Operaciones.valuesSET = true;
             }
             else
@@ -221,57 +246,53 @@ namespace Lync
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            #region viejo autopotas
-            InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);   // PARA TESTEAR AMIGO   
-                 
-            //Color colorRojas = new Color();
-            //Color colorAzules = new Color();
-            //colorRojas = Win32.GetPixelColor(Config.coordBarraVida.X, Config.coordBarraVida.Y); //Tomamos como esta la barra de vida(rojas)
-            //colorAzules = Win32.GetPixelColor(Config.coordBarraMana.X, Config.coordBarraMana.Y); //Tomamos como esta la barra de mana(azules)
-            //if (colorRojas != Config.ColorBarraVida && selectAzules == true) // si falta vida y estan seleccionadas las azules, cambiamos a las rojas y tomamos)
-            //{
-            //    Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
-            //    Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);  //Rojas
-            //    Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y);  //Hechizos
-            //    SendKeys.Send("u");
-            //    faltaVida = true;
-            //    selectAzules = false;
-            //    selectRojas = true;
-            //}
-            //else if (colorRojas != Config.ColorBarraVida && selectRojas == true) // si falta vida y estan seleccionadas las rojas,tomamos)
-            //{
-            //    SendKeys.Send("u");
-            //    faltaVida = true;
-            //    selectAzules = false;
-            //}
-            //else if (colorRojas == Config.ColorBarraVida)
-            //{
-            //    faltaVida = false;
-            //}
-            //if (faltaVida == false) // Siempre se prioriza la toma de rojas antes que las de azules, si te moris no hay mana que te sirva :)
-            //{
-            //    if (colorAzules != Config.ColorBarraMana && selectAzules == true) // si falta mana y estan seleccionadas las azules, tomamos)
-            //    {
-            //        SendKeys.Send("u");
-            //        selectRojas = false;
-            //    }
-            //    else if (colorAzules != Config.ColorBarraMana && selectAzules == false) // si falta mana y estan seleccionadas las rojas, cambiamos a las azules y tomamos)
-            //    {
-            //        Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
-            //        Operaciones.Clickear(Config.coordAzules.X, Config.coordAzules.Y);  //Azules
-            //        Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y);  //Hechizos
-            //        SendKeys.Send("u");
-            //        selectRojas = false;
-            //        selectAzules = true;
-            //    }
-            //}
+            #region autopotas nuevo
+            //InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);   // PARA TESTEAR AMIGO  
+
+
+            Color colorRojas = new Color();
+            Color colorAzules = new Color();
+            colorRojas = Win32.GetPixelColor(Config.coordBarraVida.X, Config.coordBarraVida.Y); //Tomamos como esta la barra de vida(rojas)
+            colorAzules = Win32.GetPixelColor(Config.coordBarraMana.X, Config.coordBarraMana.Y); //Tomamos como esta la barra de mana(azules)
+            if (colorRojas != Config.ColorBarraVida && selectAzules == true) // si falta vida y estan seleccionadas las azules, cambiamos a las rojas y tomamos)
+            {
+                Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
+                Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);  //Rojas
+                InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
+                faltaVida = true;
+                selectAzules = false;
+                selectRojas = true;
+            }
+            else if (colorRojas != Config.ColorBarraVida && selectRojas == true) // si falta vida y estan seleccionadas las rojas,tomamos)
+            {
+                InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
+                faltaVida = true;
+                selectAzules = false;
+            }
+            else if (colorRojas == Config.ColorBarraVida)
+            {
+                faltaVida = false;
+            }
+            if (faltaVida == false) // Siempre se prioriza la toma de rojas antes que las de azules, si te moris no hay mana que te sirva :)
+            {
+                if (colorAzules != Config.ColorBarraMana && selectAzules == true) // si falta mana y estan seleccionadas las azules, tomamos)
+                {
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
+                    selectRojas = false;
+                }
+                else if (colorAzules != Config.ColorBarraMana && selectAzules == false) // si falta mana y estan seleccionadas las rojas, cambiamos a las azules y tomamos)
+                {
+                    Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
+                    Operaciones.Clickear(Config.coordAzules.X, Config.coordAzules.Y);  //Azules
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
+                    selectRojas = false;
+                    selectAzules = true;
+                }
+            }
             #endregion
 
-            
 
-            
-
-            #region autopotas nuevo
+            #region autopotas viejo
             //Color colorRojas = new Color();
             //Color colorAzules = new Color();
             //colorRojas = Win32.GetPixelColor(Config.coordBarraVida.X, Config.coordBarraVida.Y); //Tomamos como esta la barra de vida(rojas)
@@ -292,7 +313,7 @@ namespace Lync
             //}
 
             #endregion
-
+         
         } 
        // TIMER AUTOPOTAS
 
@@ -354,6 +375,11 @@ namespace Lync
             {
                 Operaciones.AutoInvi();
             }
+        }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
 

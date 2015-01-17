@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
+
 using System.Runtime.InteropServices;
 using System.Drawing;
 using System.Threading;
@@ -113,6 +114,7 @@ namespace Lync
        {
            Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
            Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar
+           Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y); // Inventario
        }
 
 

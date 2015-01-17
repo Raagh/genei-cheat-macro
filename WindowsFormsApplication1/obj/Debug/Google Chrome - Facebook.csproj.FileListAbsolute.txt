@@ -58,3 +58,6 @@ C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\De
 C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.application
 C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.exe
 C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.pdb
+C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\InputSimulator.dll
+C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\InputSimulator.pdb
+C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\InputSimulator.xml
