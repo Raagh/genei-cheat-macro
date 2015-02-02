@@ -31,9 +31,12 @@ namespace Lync
         bool RemoON = false;
         bool CheatON = false;
 
+        
         static public bool faltaVida = false;
         static public bool selectRojas = true;  // Si estan seleccionadas las rojas
         static public bool selectAzules = false;  // Si estan seleccionadas las azules( por defecto Rojas)
+
+
         #region Events
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -146,7 +149,7 @@ namespace Lync
                     if (CheatON)
                     {
                         CheatON = false;
-                        button1.Text = "Activar";
+                        button1.Text = "Activar Cheat";
                     }
                     else                                       
                     {
@@ -244,7 +247,8 @@ namespace Lync
             //Process.Start("http://github.com/Raagh");
         }
 
-        private void timer2_Tick(object sender, EventArgs e)
+
+        private void timer2_Tick(object sender, EventArgs e)     // TIMER AUTOPOTAS
         {
             #region autopotas nuevo
             //InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);   // PARA TESTEAR AMIGO  
@@ -314,15 +318,14 @@ namespace Lync
 
             #endregion
          
-        } 
-       // TIMER AUTOPOTAS
+        }      
+       
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.F5)
             {
                 this.button1_Click(sender, e);
-                //this.button3_Click(sender, e);
             }
         }  
 
@@ -362,7 +365,6 @@ namespace Lync
 
         }
 
-        #endregion
 
         private void timer3_Tick(object sender, EventArgs e)
         {
@@ -371,16 +373,36 @@ namespace Lync
                 Operaciones.AutoRemo();
             }
 
-            if(Convert.ToBoolean(Win32.GetAsyncKeyState(Config.invi)))
+            if (Convert.ToBoolean(Win32.GetAsyncKeyState(Config.invi)))
             {
                 Operaciones.AutoInvi();
             }
-        }
+        }  // TIMER AUTOREMO/INVI
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (Operaciones.modOfi == false)
+            {
+                Operaciones.modOfi = true;
+                MessageBox.Show("Mod 13.0 activado");
+            }
+            else if (Operaciones.modOfi == true)
+            {
+                Operaciones.modOfi = false;
+                MessageBox.Show("Mod 13.0 descactivado");
+            }
+        }
+
+
+        #endregion
+
+
 
 
     

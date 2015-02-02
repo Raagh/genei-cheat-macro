@@ -56,6 +56,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -308,12 +309,24 @@
             this.textBox2.Size = new System.Drawing.Size(38, 20);
             this.textBox2.TabIndex = 19;
             // 
+            // button3
+            // 
+            this.button3.ForeColor = System.Drawing.Color.Red;
+            this.button3.Location = new System.Drawing.Point(129, 154);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(48, 23);
+            this.button3.TabIndex = 20;
+            this.button3.Text = "13.0";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(338, 220);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.label6);
@@ -375,6 +388,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button3;
     }
 }
 

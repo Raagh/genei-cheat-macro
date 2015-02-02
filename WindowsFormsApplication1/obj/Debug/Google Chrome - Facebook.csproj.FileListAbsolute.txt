@@ -26,11 +26,6 @@ C:\Users\Pato\Desktop\My projects\RaaghCheat-AO-App\WindowsFormsApplication1\obj
 C:\Users\Pato\Desktop\My projects\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.exe
 C:\Users\Pato\Desktop\My projects\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.pdb
 C:\Users\Pato\Desktop\My projects\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.csprojResolveAssemblyReference.cache
-C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Google Chrome - Facebook.exe.config
-C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Google Chrome - Facebook.exe.manifest
-C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Google Chrome - Facebook.application
-C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Google Chrome - Facebook.exe
-C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Google Chrome - Facebook.pdb
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\MouseKeyboardActivityMonitor.dll
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\MouseKeyboardActivityMonitor.xml
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Lync.AboutMeForm.resources
@@ -38,10 +33,6 @@ C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplic
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Lync.Form1.resources
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Lync.Properties.Resources.resources
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.csproj.GenerateResource.Cache
-C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.exe.manifest
-C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.application
-C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.exe
-C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.pdb
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.csprojResolveAssemblyReference.cache
 C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Google Chrome - Facebook.csprojResolveAssemblyReference.cache
 C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Lync.AboutMeForm.resources
@@ -61,3 +52,15 @@ C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\De
 C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\InputSimulator.dll
 C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\InputSimulator.pdb
 C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\InputSimulator.xml
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Microsoft Lync.exe.config
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Microsoft Lync.exe.manifest
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Microsoft Lync.application
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Microsoft Lync.exe
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Microsoft Lync.pdb
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\InputSimulator.dll
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\InputSimulator.pdb
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\InputSimulator.xml
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Microsoft Lync.exe.manifest
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Microsoft Lync.application
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Microsoft Lync.exe
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Microsoft Lync.pdb

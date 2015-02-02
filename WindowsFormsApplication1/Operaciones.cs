@@ -18,6 +18,7 @@ namespace Lync
     static class Operaciones
     {
        static public bool valuesSET = true;
+       static public bool modOfi = false;
 
        static public void LoadFile(string path)
        {
@@ -97,6 +98,7 @@ namespace Lync
            Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
            Operaciones.Clickear(Config.coordRemo.X, Config.coordRemo.Y); //Remo
            Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar
+           Thread.Sleep(125);
            Operaciones.Clickear(Config.coordPJ.X, Config.coordPJ.Y); //PJ
            Operaciones.BorrarCartel();
        }
@@ -106,15 +108,26 @@ namespace Lync
            Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
            Operaciones.Clickear(Config.coordInvi.X, Config.coordInvi.Y); //Invi
            Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar
+           Thread.Sleep(125);
            Operaciones.Clickear(Config.coordPJ.X, Config.coordPJ.Y); //PJ
            Operaciones.BorrarCartel();
        }
 
        public static void AutoLanzar()
        {
-           Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
-           Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar
-           Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y); // Inventario
+           if (modOfi == true)
+           {
+               Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
+               Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar
+               Thread.Sleep(125);
+               Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y); // Inventario
+           }
+           if (modOfi == false)
+           {
+               Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
+               Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar
+               Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y); // Inventario
+           }
        }
 
 
