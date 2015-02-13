@@ -85,21 +85,21 @@
             // saveConfigToolStripMenuItem
             // 
             this.saveConfigToolStripMenuItem.Name = "saveConfigToolStripMenuItem";
-            this.saveConfigToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.saveConfigToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveConfigToolStripMenuItem.Text = "Save Config";
             this.saveConfigToolStripMenuItem.Click += new System.EventHandler(this.saveConfigToolStripMenuItem_Click);
             // 
             // loadConfigToolStripMenuItem
             // 
             this.loadConfigToolStripMenuItem.Name = "loadConfigToolStripMenuItem";
-            this.loadConfigToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.loadConfigToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.loadConfigToolStripMenuItem.Text = "Load Config";
             this.loadConfigToolStripMenuItem.Click += new System.EventHandler(this.loadConfigToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -107,9 +107,9 @@
             // 
             this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.raaghToolStripMenuItem,
-            this.argentumOnlineToolStripMenuItem,
             this.sourceToolStripMenuItem,
-            this.cheatAppToolStripMenuItem});
+            this.cheatAppToolStripMenuItem,
+            this.argentumOnlineToolStripMenuItem});
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
@@ -117,28 +117,28 @@
             // raaghToolStripMenuItem
             // 
             this.raaghToolStripMenuItem.Name = "raaghToolStripMenuItem";
-            this.raaghToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.raaghToolStripMenuItem.Text = "About Me - Raagh -";
+            this.raaghToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.raaghToolStripMenuItem.Text = "About Raagh(Me)";
             this.raaghToolStripMenuItem.Click += new System.EventHandler(this.raaghToolStripMenuItem_Click);
             // 
             // argentumOnlineToolStripMenuItem
             // 
             this.argentumOnlineToolStripMenuItem.Name = "argentumOnlineToolStripMenuItem";
-            this.argentumOnlineToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.argentumOnlineToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.argentumOnlineToolStripMenuItem.Text = "ArgentumOnline";
             this.argentumOnlineToolStripMenuItem.Click += new System.EventHandler(this.argentumOnlineToolStripMenuItem_Click);
             // 
             // sourceToolStripMenuItem
             // 
             this.sourceToolStripMenuItem.Name = "sourceToolStripMenuItem";
-            this.sourceToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.sourceToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.sourceToolStripMenuItem.Text = "Source";
             this.sourceToolStripMenuItem.Click += new System.EventHandler(this.sourceToolStripMenuItem_Click);
             // 
             // cheatAppToolStripMenuItem
             // 
             this.cheatAppToolStripMenuItem.Name = "cheatAppToolStripMenuItem";
-            this.cheatAppToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.cheatAppToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.cheatAppToolStripMenuItem.Text = "Version";
             this.cheatAppToolStripMenuItem.Click += new System.EventHandler(this.cheatAppToolStripMenuItem_Click);
             // 
@@ -282,6 +282,7 @@
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(38, 20);
             this.textBox2.TabIndex = 19;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // checkBox3
             // 

@@ -233,15 +233,15 @@
             // 
             this.label8.AutoSize = true;
             this.label8.ForeColor = System.Drawing.Color.DarkRed;
-            this.label8.Location = new System.Drawing.Point(87, 185);
+            this.label8.Location = new System.Drawing.Point(96, 192);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(70, 13);
+            this.label8.Size = new System.Drawing.Size(59, 13);
             this.label8.TabIndex = 21;
-            this.label8.Text = "Para AutoPot";
+            this.label8.Text = "AUTOPOT";
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(56, 221);
+            this.textBox3.Location = new System.Drawing.Point(39, 221);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(57, 20);
             this.textBox3.TabIndex = 22;
@@ -249,7 +249,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(150, 221);
+            this.textBox4.Location = new System.Drawing.Point(146, 221);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(57, 20);
             this.textBox4.TabIndex = 23;
@@ -258,7 +258,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(53, 205);
+            this.label9.Location = new System.Drawing.Point(36, 205);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(67, 13);
             this.label9.TabIndex = 24;

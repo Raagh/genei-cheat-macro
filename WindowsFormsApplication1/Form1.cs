@@ -82,7 +82,7 @@ namespace Lync
         {
             string AutopotInterval = Convert.ToString(listBox1.SelectedItem);
             string AutoLanzarInterval = Convert.ToString(listBox2.SelectedItem);
-            if (!string.IsNullOrEmpty(AutopotInterval))
+            if (!string.IsNullOrEmpty(AutopotInterval) && !string.IsNullOrEmpty(AutoLanzarInterval))
             {
                 timer2.Interval = int.Parse(AutopotInterval);
                 timer3.Interval = int.Parse(AutoLanzarInterval);
@@ -91,7 +91,7 @@ namespace Lync
                 textBox2.Text = Convert.ToString(timer3.Interval);
                 Operaciones.valuesSET = true;
             }
-            else
+            else if (string.IsNullOrEmpty(AutopotInterval) && string.IsNullOrEmpty(AutoLanzarInterval))
             {
                 Operaciones.valuesSET = true;
                 timer2.Interval = int.Parse(textBox1.Text);
@@ -108,7 +108,7 @@ namespace Lync
         {
                 SaveFileDialog saveFileDialog1 = new SaveFileDialog();
                 saveFileDialog1.Filter = "Text|*.txt";
-                saveFileDialog1.Title = "Save Config File";
+                saveFileDialog1.Title = "Save Configuration";
 
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
@@ -119,7 +119,7 @@ namespace Lync
                             sw.WriteLine("-----------------------------------------------");
                             sw.WriteLine("Configuracion Genei Cheat For Argentum Online");
                             sw.WriteLine("-----------------------------------------------");
-                            sw.WriteLine(timer2.Interval + ";" + Config.coordRojas.X + ";" + Config.coordRojas.Y + ";" + Config.coordAzules.X + ";" + Config.coordAzules.Y + ";" + Config.coordBarraVida.X + ";" + Config.coordBarraVida.Y + ";" + Config.coordBarraMana.X + ";" + Config.coordBarraMana.Y + ";" + Config.coordHechizos.X + ";" + Config.coordHechizos.Y + ";" + Config.coordInventario.X + ";" + Config.coordInventario.Y + ";" + Config.coordLanzar.X + ";" + Config.coordLanzar.Y + ";" + Config.coordRemo.X + ";" + Config.coordRemo.Y + ";" + Config.coordInvi.X + ";" + Config.coordInvi.Y + ";" + Config.coordPJ.X + ";" + Config.coordPJ.Y);
+                            sw.WriteLine(timer2.Interval + ";" + Config.coordRojas.X + ";" + Config.coordRojas.Y + ";" + Config.coordAzules.X + ";" + Config.coordAzules.Y + ";" + Config.coordHechizos.X + ";" + Config.coordHechizos.Y + ";" + Config.coordInventario.X + ";" + Config.coordInventario.Y + ";" + Config.coordLanzar.X + ";" + Config.coordLanzar.Y + ";" + Config.coordRemo.X + ";" + Config.coordRemo.Y + ";" + Config.coordInvi.X + ";" + Config.coordInvi.Y + ";" + Config.coordPJ.X + ";" + Config.coordPJ.Y + ";" + Config.maxLife + ";" + Config.maxMana + ";" + timer3.Interval);
                         }                           
                      }
                }
@@ -129,7 +129,7 @@ namespace Lync
         {
             OpenFileDialog OpenFileDialog1 = new OpenFileDialog();
             OpenFileDialog1.Filter = "Text|*.txt";
-            OpenFileDialog1.Title = "Load Config File";
+            OpenFileDialog1.Title = "Load Configuration";
 
             if (OpenFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -139,6 +139,8 @@ namespace Lync
                     timer2.Interval = Config.timerInterval;
                     listBox1.SelectedItem = Config.timerInterval;
                     textBox1.Text = Convert.ToString(timer2.Interval);
+                    listBox2.SelectedItem = Config.timerInterval2;
+                    textBox2.Text = Convert.ToString(timer3.Interval);
 
                 }
             }
@@ -151,7 +153,7 @@ namespace Lync
 
         private void sourceToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Bloqueado hasta el Release, esta en internet, si lo encontas es tuyo");
+            MessageBox.Show("No lo voy a compartir hasta que este terminado.");
             //Process.Start("http://github.com/Raagh");
         }
 
@@ -243,6 +245,11 @@ namespace Lync
           
 
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }   
 
         #endregion
 
@@ -364,10 +371,10 @@ namespace Lync
 
             #region autopotas Mem
 
-            Process process = Process.GetProcessesByName(Config.AOProcessName)[0]; // Cambia hackme por el proceso del ao, aca voy a hacer un ComboBox con varios aos
+            Process process = Process.GetProcessesByName(Config.AOProcessName)[0]; // Abre el proceso del AO seleccionado en el combo box
             IntPtr processHandle = OpenProcess(0x001F0FFF, false, process.Id);
 
-            int structAddress = Config.Address; //  Pointer to the struct that holds all values.
+            int structAddress = Config.Address; //  Puntero a la struct donde se guardan todas las variables
             int lifeAddress = MemoryManagment.Read(processHandle, structAddress);
             int manaAddress = MemoryManagment.Read(processHandle, structAddress + 4);
             int life = lifeAddress / 65537;
@@ -433,7 +440,7 @@ namespace Lync
                 {
                     Config.TDN = true;
                     Config.Address = 0x0050E248;
-                    Config.AOProcessName = "Tierras del Norte";
+                    Config.AOProcessName = comboBox1.Text;
                 }
                 else if (Config.TDN == true)
                 {
@@ -447,14 +454,17 @@ namespace Lync
                 {
                     Config.TDLobos = true;
                     Config.Address = 0x005241F8;
-                    Config.AOProcessName = "Tierras de Lobos";
+                    Config.AOProcessName = comboBox1.Text;
                 }
                 else if (Config.TDLobos == true)
                 {
                     Config.TDLobos = false;
                 }
             }
-        }   //Combobox With AO Servers
+        }        //Combobox With AO Servers
+
+
+
 
 
         #endregion

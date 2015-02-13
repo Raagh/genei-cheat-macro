@@ -35,26 +35,6 @@ namespace Lync
             MessageBox.Show("Azules Configuradas");
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Point pointNew = new Point();
-            pointNew.X = Cursor.Position.X;
-            pointNew.Y = Cursor.Position.Y;
-            Config.coordBarraVida = pointNew;
-            Config.ColorBarraVida = Win32.GetPixelColor(Config.coordBarraVida.X, Config.coordBarraVida.Y);
-            MessageBox.Show("Barra de vida Configurada");
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            Point pointNew = new Point();
-            pointNew.X = Cursor.Position.X;
-            pointNew.Y = Cursor.Position.Y;
-            Config.coordBarraMana = pointNew;
-            Config.ColorBarraMana = Win32.GetPixelColor(Config.coordBarraMana.X, Config.coordBarraMana.Y);
-            MessageBox.Show("Barra de mana Configurada");
-        }
-
         private void button5_Click(object sender, EventArgs e)
         {
             Point pointNew = new Point();
@@ -152,10 +132,11 @@ namespace Lync
             if (!string.IsNullOrEmpty(Config.TeclaRemo) && !String.IsNullOrEmpty(Config.TeclaInvi)) 
             {
                 textBox1.Text = Config.TeclaRemo;
-                textBox2.Text = Config.TeclaInvi;         
+                textBox2.Text = Config.TeclaInvi;
+                label5.Text = "Teclas seteadas";
             }
             textBox3.Text = Convert.ToString(Config.maxLife);
-            textBox4.Text = Convert.ToString(Config.maxMana);
+            textBox4.Text = Convert.ToString(Config.maxMana);        
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)

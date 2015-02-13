@@ -54,24 +54,21 @@ namespace Lync
            Config.coordRojas.Y = int.Parse(split[2]);
            Config.coordAzules.X = int.Parse(split[3]);
            Config.coordAzules.Y = int.Parse(split[4]);
-           Config.coordBarraVida.X = int.Parse(split[5]);
-           Config.coordBarraVida.Y = int.Parse(split[6]);
-           Config.coordBarraMana.X = int.Parse(split[7]);
-           Config.coordBarraMana.Y = int.Parse(split[8]);
-           Config.coordHechizos.X = int.Parse(split[9]);
-           Config.coordHechizos.Y = int.Parse(split[10]);
-           Config.coordInventario.X = int.Parse(split[11]);
-           Config.coordInventario.Y = int.Parse(split[12]);
-           Config.coordLanzar.X = int.Parse(split[13]);
-           Config.coordLanzar.Y = int.Parse(split[14]);
-           Config.coordRemo.X = int.Parse(split[15]);
-           Config.coordRemo.Y = int.Parse(split[16]);
-           Config.coordInvi.X = int.Parse(split[17]);
-           Config.coordInvi.Y = int.Parse(split[18]);
-           Config.coordPJ.X = int.Parse(split[19]);
-           Config.coordPJ.Y = int.Parse(split[20]);
-
-
+           Config.coordHechizos.X = int.Parse(split[5]);
+           Config.coordHechizos.Y = int.Parse(split[6]);
+           Config.coordInventario.X = int.Parse(split[7]);
+           Config.coordInventario.Y = int.Parse(split[8]);
+           Config.coordLanzar.X = int.Parse(split[9]);
+           Config.coordLanzar.Y = int.Parse(split[10]);
+           Config.coordRemo.X = int.Parse(split[11]);
+           Config.coordRemo.Y = int.Parse(split[12]);
+           Config.coordInvi.X = int.Parse(split[13]);
+           Config.coordInvi.Y = int.Parse(split[14]);
+           Config.coordPJ.X = int.Parse(split[15]);
+           Config.coordPJ.Y = int.Parse(split[16]);
+           Config.maxLife = int.Parse(split[17]);
+           Config.maxMana = int.Parse(split[18]);
+           Config.timerInterval2 = int.Parse(split[19]);
        }
 
        static public void Clickear(int x, int y)
@@ -163,18 +160,8 @@ namespace Lync
        private const int MOUSEEVENTF_LEFTUP = 0x04;
        private const int MOUSEEVENTF_RIGHTDOWN = 0x08;
        private const int MOUSEEVENTF_RIGHTUP = 0x10;
-
-        //public const MOUSEEVENTF_LEFTDOWN = &H2;
-        //public const MOUSEEVENTF_LEFTUP = &H4;
        #endregion
-       #region Mouse CLICK VB 6.0
-        //Dim XX As Long, YY As Long
-        //Call GetMouse(XX, YY)
-        //Call SetCursorPos(X, Y)
-        //Call mouse_event(MOUSEEVENTF_LEFTDOWN, X, Y, 0, 0)
-        //Call mouse_event(MOUSEEVENTF_LEFTUP, X, Y, 0, 0)
-        //Call SetCursorPos(XX, YY)
-        #endregion
+
 
 
     }
