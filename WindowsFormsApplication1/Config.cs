@@ -31,5 +31,11 @@ namespace Lync
         static public int maxMana = 0;
         static public int maxLife = 0;
         static public bool TDN = false;
+
+        public static int Address { get; set; }
+
+        public static bool TDLobos { get; set; }
+
+        public static string AOProcessName { get; set; }
     }
 }

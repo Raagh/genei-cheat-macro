@@ -79,7 +79,7 @@ namespace Lync
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (checkBox2.Checked)
+            if (checkBox2.Checked || checkBox1.Checked)
             {
                 if (Operaciones.valuesSET == true)
                 {
@@ -262,10 +262,10 @@ namespace Lync
             
             #region autopotas Mem
 
-                Process process = Process.GetProcessesByName("Tierras del Norte")[0]; // Cambia hackme por el proceso del ao, aca voy a hacer un ComboBox con varios aos
+                Process process = Process.GetProcessesByName(Config.AOProcessName)[0]; // Cambia hackme por el proceso del ao, aca voy a hacer un ComboBox con varios aos
                 IntPtr processHandle = OpenProcess(0x001F0FFF, false, process.Id);
 
-                int structAddress = 0x0050E248; // 0x00DA544C; Pointer to the struct that holds all values.
+                int structAddress = Config.Address; //  Pointer to the struct that holds all values.
                 int lifeAddress = MemoryManagment.Read(processHandle, structAddress);
                 int manaAddress = MemoryManagment.Read(processHandle, structAddress + 4);
                 int life = lifeAddress / 65537;
@@ -406,11 +406,29 @@ namespace Lync
             if (Config.TDN == false)
             {
                 Config.TDN = true;
+                Config.Address = 0x0050E248;
+                Config.AOProcessName = "Tierras del Norte";
             }
             else if (Config.TDN == true)
             {
                 Config.TDN = false;
             }
+
+        }
+
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (Config.TDLobos == false)
+            {
+                Config.TDLobos = true;
+                Config.Address = 0x005241F8;
+                Config.AOProcessName = "Tierras de Lobos";
+            }
+            else if (Config.TDLobos == true)
+            {
+                Config.TDLobos = false;
+            }
+
 
         }
 
