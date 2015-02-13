@@ -35,3 +35,4 @@ C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\De
 C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Microsoft Lync.csproj.GenerateResource.Cache
 C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Microsoft Lync.exe.manifest
 C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Microsoft Lync.application
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Microsoft Lync.csprojResolveAssemblyReference.cache

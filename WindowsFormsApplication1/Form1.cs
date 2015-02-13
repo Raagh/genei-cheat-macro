@@ -37,7 +37,7 @@ namespace Lync
         public static extern IntPtr OpenProcess(int dwDesiredAccess, bool bInheritHandle, int dwProcessId);
 
 
-        #region Events
+        #region General Events
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
@@ -49,12 +49,7 @@ namespace Lync
             formNew.ShowDialog();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            EstadoCheats();
-            textBox1.Text = Convert.ToString(timer2.Interval);
-            textBox2.Text = Convert.ToString(timer3.Interval);
-        }
+        
 
         private void EstadoCheats()
         {
@@ -77,56 +72,7 @@ namespace Lync
             MessageBox.Show("Genei Cheat 2.0BETA for Argentum Online @CopyLeft 2015");
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (checkBox2.Checked || checkBox1.Checked)
-            {
-                if (Operaciones.valuesSET == true)
-                {
-                    if (timer3.Enabled == false)
-                    {
-                        timer3.Enabled = true;
-                    }
-                    else if (timer3.Enabled == true)
-                    {
-                        timer3.Enabled = false;
-                    }
-                    if (timer2.Enabled == false)
-                    {
-                        timer2.Enabled = true;
-                        this.WindowState = FormWindowState.Minimized;
-                        Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
-                        Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);  //Rojas
-                        Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y);  //Hechizos           
-                    }
-                    else if (timer2.Enabled == true)
-                    {
-                        timer2.Enabled = false;
-                        this.WindowState = FormWindowState.Normal;
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Setea el intervalo");
-                }
-            }
-            Win32._hookID = Win32.SetHook(Win32._proc2);
-            Config.AutolanzarON = true;
-            if (CheatON)
-            {
-                CheatON = false;
-                button1.Text = "Activar Cheat";
-            }
-            else
-            {
-                CheatON = true;
-                button1.Text = "Desactivar";
-            }
-           
-           
-          
-        } //BOTON ACTIVAR
-
+      
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -210,6 +156,162 @@ namespace Lync
         }
 
 
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F5)
+            {
+                this.button1_Click(sender, e);
+            }
+        }  
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Win32.UnHook();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ConfigForm ConfigNew = new ConfigForm();
+            ConfigNew.ShowDialog();
+        }
+
+        private void Form1_MouseClick(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Operaciones.modOfi == false)
+            {
+                Operaciones.modOfi = true;
+            }
+            else if (Operaciones.modOfi == true)
+            {
+                Operaciones.modOfi = false;
+            }
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+    
+
+        }
+
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
+        {
+          
+
+        }
+
+        #endregion
+
+
+        #region MasterEvents
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            EstadoCheats();
+            textBox1.Text = Convert.ToString(timer2.Interval);
+            textBox2.Text = Convert.ToString(timer3.Interval);
+            comboBox1.SelectedItem = "Sin Autopot";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem != null && comboBox1.SelectedItem != "Sin Autopot")
+            {
+                if (Operaciones.valuesSET == true)
+                {
+                    if (timer3.Enabled == false)
+                    {
+                        timer3.Enabled = true;
+                    }
+                    else if (timer3.Enabled == true)
+                    {
+                        timer3.Enabled = false;
+                    }
+                    if (timer2.Enabled == false)
+                    {
+                        timer2.Enabled = true;
+                        this.WindowState = FormWindowState.Minimized;
+                        Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
+                        Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);  //Rojas
+                        Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y);  //Hechizos           
+                    }
+                    else if (timer2.Enabled == true)
+                    {
+                        timer2.Enabled = false;
+                        this.WindowState = FormWindowState.Normal;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Setea el intervalo");
+                }     
+            }
+            else if (comboBox1.SelectedItem == null || comboBox1.SelectedItem == "Sin Autopot" && CheatON == false)
+            {
+                MessageBox.Show("Solo se activara el Remo/Invi + AutoLanzar");
+            
+            }      
+            Win32._hookID = Win32.SetHook(Win32._proc2);
+            Config.AutolanzarON = true;
+            if (CheatON)
+            {
+                CheatON = false;
+                button1.Text = "Activar Cheat";
+            }
+            else
+            {
+                CheatON = true;
+                button1.Text = "Desactivar";
+            }
+
+
+
+        } //BOTON ACTIVAR
+
         private void timer2_Tick(object sender, EventArgs e)     // TIMER AUTOPOTAS
         {
             #region Autopot PIXEL VIEJO
@@ -259,102 +361,56 @@ namespace Lync
             //    
             //}
             #endregion
-            
+
             #region autopotas Mem
 
-                Process process = Process.GetProcessesByName(Config.AOProcessName)[0]; // Cambia hackme por el proceso del ao, aca voy a hacer un ComboBox con varios aos
-                IntPtr processHandle = OpenProcess(0x001F0FFF, false, process.Id);
+            Process process = Process.GetProcessesByName(Config.AOProcessName)[0]; // Cambia hackme por el proceso del ao, aca voy a hacer un ComboBox con varios aos
+            IntPtr processHandle = OpenProcess(0x001F0FFF, false, process.Id);
 
-                int structAddress = Config.Address; //  Pointer to the struct that holds all values.
-                int lifeAddress = MemoryManagment.Read(processHandle, structAddress);
-                int manaAddress = MemoryManagment.Read(processHandle, structAddress + 4);
-                int life = lifeAddress / 65537;
-                int mana = manaAddress / 65537;
-                if ((life * 100 / Config.maxLife < 90) && selectAzules == true) // si falta vida y estan seleccionadas las azules, cambiamos a las rojas y tomamos)
-                 {
-                     Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
-                     Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);  //Rojas
-                     InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
-                     faltaVida = true;
-                     selectAzules = false;
-                     selectRojas = true;
-                 }
-                else if ((life * 100 / Config.maxLife < 90) && selectRojas == true) // si falta vida y estan seleccionadas las rojas,tomamos)
-                 {
-                     InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
-                     faltaVida = true;
-                     selectAzules = false;
-                 }
-                 else if (Config.maxLife == life)
-                 {
-                     faltaVida = false;
-                 }
-                 if (faltaVida == false) // Siempre se prioriza la toma de rojas antes que las de azules, si te moris no hay mana que te sirva :)
-                 {
-                     if ((mana * 100 / Config.maxMana < 90) && selectAzules == true) // si falta mana y estan seleccionadas las azules, tomamos)
-                     {
-                         InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
-                         selectRojas = false;
-                     }
-                     else if ((mana * 100 / Config.maxMana < 90) && selectAzules == false) // si falta mana y estan seleccionadas las rojas, cambiamos a las azules y tomamos)
-                     {
-                         Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
-                         Operaciones.Clickear(Config.coordAzules.X, Config.coordAzules.Y);  //Azules
-                         InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
-                         selectRojas = false;
-                         selectAzules = true;
-                     }
-                 }
-                
-                #endregion                   
-            
-        }      
-       
-
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.F5)
+            int structAddress = Config.Address; //  Pointer to the struct that holds all values.
+            int lifeAddress = MemoryManagment.Read(processHandle, structAddress);
+            int manaAddress = MemoryManagment.Read(processHandle, structAddress + 4);
+            int life = lifeAddress / 65537;
+            int mana = manaAddress / 65537;
+            if ((life * 100 / Config.maxLife < 90) && selectAzules == true) // si falta vida y estan seleccionadas las azules, cambiamos a las rojas y tomamos)
             {
-                this.button1_Click(sender, e);
+                Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
+                Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);  //Rojas
+                InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
+                faltaVida = true;
+                selectAzules = false;
+                selectRojas = true;
             }
-        }  
+            else if ((life * 100 / Config.maxLife < 90) && selectRojas == true) // si falta vida y estan seleccionadas las rojas,tomamos)
+            {
+                InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
+                faltaVida = true;
+                selectAzules = false;
+            }
+            else if (Config.maxLife == life)
+            {
+                faltaVida = false;
+            }
+            if (faltaVida == false) // Siempre se prioriza la toma de rojas antes que las de azules, si te moris no hay mana que te sirva :)
+            {
+                if ((mana * 100 / Config.maxMana < 90) && selectAzules == true) // si falta mana y estan seleccionadas las azules, tomamos)
+                {
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
+                    selectRojas = false;
+                }
+                else if ((mana * 100 / Config.maxMana < 90) && selectAzules == false) // si falta mana y estan seleccionadas las rojas, cambiamos a las azules y tomamos)
+                {
+                    Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
+                    Operaciones.Clickear(Config.coordAzules.X, Config.coordAzules.Y);  //Azules
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
+                    selectRojas = false;
+                    selectAzules = true;
+                }
+            }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            Win32.UnHook();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            ConfigForm ConfigNew = new ConfigForm();
-            ConfigNew.ShowDialog();
-        }
-
-        private void Form1_MouseClick(object sender, MouseEventArgs e)
-        {
-            
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
+            #endregion
 
         }
-
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
 
         private void timer3_Tick(object sender, EventArgs e)
         {
@@ -367,73 +423,43 @@ namespace Lync
             {
                 Operaciones.AutoInvi();
             }
-        }  // TIMER AUTOREMO/INVI
+        }    // TIMER AUTOREMO/INVI
 
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
+            if (comboBox1.Text == "Tierras del Norte")
+            {
+                if (Config.TDN == false)
+                {
+                    Config.TDN = true;
+                    Config.Address = 0x0050E248;
+                    Config.AOProcessName = "Tierras del Norte";
+                }
+                else if (Config.TDN == true)
+                {
+                    Config.TDN = false;
+                }
+                     
+            }
+            if (comboBox1.Text == "Tierras de Lobos")
+            {
+                if (Config.TDLobos == false)
+                {
+                    Config.TDLobos = true;
+                    Config.Address = 0x005241F8;
+                    Config.AOProcessName = "Tierras de Lobos";
+                }
+                else if (Config.TDLobos == true)
+                {
+                    Config.TDLobos = false;
+                }
+            }
+        }   //Combobox With AO Servers
 
 
         #endregion
 
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
-        {
-            if (Operaciones.modOfi == false)
-            {
-                Operaciones.modOfi = true;
-            }
-            else if (Operaciones.modOfi == true)
-            {
-                Operaciones.modOfi = false;
-            }
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (Config.TDN == false)
-            {
-                Config.TDN = true;
-                Config.Address = 0x0050E248;
-                Config.AOProcessName = "Tierras del Norte";
-            }
-            else if (Config.TDN == true)
-            {
-                Config.TDN = false;
-            }
-
-        }
-
-        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
-        {
-            if (Config.TDLobos == false)
-            {
-                Config.TDLobos = true;
-                Config.Address = 0x005241F8;
-                Config.AOProcessName = "Tierras de Lobos";
-            }
-            else if (Config.TDLobos == true)
-            {
-                Config.TDLobos = false;
-            }
-
-
-        }
-
-
-
+  
 
     
    
