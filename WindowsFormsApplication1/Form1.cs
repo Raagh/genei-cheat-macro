@@ -51,10 +51,9 @@ namespace Lync
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            EstadoCheats();        
+            EstadoCheats();
             textBox1.Text = Convert.ToString(timer2.Interval);
             textBox2.Text = Convert.ToString(timer3.Interval);
-            MessageBox.Show("Recorda SIEMPRE que para configurar la barra de vida y mana, ambas deben estar llenas." +Environment.NewLine+ "(la configuracion de las barras y las teclas no se guardan en el SaveConfig)");
         }
 
         private void EstadoCheats()
@@ -80,7 +79,7 @@ namespace Lync
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (checkBox1.Checked || checkBox2.Checked)
+            if (checkBox2.Checked)
             {
                 if (Operaciones.valuesSET == true)
                 {
@@ -105,31 +104,25 @@ namespace Lync
                         timer2.Enabled = false;
                         this.WindowState = FormWindowState.Normal;
                     }
-                    Win32._hookID = Win32.SetHook(Win32._proc2);
-                    Config.AutolanzarON = true;
-                    if (CheatON)
-                    {
-                        CheatON = false;
-                        button1.Text = "Activar Cheat";
-                    }
-                    else
-                    {
-                        CheatON = true;
-                        button1.Text = "Desactivar";
-                    }
                 }
                 else
                 {
                     MessageBox.Show("Setea el intervalo");
                 }
             }
+            Win32._hookID = Win32.SetHook(Win32._proc2);
+            Config.AutolanzarON = true;
+            if (CheatON)
+            {
+                CheatON = false;
+                button1.Text = "Activar Cheat";
+            }
             else
             {
-                MessageBox.Show("No elegiste que tipo de autopot usar");
-
-
-
+                CheatON = true;
+                button1.Text = "Desactivar";
             }
+           
            
           
         } //BOTON ACTIVAR
@@ -219,71 +212,102 @@ namespace Lync
 
         private void timer2_Tick(object sender, EventArgs e)     // TIMER AUTOPOTAS
         {
+            #region Autopot PIXEL VIEJO
             //InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);   // PARA TESTEAR AMIGO  
-            if (Config.Pixel)
-            {
-                #region autopotas Pixel             
-                Color colorRojas = new Color();
-                Color colorAzules = new Color();
-                colorRojas = Win32.GetPixelColor(Config.coordBarraVida.X, Config.coordBarraVida.Y); //Tomamos como esta la barra de vida(rojas)
-                colorAzules = Win32.GetPixelColor(Config.coordBarraMana.X, Config.coordBarraMana.Y); //Tomamos como esta la barra de mana(azules)
-                if (colorRojas != Config.ColorBarraVida && selectAzules == true) // si falta vida y estan seleccionadas las azules, cambiamos a las rojas y tomamos)
-                {
-                    Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
-                    Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);  //Rojas
-                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
-                    faltaVida = true;
-                    selectAzules = false;
-                    selectRojas = true;
-                }
-                else if (colorRojas != Config.ColorBarraVida && selectRojas == true) // si falta vida y estan seleccionadas las rojas,tomamos)
-                {
-                    InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
-                    faltaVida = true;
-                    selectAzules = false;
-                }
-                else if (colorRojas == Config.ColorBarraVida)
-                {
-                    faltaVida = false;
-                }
-                if (faltaVida == false) // Siempre se prioriza la toma de rojas antes que las de azules, si te moris no hay mana que te sirva :)
-                {
-                    if (colorAzules != Config.ColorBarraMana && selectAzules == true) // si falta mana y estan seleccionadas las azules, tomamos)
-                    {
-                        InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
-                        selectRojas = false;
-                    }
-                    else if (colorAzules != Config.ColorBarraMana && selectAzules == false) // si falta mana y estan seleccionadas las rojas, cambiamos a las azules y tomamos)
-                    {
-                        Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
-                        Operaciones.Clickear(Config.coordAzules.X, Config.coordAzules.Y);  //Azules
-                        InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
-                        selectRojas = false;
-                        selectAzules = true;
-                    }
-                }
-                #endregion
-            }
-            else if (Config.Mem)
-            {
-                #region autopotas Mem
+            //if (Config.Pixel)
+            //{
+            //    #region autopotas Pixel             
+            //    Color colorRojas = new Color();
+            //    Color colorAzules = new Color();
+            //    colorRojas = Win32.GetPixelColor(Config.coordBarraVida.X, Config.coordBarraVida.Y); //Tomamos como esta la barra de vida(rojas)
+            //    colorAzules = Win32.GetPixelColor(Config.coordBarraMana.X, Config.coordBarraMana.Y); //Tomamos como esta la barra de mana(azules)
+            //    if (colorRojas != Config.ColorBarraVida && selectAzules == true) // si falta vida y estan seleccionadas las azules, cambiamos a las rojas y tomamos)
+            //    {
+            //        Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
+            //        Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);  //Rojas
+            //        InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
+            //        faltaVida = true;
+            //        selectAzules = false;
+            //        selectRojas = true;
+            //    }
+            //    else if (colorRojas != Config.ColorBarraVida && selectRojas == true) // si falta vida y estan seleccionadas las rojas,tomamos)
+            //    {
+            //        InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
+            //        faltaVida = true;
+            //        selectAzules = false;
+            //    }
+            //    else if (colorRojas == Config.ColorBarraVida)
+            //    {
+            //        faltaVida = false;
+            //    }
+            //    if (faltaVida == false) // Siempre se prioriza la toma de rojas antes que las de azules, si te moris no hay mana que te sirva :)
+            //    {
+            //        if (colorAzules != Config.ColorBarraMana && selectAzules == true) // si falta mana y estan seleccionadas las azules, tomamos)
+            //        {
+            //            InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
+            //            selectRojas = false;
+            //        }
+            //        else if (colorAzules != Config.ColorBarraMana && selectAzules == false) // si falta mana y estan seleccionadas las rojas, cambiamos a las azules y tomamos)
+            //        {
+            //            Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
+            //            Operaciones.Clickear(Config.coordAzules.X, Config.coordAzules.Y);  //Azules
+            //            InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
+            //            selectRojas = false;
+            //            selectAzules = true;
+            //        }
+            //    }
+            //    
+            //}
+            #endregion
+            
+            #region autopotas Mem
 
-                Process process = Process.GetProcessesByName("HackMe_0.1.6")[0]; // Cambia hackme por el proceso del ao, aca voy a hacer un ComboBox con varios aos
+                Process process = Process.GetProcessesByName("Tierras del Norte")[0]; // Cambia hackme por el proceso del ao, aca voy a hacer un ComboBox con varios aos
                 IntPtr processHandle = OpenProcess(0x001F0FFF, false, process.Id);
 
-                int structAddress = 0x00DA544C; // 0x00DA544C; Pointer to the struct that holds all values. // Address de memoria del ao
-
-                int firstAddress = MemoryManagment.Read(processHandle, structAddress); // Address y offsets
-                int life = MemoryManagment.Read(processHandle, firstAddress + 0);
-                int mana = MemoryManagment.Read(processHandle, firstAddress + 8);
-
-                /* Traigo la vida que tiene, si puedo traigo la maxima sino hago que me la escriba el. tmb el mana.
-                hago comparacion porcental, si la vida baja de 90% . tomo pocion, hago el mismo manejo entre rojas y azules que hice en el autopot pixel
-                 tmb hay q revisar que mas cosas podemos leer desde la memoria.
-                */
+                int structAddress = 0x0050E248; // 0x00DA544C; Pointer to the struct that holds all values.
+                int lifeAddress = MemoryManagment.Read(processHandle, structAddress);
+                int manaAddress = MemoryManagment.Read(processHandle, structAddress + 4);
+                int life = lifeAddress / 65537;
+                int mana = manaAddress / 65537;
+                if ((life * 100 / Config.maxLife < 90) && selectAzules == true) // si falta vida y estan seleccionadas las azules, cambiamos a las rojas y tomamos)
+                 {
+                     Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
+                     Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);  //Rojas
+                     InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
+                     faltaVida = true;
+                     selectAzules = false;
+                     selectRojas = true;
+                 }
+                else if ((life * 100 / Config.maxLife < 90) && selectRojas == true) // si falta vida y estan seleccionadas las rojas,tomamos)
+                 {
+                     InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
+                     faltaVida = true;
+                     selectAzules = false;
+                 }
+                 else if (Config.maxLife == life)
+                 {
+                     faltaVida = false;
+                 }
+                 if (faltaVida == false) // Siempre se prioriza la toma de rojas antes que las de azules, si te moris no hay mana que te sirva :)
+                 {
+                     if ((mana * 100 / Config.maxMana < 90) && selectAzules == true) // si falta mana y estan seleccionadas las azules, tomamos)
+                     {
+                         InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
+                         selectRojas = false;
+                     }
+                     else if ((mana * 100 / Config.maxMana < 90) && selectAzules == false) // si falta mana y estan seleccionadas las rojas, cambiamos a las azules y tomamos)
+                     {
+                         Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
+                         Operaciones.Clickear(Config.coordAzules.X, Config.coordAzules.Y);  //Azules
+                         InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
+                         selectRojas = false;
+                         selectAzules = true;
+                     }
+                 }
                 
                 #endregion                   
-            }
+            
         }      
        
 
@@ -374,26 +398,18 @@ namespace Lync
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if (Config.Pixel == false)
-            {
-                Config.Pixel = true;
-            }
-            else if (Config.Pixel == true)
-            {
-                Config.Pixel = false;
-            }
 
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-            if (Config.Mem == false)
+            if (Config.TDN == false)
             {
-                Config.Mem = true;
+                Config.TDN = true;
             }
-            else if (Config.Mem == true)
+            else if (Config.TDN == true)
             {
-                Config.Mem = false;
+                Config.TDN = false;
             }
 
         }

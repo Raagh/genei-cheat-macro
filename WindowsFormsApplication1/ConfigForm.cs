@@ -154,6 +154,18 @@ namespace Lync
                 textBox1.Text = Config.TeclaRemo;
                 textBox2.Text = Config.TeclaInvi;         
             }
+            textBox3.Text = Convert.ToString(Config.maxLife);
+            textBox4.Text = Convert.ToString(Config.maxMana);
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            Config.maxLife=int.Parse(textBox3.Text);
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            Config.maxMana = int.Parse(textBox4.Text);
         }
     }
 }

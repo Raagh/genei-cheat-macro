@@ -28,7 +28,8 @@ namespace Lync
         static public Keys remo;
         static public Keys invi;
         static public bool AutolanzarON = false;
-        static public bool Pixel = false;
-        static public bool Mem = false;
+        static public int maxMana = 0;
+        static public int maxLife = 0;
+        static public bool TDN = false;
     }
 }
