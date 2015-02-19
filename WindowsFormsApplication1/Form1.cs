@@ -53,18 +53,27 @@ namespace Lync
 
         private void EstadoCheats()
         {
-            var webRequest = WebRequest.Create(@"http://sophietoso.com.ar/cheat/el_siscador.txt");
-            using (var response = webRequest.GetResponse())
-            using (var content = response.GetResponseStream())
-            using (var reader = new StreamReader(content))
+            try
             {
-                var strContent = reader.ReadToEnd();
-                if (strContent != "liberado")
+                var webRequest = WebRequest.Create(@"http://sophietoso.com.ar/cheat/el_siscador.txt");
+                using (var response = webRequest.GetResponse())
+                using (var content = response.GetResponseStream())
+                using (var reader = new StreamReader(content))
                 {
-                    MessageBox.Show("Genei Cheat Bloqueado");
-                    Application.Exit();
-                }
-            }       
+                    var strContent = reader.ReadToEnd();
+                    if (strContent != "liberado")
+                    {
+                        MessageBox.Show("Genei Cheat Bloqueado");
+                        Application.Exit();
+                    }
+                }     
+            }
+            catch (Exception e)
+            {             
+                MessageBox.Show("Cheat Bloqueado");
+                Application.Exit();
+            }
+  
         }
 
         private void cheatAppToolStripMenuItem_Click(object sender, EventArgs e)

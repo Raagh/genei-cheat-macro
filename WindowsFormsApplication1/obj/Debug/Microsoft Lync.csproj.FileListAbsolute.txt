@@ -35,3 +35,4 @@ C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplic
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Microsoft Lync.application
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Microsoft Lync.exe
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Microsoft Lync.pdb
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Microsoft Lync.csprojResolveAssemblyReference.cache
