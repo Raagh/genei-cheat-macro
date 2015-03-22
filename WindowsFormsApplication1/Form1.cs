@@ -51,30 +51,7 @@ namespace Lync
 
         
 
-        private void EstadoCheats()
-        {
-            try
-            {
-                var webRequest = WebRequest.Create(@"http://sophietoso.com.ar/cheat/el_siscador.txt");
-                using (var response = webRequest.GetResponse())
-                using (var content = response.GetResponseStream())
-                using (var reader = new StreamReader(content))
-                {
-                    var strContent = reader.ReadToEnd();
-                    if (strContent != "liberado")
-                    {
-                        MessageBox.Show("Genei Cheat Bloqueado");
-                        Application.Exit();
-                    }
-                }     
-            }
-            catch (Exception e)
-            {             
-                MessageBox.Show("Cheat Bloqueado");
-                Application.Exit();
-            }
-  
-        }
+
 
         private void cheatAppToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -265,6 +242,31 @@ namespace Lync
 
         #region MasterEvents
 
+        private void EstadoCheats()
+        {
+            try
+            {
+                var webRequest = WebRequest.Create(@"http://sophietoso.com.ar/cheat/el_siscador.txt");
+                using (var response = webRequest.GetResponse())
+                using (var content = response.GetResponseStream())
+                using (var reader = new StreamReader(content))
+                {
+                    var strContent = reader.ReadToEnd();
+                    if (strContent != "liberado")
+                    {
+                        MessageBox.Show("Genei Cheat Bloqueado");
+                        Application.Exit();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Cheat Bloqueado");
+                Application.Exit();
+            }
+
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             EstadoCheats();
@@ -399,16 +401,23 @@ namespace Lync
                 originalX = Cursor.Position.X;
                 originalY = Cursor.Position.Y;
                 Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
-                Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);  //Rojas
-                Cursor.Position = new Point(originalX, originalY);
+                Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);  //Rojas               
                 InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
+                Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);
+                Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);
+                Cursor.Position = new Point(originalX, originalY);
                 faltaVida = true;
                 selectAzules = false;
                 selectRojas = true;
             }
             else if ((life * 100 / Config.maxLife < 99) && selectRojas == true) // si falta vida y estan seleccionadas las rojas,tomamos)
             {
+                originalX = Cursor.Position.X;
+                originalY = Cursor.Position.Y;
                 InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
+                Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);
+                Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);
+                Cursor.Position = new Point(originalX, originalY);
                 faltaVida = true;
                 selectAzules = false;
             }
@@ -420,7 +429,12 @@ namespace Lync
             {
                 if ((mana * 100 / Config.maxMana < 99) && selectAzules == true) // si falta mana y estan seleccionadas las azules, tomamos)
                 {
+                    originalX = Cursor.Position.X;
+                    originalY = Cursor.Position.Y;
                     InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
+                    Operaciones.Clickear(Config.coordAzules.X, Config.coordAzules.Y);
+                    Operaciones.Clickear(Config.coordAzules.X, Config.coordAzules.Y);
+                    Cursor.Position = new Point(originalX, originalY);
                     selectRojas = false;
                 }
                 else if ((mana * 100 / Config.maxMana < 99) && selectAzules == false) // si falta mana y estan seleccionadas las rojas, cambiamos a las azules y tomamos)
@@ -428,9 +442,11 @@ namespace Lync
                     originalX = Cursor.Position.X;
                     originalY = Cursor.Position.Y;
                     Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
-                    Operaciones.Clickear(Config.coordAzules.X, Config.coordAzules.Y);  //Azules
-                    Cursor.Position = new Point(originalX, originalY);
+                    Operaciones.Clickear(Config.coordAzules.X, Config.coordAzules.Y);  //Azules                  
                     InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
+                    Operaciones.Clickear(Config.coordAzules.X, Config.coordAzules.Y);
+                    Operaciones.Clickear(Config.coordAzules.X, Config.coordAzules.Y);
+                    Cursor.Position = new Point(originalX, originalY);
                     selectRojas = false;
                     selectAzules = true;
                 }

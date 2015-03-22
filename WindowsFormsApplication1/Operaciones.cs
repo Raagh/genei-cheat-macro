@@ -110,10 +110,11 @@ namespace Lync
                Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
                Operaciones.Clickear(Config.coordRemo.X, Config.coordRemo.Y); //Remo
                Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar
-               Thread.Sleep(100);
+               Thread.Sleep(70);
                Operaciones.Clickear(Config.coordPJ.X, Config.coordPJ.Y); //PJ
                Cursor.Position = new Point(originalX, originalY);
-               Operaciones.BorrarCartel();              
+               Operaciones.BorrarCartel();
+               
            }
            if (modOfi == false)
            {
@@ -140,10 +141,11 @@ namespace Lync
                Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
                Operaciones.Clickear(Config.coordInvi.X, Config.coordInvi.Y); //Invi
                Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar
-               Thread.Sleep(100);
+               Thread.Sleep(70);
                Operaciones.Clickear(Config.coordPJ.X, Config.coordPJ.Y); //PJ
                Operaciones.BorrarCartel();
                Cursor.Position = new Point(originalX, originalY);
+               
            }
            if (modOfi == false)
            {
@@ -168,10 +170,11 @@ namespace Lync
                originalX = Cursor.Position.X;
                originalY = Cursor.Position.Y;
                Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
-               Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar
-               Thread.Sleep(100);
-               Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y); // Inventario
-               Cursor.Position = new Point(originalX, originalY);
+               Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar           
+               Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y); // Inventario            
+               Operaciones.Clickear(originalX, originalY);
+               Thread.Sleep(70);
+               //Cursor.Position = new Point(originalX, originalY);              
            }
            if (modOfi == false)
            {
@@ -181,7 +184,8 @@ namespace Lync
                Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
                Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar
                Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y); // Inventario
-               Cursor.Position = new Point(originalX, originalY);
+               Operaciones.Clickear(originalX, originalY);
+               //Cursor.Position = new Point(originalX, originalY);
            }
        }
 
