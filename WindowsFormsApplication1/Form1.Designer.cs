@@ -215,11 +215,11 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(24, 160);
+            this.button4.Location = new System.Drawing.Point(27, 167);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(87, 48);
+            this.button4.Size = new System.Drawing.Size(93, 41);
             this.button4.TabIndex = 12;
-            this.button4.Text = "Configurar  Teclas y Coordenadas";
+            this.button4.Text = "Configuracion Genei";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 

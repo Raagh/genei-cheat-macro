@@ -291,9 +291,13 @@ namespace Lync
                     {
                         timer2.Enabled = true;
                         this.WindowState = FormWindowState.Minimized;
+                        int originalX, originalY;
+                        originalX = Cursor.Position.X;
+                        originalY = Cursor.Position.Y;
                         Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
                         Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);  //Rojas
-                        Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y);  //Hechizos           
+                        Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y);  //Hechizos 
+                        Cursor.Position = new Point(originalX, originalY);
                     }
                     else if (timer2.Enabled == true)
                     {
@@ -380,6 +384,8 @@ namespace Lync
 
             #region autopotas Mem
 
+            int originalX, originalY;
+
             Process process = Process.GetProcessesByName(Config.AOProcessName)[0]; // Abre el proceso del AO seleccionado en el combo box
             IntPtr processHandle = OpenProcess(0x001F0FFF, false, process.Id);
 
@@ -390,8 +396,11 @@ namespace Lync
             int mana = manaAddress / 65537;
             if ((life * 100 / Config.maxLife < 99) && selectAzules == true) // si falta vida y estan seleccionadas las azules, cambiamos a las rojas y tomamos)
             {
+                originalX = Cursor.Position.X;
+                originalY = Cursor.Position.Y;
                 Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
                 Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);  //Rojas
+                Cursor.Position = new Point(originalX, originalY);
                 InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
                 faltaVida = true;
                 selectAzules = false;
@@ -416,8 +425,11 @@ namespace Lync
                 }
                 else if ((mana * 100 / Config.maxMana < 99) && selectAzules == false) // si falta mana y estan seleccionadas las rojas, cambiamos a las azules y tomamos)
                 {
+                    originalX = Cursor.Position.X;
+                    originalY = Cursor.Position.Y;
                     Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
                     Operaciones.Clickear(Config.coordAzules.X, Config.coordAzules.Y);  //Azules
+                    Cursor.Position = new Point(originalX, originalY);
                     InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
                     selectRojas = false;
                     selectAzules = true;

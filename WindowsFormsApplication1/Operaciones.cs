@@ -20,6 +20,16 @@ namespace Lync
        static public bool valuesSET = true;
        static public bool modOfi = false;
 
+       #region Dll IMPORT for Mouse Events
+       [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+       public static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint cButtons, uint dwExtraInfo);
+
+       private const int MOUSEEVENTF_LEFTDOWN = 0x02;
+       private const int MOUSEEVENTF_LEFTUP = 0x04;
+       private const int MOUSEEVENTF_RIGHTDOWN = 0x08;
+       private const int MOUSEEVENTF_RIGHTUP = 0x10;
+       #endregion
+
        static public void LoadFile(string path)
        {
            string s;
@@ -73,14 +83,14 @@ namespace Lync
 
        static public void Clickear(int x, int y)
        {
-           int originalX,originalY;
-           originalX = Cursor.Position.X;
-           originalY = Cursor.Position.Y;
+           //int originalX,originalY;
+           //originalX = Cursor.Position.X;
+           //originalY = Cursor.Position.Y;
            Cursor.Position = new Point(x, y);
            MouseEventArgs Click = new MouseEventArgs(MouseButtons.Left,1,x,y,0);
            mouse_event(MOUSEEVENTF_LEFTDOWN, (uint)x,(uint) y, 0, 0);
            mouse_event(MOUSEEVENTF_LEFTUP, (uint)x, (uint)y, 0, 0);
-           Cursor.Position = new Point(originalX, originalY);
+          // Cursor.Position = new Point(originalX, originalY);
        }
 
        static public void BorrarCartel()
@@ -94,20 +104,28 @@ namespace Lync
        {
            if (modOfi == true)
            {
+               int originalX, originalY;
+               originalX = Cursor.Position.X;
+               originalY = Cursor.Position.Y;
                Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
                Operaciones.Clickear(Config.coordRemo.X, Config.coordRemo.Y); //Remo
                Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar
                Thread.Sleep(100);
                Operaciones.Clickear(Config.coordPJ.X, Config.coordPJ.Y); //PJ
-               Operaciones.BorrarCartel();
+               Cursor.Position = new Point(originalX, originalY);
+               Operaciones.BorrarCartel();              
            }
            if (modOfi == false)
            {
+               int originalX, originalY;
+               originalX = Cursor.Position.X;
+               originalY = Cursor.Position.Y;
                Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
                Operaciones.Clickear(Config.coordRemo.X, Config.coordRemo.Y); //Remo
                Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar
                Operaciones.Clickear(Config.coordPJ.X, Config.coordPJ.Y); //PJ
-               Operaciones.BorrarCartel();
+               Cursor.Position = new Point(originalX, originalY);
+               Operaciones.BorrarCartel();              
            }
 
        }
@@ -116,51 +134,59 @@ namespace Lync
        {
            if (modOfi == true)
            {
+               int originalX, originalY;
+               originalX = Cursor.Position.X;
+               originalY = Cursor.Position.Y;
                Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
                Operaciones.Clickear(Config.coordInvi.X, Config.coordInvi.Y); //Invi
                Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar
                Thread.Sleep(100);
                Operaciones.Clickear(Config.coordPJ.X, Config.coordPJ.Y); //PJ
                Operaciones.BorrarCartel();
+               Cursor.Position = new Point(originalX, originalY);
            }
            if (modOfi == false)
            {
+               int originalX, originalY;
+               originalX = Cursor.Position.X;
+               originalY = Cursor.Position.Y;
                Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
                Operaciones.Clickear(Config.coordInvi.X, Config.coordInvi.Y); //Invi
                Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar
                Operaciones.Clickear(Config.coordPJ.X, Config.coordPJ.Y); //PJ
                Operaciones.BorrarCartel();
+               Cursor.Position = new Point(originalX, originalY);
            }
 
        }
 
-       public static void AutoLanzar()
+       static public void AutoLanzar()
        {
            if (modOfi == true)
            {
+               int originalX, originalY;
+               originalX = Cursor.Position.X;
+               originalY = Cursor.Position.Y;
                Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
                Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar
                Thread.Sleep(100);
                Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y); // Inventario
+               Cursor.Position = new Point(originalX, originalY);
            }
            if (modOfi == false)
            {
+               int originalX, originalY;
+               originalX = Cursor.Position.X;
+               originalY = Cursor.Position.Y;
                Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
                Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar
                Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y); // Inventario
+               Cursor.Position = new Point(originalX, originalY);
            }
        }
 
 
-       #region Dll IMPORT for Mouse Events
-       [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
-       public static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint cButtons, uint dwExtraInfo);
 
-       private const int MOUSEEVENTF_LEFTDOWN = 0x02;
-       private const int MOUSEEVENTF_LEFTUP = 0x04;
-       private const int MOUSEEVENTF_RIGHTDOWN = 0x08;
-       private const int MOUSEEVENTF_RIGHTUP = 0x10;
-       #endregion
 
 
 
