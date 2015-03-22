@@ -37,9 +37,9 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.raaghToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.argentumOnlineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sourceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cheatAppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.argentumOnlineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
@@ -85,21 +85,21 @@
             // saveConfigToolStripMenuItem
             // 
             this.saveConfigToolStripMenuItem.Name = "saveConfigToolStripMenuItem";
-            this.saveConfigToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveConfigToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.saveConfigToolStripMenuItem.Text = "Save Config";
             this.saveConfigToolStripMenuItem.Click += new System.EventHandler(this.saveConfigToolStripMenuItem_Click);
             // 
             // loadConfigToolStripMenuItem
             // 
             this.loadConfigToolStripMenuItem.Name = "loadConfigToolStripMenuItem";
-            this.loadConfigToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loadConfigToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.loadConfigToolStripMenuItem.Text = "Load Config";
             this.loadConfigToolStripMenuItem.Click += new System.EventHandler(this.loadConfigToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -121,13 +121,6 @@
             this.raaghToolStripMenuItem.Text = "About Raagh(Me)";
             this.raaghToolStripMenuItem.Click += new System.EventHandler(this.raaghToolStripMenuItem_Click);
             // 
-            // argentumOnlineToolStripMenuItem
-            // 
-            this.argentumOnlineToolStripMenuItem.Name = "argentumOnlineToolStripMenuItem";
-            this.argentumOnlineToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
-            this.argentumOnlineToolStripMenuItem.Text = "ArgentumOnline";
-            this.argentumOnlineToolStripMenuItem.Click += new System.EventHandler(this.argentumOnlineToolStripMenuItem_Click);
-            // 
             // sourceToolStripMenuItem
             // 
             this.sourceToolStripMenuItem.Name = "sourceToolStripMenuItem";
@@ -141,6 +134,13 @@
             this.cheatAppToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.cheatAppToolStripMenuItem.Text = "Version";
             this.cheatAppToolStripMenuItem.Click += new System.EventHandler(this.cheatAppToolStripMenuItem_Click);
+            // 
+            // argentumOnlineToolStripMenuItem
+            // 
+            this.argentumOnlineToolStripMenuItem.Name = "argentumOnlineToolStripMenuItem";
+            this.argentumOnlineToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.argentumOnlineToolStripMenuItem.Text = "ArgentumOnline";
+            this.argentumOnlineToolStripMenuItem.Click += new System.EventHandler(this.argentumOnlineToolStripMenuItem_Click);
             // 
             // button1
             // 
@@ -210,6 +210,7 @@
             // 
             // timer2
             // 
+            this.timer2.Interval = 1;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // button4
@@ -224,7 +225,7 @@
             // 
             // timer3
             // 
-            this.timer3.Interval = 50;
+            this.timer3.Interval = 1;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
             // label4

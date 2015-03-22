@@ -388,7 +388,7 @@ namespace Lync
             int manaAddress = MemoryManagment.Read(processHandle, structAddress + 4);
             int life = lifeAddress / 65537;
             int mana = manaAddress / 65537;
-            if ((life * 100 / Config.maxLife < 90) && selectAzules == true) // si falta vida y estan seleccionadas las azules, cambiamos a las rojas y tomamos)
+            if ((life * 100 / Config.maxLife < 99) && selectAzules == true) // si falta vida y estan seleccionadas las azules, cambiamos a las rojas y tomamos)
             {
                 Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
                 Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);  //Rojas
@@ -397,7 +397,7 @@ namespace Lync
                 selectAzules = false;
                 selectRojas = true;
             }
-            else if ((life * 100 / Config.maxLife < 90) && selectRojas == true) // si falta vida y estan seleccionadas las rojas,tomamos)
+            else if ((life * 100 / Config.maxLife < 99) && selectRojas == true) // si falta vida y estan seleccionadas las rojas,tomamos)
             {
                 InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
                 faltaVida = true;
@@ -409,12 +409,12 @@ namespace Lync
             }
             if (faltaVida == false) // Siempre se prioriza la toma de rojas antes que las de azules, si te moris no hay mana que te sirva :)
             {
-                if ((mana * 100 / Config.maxMana < 90) && selectAzules == true) // si falta mana y estan seleccionadas las azules, tomamos)
+                if ((mana * 100 / Config.maxMana < 99) && selectAzules == true) // si falta mana y estan seleccionadas las azules, tomamos)
                 {
                     InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
                     selectRojas = false;
                 }
-                else if ((mana * 100 / Config.maxMana < 90) && selectAzules == false) // si falta mana y estan seleccionadas las rojas, cambiamos a las azules y tomamos)
+                else if ((mana * 100 / Config.maxMana < 99) && selectAzules == false) // si falta mana y estan seleccionadas las rojas, cambiamos a las azules y tomamos)
                 {
                     Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
                     Operaciones.Clickear(Config.coordAzules.X, Config.coordAzules.Y);  //Azules

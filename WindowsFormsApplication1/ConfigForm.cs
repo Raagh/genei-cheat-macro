@@ -19,74 +19,87 @@ namespace Lync
 
         private void button1_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Apoya el mouse sobre las Rojas y apreta Enter");
             Point pointNew = new Point();
             pointNew.X = Cursor.Position.X;
             pointNew.Y = Cursor.Position.Y;
             Config.coordRojas = pointNew;
             MessageBox.Show("Rojas Configuradas");
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Point pointNew = new Point();
+            MessageBox.Show("Apoya el mouse sobre las Azules y apreta Enter");
             pointNew.X = Cursor.Position.X;
             pointNew.Y = Cursor.Position.Y;
             Config.coordAzules = pointNew;
             MessageBox.Show("Azules Configuradas");
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Point pointNew = new Point();
+            MessageBox.Show("Apoya el mouse sobre el boton de hechizos y apreta Enter");
             pointNew.X = Cursor.Position.X;
             pointNew.Y = Cursor.Position.Y;
             Config.coordHechizos = pointNew;
             MessageBox.Show("Boton de hechizos configurado");
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            Point pointNew = new Point();
+            MessageBox.Show("Apoya el mouse sobre el boton de inventario y apreta Enter");
             pointNew.X = Cursor.Position.X;
             pointNew.Y = Cursor.Position.Y;
             Config.coordInventario = pointNew;
             MessageBox.Show("Boton de inventario configurado");
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            Point pointNew = new Point();
+            MessageBox.Show("Apoya el mouse sobre el boton de lanzar y apreta Enter");
             pointNew.X = Cursor.Position.X;
             pointNew.Y = Cursor.Position.Y;
             Config.coordLanzar = pointNew;
             MessageBox.Show("Boton de lanzar configurado");
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            Point pointNew = new Point();
+            MessageBox.Show("Apoya el mouse sobre el hechizo Remover Paralisis y apreta Enter");
             pointNew.X = Cursor.Position.X;
             pointNew.Y = Cursor.Position.Y;
             Config.coordRemo = pointNew;
             MessageBox.Show("Hechizo remover paralisis configurado");
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            Point pointNew = new Point();
+            MessageBox.Show("Apoya el mouse sobre el hechizo Invisibilidad y apreta Enter");
             pointNew.X = Cursor.Position.X;
             pointNew.Y = Cursor.Position.Y;
             Config.coordInvi = pointNew;
             MessageBox.Show("Hechizo invisibilidad configurado");
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            Point pointNew = new Point();
+            MessageBox.Show("Apoya el mouse sobre tu pj y apreta Enter");
             pointNew.X = Cursor.Position.X;
             pointNew.Y = Cursor.Position.Y;
             Config.coordPJ = pointNew;
             MessageBox.Show("PJ configurado");
+            MessageBox.Show("Configuracion Completada");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            
+            
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+           
+           
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            
+            
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            
+            
         }
 
         private void button10_Click(object sender, EventArgs e)
