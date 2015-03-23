@@ -392,10 +392,23 @@ namespace Lync
             IntPtr processHandle = OpenProcess(0x001F0FFF, false, process.Id);
 
             int structAddress = Config.Address; //  Puntero a la struct donde se guardan todas las variables
-            int lifeAddress = MemoryManagment.Read(processHandle, structAddress);
-            int manaAddress = MemoryManagment.Read(processHandle, structAddress + 4);
-            int life = lifeAddress / 65537;
-            int mana = manaAddress / 65537;
+            
+            int life = 0; 
+            int mana = 0;
+            if (Config.AOProcessName == "FuriusAO")
+            {
+                int lifeAddress = MemoryManagment.Read(processHandle, structAddress);
+                int manaAddress = MemoryManagment.Read(processHandle, structAddress + 8);
+                life = lifeAddress ;
+                mana = manaAddress ;
+            }
+            else
+            {
+                int lifeAddress = MemoryManagment.Read(processHandle, structAddress);
+                int manaAddress = MemoryManagment.Read(processHandle, structAddress + 4);
+                life = lifeAddress / 65537;
+                mana = manaAddress / 65537;
+            }
             if ((life * 100 / Config.maxLife < 99) && selectAzules == true) // si falta vida y estan seleccionadas las azules, cambiamos a las rojas y tomamos)
             {
                 originalX = Cursor.Position.X;
@@ -498,6 +511,21 @@ namespace Lync
                     Config.TDLobos = false;
                 }
             }
+            if (comboBox1.Text == "FuriusAO")
+            {
+                if (Config.TDLobos == false)
+                {
+                    Config.TDLobos = true;
+                    Config.Address = 0x0079D4BC;
+                    Config.AOProcessName = comboBox1.Text;
+                }
+                else if (Config.TDLobos == true)
+                {
+                    Config.TDLobos = false;
+                }
+            }
+
+
         }        //Combobox With AO Servers
 
 
