@@ -19,8 +19,6 @@ namespace Lync
         static public Point coordPJ;
         static public Point coordRemo;
         static public Point coordInvi;
-        static public Color ColorBarraVida;
-        static public Color ColorBarraMana;
         static public string TeclaRemo;
         static public string TeclaInvi;
         static public Keys remo;
@@ -28,11 +26,8 @@ namespace Lync
         static public bool AutolanzarON = false;
         static public int maxMana = 0;
         static public int maxLife = 0;
-        static public bool TDN = false;
 
         public static int Address { get; set; }
-
-        public static bool TDLobos { get; set; }
 
         public static string AOProcessName { get; set; }
 

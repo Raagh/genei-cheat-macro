@@ -71,12 +71,12 @@ namespace Lync
             //3. Error handling
             if (bytesWritten == IntPtr.Zero)
             {
-                Console.WriteLine("We didn't write anything!");
+                Console.WriteLine("No se escribio Nada!");
                 return false;
             }
             if (bytesWritten.ToInt32() < dataBuffer.Length)
             {
-                Console.WriteLine("We wrote {0} out of {1} bytes!", bytesWritten.ToInt32(), dataBuffer.Length.ToString());
+                Console.WriteLine("Escribimos {0} de un total de {1} bytes!", bytesWritten.ToInt32(), dataBuffer.Length.ToString());
                 return false;
             }
             return true;

@@ -79,6 +79,8 @@ namespace Lync
            Config.maxLife = int.Parse(split[17]);
            Config.maxMana = int.Parse(split[18]);
            Config.timerInterval2 = int.Parse(split[19]);
+           Config.remo = (Keys) Enum.Parse(typeof(Keys), split[20]);
+           Config.invi = (Keys) Enum.Parse(typeof(Keys), split[21]);
        }
 
        static public void Clickear(int x, int y)

@@ -105,10 +105,10 @@ namespace Lync
 
         private void ConfigForm_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Config.TeclaRemo) && !String.IsNullOrEmpty(Config.TeclaInvi)) 
+            if (Config.remo.ToString() != "None" && Config.invi.ToString() != "None") 
             {
-                textBox1.Text = Config.TeclaRemo;
-                textBox2.Text = Config.TeclaInvi;
+                textBox1.Text = Config.remo.ToString();
+                textBox2.Text = Config.invi.ToString();
                 label5.Text = "Teclas seteadas";
             }
             textBox3.Text = Convert.ToString(Config.maxLife);
@@ -117,12 +117,18 @@ namespace Lync
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            Config.maxLife=int.Parse(textBox3.Text);
+            if (!string.IsNullOrWhiteSpace(textBox3.Text))
+            {
+                Config.maxLife = int.Parse(textBox3.Text); 
+            }          
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
-            Config.maxMana = int.Parse(textBox4.Text);
+            if (!string.IsNullOrWhiteSpace(textBox4.Text))
+            {
+                Config.maxMana = int.Parse(textBox4.Text);
+            }         
         }
     }
 }

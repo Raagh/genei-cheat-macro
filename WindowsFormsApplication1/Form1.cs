@@ -48,10 +48,7 @@ namespace Lync
             AboutMeForm formNew = new AboutMeForm();
             formNew.ShowDialog();
         }
-
-        
-
-
+      
 
         private void cheatAppToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -105,7 +102,7 @@ namespace Lync
                             sw.WriteLine("-----------------------------------------------");
                             sw.WriteLine("Configuracion Genei Cheat For Argentum Online");
                             sw.WriteLine("-----------------------------------------------");
-                            sw.WriteLine(timer2.Interval + ";" + Config.coordRojas.X + ";" + Config.coordRojas.Y + ";" + Config.coordAzules.X + ";" + Config.coordAzules.Y + ";" + Config.coordHechizos.X + ";" + Config.coordHechizos.Y + ";" + Config.coordInventario.X + ";" + Config.coordInventario.Y + ";" + Config.coordLanzar.X + ";" + Config.coordLanzar.Y + ";" + Config.coordRemo.X + ";" + Config.coordRemo.Y + ";" + Config.coordInvi.X + ";" + Config.coordInvi.Y + ";" + Config.coordPJ.X + ";" + Config.coordPJ.Y + ";" + Config.maxLife + ";" + Config.maxMana + ";" + timer3.Interval);
+                            sw.WriteLine(timer2.Interval + ";" + Config.coordRojas.X + ";" + Config.coordRojas.Y + ";" + Config.coordAzules.X + ";" + Config.coordAzules.Y + ";" + Config.coordHechizos.X + ";" + Config.coordHechizos.Y + ";" + Config.coordInventario.X + ";" + Config.coordInventario.Y + ";" + Config.coordLanzar.X + ";" + Config.coordLanzar.Y + ";" + Config.coordRemo.X + ";" + Config.coordRemo.Y + ";" + Config.coordInvi.X + ";" + Config.coordInvi.Y + ";" + Config.coordPJ.X + ";" + Config.coordPJ.Y + ";" + Config.maxLife + ";" + Config.maxMana + ";" + timer3.Interval + ";" + Config.remo.ToString() + ";" + Config.invi.ToString() );
                         }                           
                      }
                }
@@ -127,7 +124,6 @@ namespace Lync
                     textBox1.Text = Convert.ToString(timer2.Interval);
                     listBox2.SelectedItem = Config.timerInterval2;
                     textBox2.Text = Convert.ToString(timer3.Interval);
-
                 }
             }
         }
@@ -212,7 +208,6 @@ namespace Lync
             {
                 Operaciones.modOfi = false;
             }
-
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -264,7 +259,6 @@ namespace Lync
                 MessageBox.Show("Cheat Bloqueado");
                 Application.Exit();
             }
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -314,8 +308,7 @@ namespace Lync
             }
             else if (comboBox1.SelectedItem == null || comboBox1.SelectedItem == "Sin Autopot" && CheatON == false)
             {
-                MessageBox.Show("Solo se activara el Remo/Invi + AutoLanzar");
-            
+                MessageBox.Show("Solo se activara el Remo/Invi + AutoLanzar");          
             }      
             Win32._hookID = Win32.SetHook(Win32._proc2);
             Config.AutolanzarON = true;
@@ -486,50 +479,20 @@ namespace Lync
         {
             if (comboBox1.Text == "Tierras del Norte")
             {
-                if (Config.TDN == false)
-                {
-                    Config.TDN = true;
-                    Config.Address = 0x0050E248;
-                    Config.AOProcessName = comboBox1.Text;
-                }
-                else if (Config.TDN == true)
-                {
-                    Config.TDN = false;
-                }
-                     
+                Config.Address = 0x0050E248;
+                Config.AOProcessName = comboBox1.Text;       
             }
             if (comboBox1.Text == "Tierras de Lobos")
             {
-                if (Config.TDLobos == false)
-                {
-                    Config.TDLobos = true;
-                    Config.Address = 0x005241F8;
-                    Config.AOProcessName = comboBox1.Text;
-                }
-                else if (Config.TDLobos == true)
-                {
-                    Config.TDLobos = false;
-                }
+                Config.Address = 0x005241F8;
+                Config.AOProcessName = comboBox1.Text;
             }
             if (comboBox1.Text == "FuriusAO")
             {
-                if (Config.TDLobos == false)
-                {
-                    Config.TDLobos = true;
-                    Config.Address = 0x0079D4BC;
-                    Config.AOProcessName = comboBox1.Text;
-                }
-                else if (Config.TDLobos == true)
-                {
-                    Config.TDLobos = false;
-                }
+                Config.Address = 0x0079D4BC;
+                Config.AOProcessName = comboBox1.Text;
             }
-
-
         }        //Combobox With AO Servers
-
-
-
 
 
         #endregion
