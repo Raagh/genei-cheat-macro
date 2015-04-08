@@ -471,7 +471,6 @@ namespace Lync
             {
                 Operations.AutoRemo();
             }
-
             if (Convert.ToBoolean(Win32Libraries.GetAsyncKeyState(Configuration.invi)))
             {
                 Operations.AutoInvi();
