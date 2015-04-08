@@ -19,23 +19,21 @@ using System.Runtime.InteropServices;
 
 namespace Lync
 {
-    public partial class Form1 : Form
+    public partial class BasicForm : Form
     {
-        public Form1()
+        public BasicForm()
         {
             InitializeComponent();
         }
 
         private readonly ManualResetEvent mre = new ManualResetEvent(false);
 
-        bool CheatON = false;       
+        public bool CheatON = false;       
         static public bool faltaVida = false;
         static public bool selectRojas = true;  // Si estan seleccionadas las rojas
         static public bool selectAzules = false;  // Si estan seleccionadas las azules( por defecto Rojas)
 
-        [DllImport("kernel32.dll")]
-        public static extern IntPtr OpenProcess(int dwDesiredAccess, bool bInheritHandle, int dwProcessId);
-
+      
 
         #region General Events
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -72,11 +70,11 @@ namespace Lync
                 MessageBox.Show("Se setearon los valores");
                 textBox1.Text = Convert.ToString(timer2.Interval);
                 textBox2.Text = Convert.ToString(timer3.Interval);
-                Operaciones.valuesSET = true;
+                Operations.valuesSET = true;
             }
             else if (string.IsNullOrEmpty(AutopotInterval) && string.IsNullOrEmpty(AutoLanzarInterval))
             {
-                Operaciones.valuesSET = true;
+                Operations.valuesSET = true;
                 timer2.Interval = int.Parse(textBox1.Text);
                 MessageBox.Show("Se usara el valor por defecto a menos que setees uno");
             }
@@ -102,7 +100,7 @@ namespace Lync
                             sw.WriteLine("-----------------------------------------------");
                             sw.WriteLine("Configuracion Genei Cheat For Argentum Online");
                             sw.WriteLine("-----------------------------------------------");
-                            sw.WriteLine(timer2.Interval + ";" + Config.coordRojas.X + ";" + Config.coordRojas.Y + ";" + Config.coordAzules.X + ";" + Config.coordAzules.Y + ";" + Config.coordHechizos.X + ";" + Config.coordHechizos.Y + ";" + Config.coordInventario.X + ";" + Config.coordInventario.Y + ";" + Config.coordLanzar.X + ";" + Config.coordLanzar.Y + ";" + Config.coordRemo.X + ";" + Config.coordRemo.Y + ";" + Config.coordInvi.X + ";" + Config.coordInvi.Y + ";" + Config.coordPJ.X + ";" + Config.coordPJ.Y + ";" + Config.maxLife + ";" + Config.maxMana + ";" + timer3.Interval + ";" + Config.remo.ToString() + ";" + Config.invi.ToString() );
+                            sw.WriteLine(timer2.Interval + ";" + Configuration.coordRojas.X + ";" + Configuration.coordRojas.Y + ";" + Configuration.coordAzules.X + ";" + Configuration.coordAzules.Y + ";" + Configuration.coordHechizos.X + ";" + Configuration.coordHechizos.Y + ";" + Configuration.coordInventario.X + ";" + Configuration.coordInventario.Y + ";" + Configuration.coordLanzar.X + ";" + Configuration.coordLanzar.Y + ";" + Configuration.coordRemo.X + ";" + Configuration.coordRemo.Y + ";" + Configuration.coordInvi.X + ";" + Configuration.coordInvi.Y + ";" + Configuration.coordPJ.X + ";" + Configuration.coordPJ.Y + ";" + Configuration.maxLife + ";" + Configuration.maxMana + ";" + timer3.Interval + ";" + Configuration.remo.ToString() + ";" + Configuration.invi.ToString() );
                         }                           
                      }
                }
@@ -118,11 +116,11 @@ namespace Lync
             {
                 if (OpenFileDialog1.FileName != "")
                 {
-                    Operaciones.LoadFile(OpenFileDialog1.FileName);
-                    timer2.Interval = Config.timerInterval;
-                    listBox1.SelectedItem = Config.timerInterval;
+                    Operations.LoadFile(OpenFileDialog1.FileName);
+                    timer2.Interval = Configuration.timerInterval;
+                    listBox1.SelectedItem = Configuration.timerInterval;
                     textBox1.Text = Convert.ToString(timer2.Interval);
-                    listBox2.SelectedItem = Config.timerInterval2;
+                    listBox2.SelectedItem = Configuration.timerInterval2;
                     textBox2.Text = Convert.ToString(timer3.Interval);
                 }
             }
@@ -156,7 +154,7 @@ namespace Lync
 
         private void Form1_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            Win32.UnHook();
+            Win32Libraries.UnHook();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -200,13 +198,13 @@ namespace Lync
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
-            if (Operaciones.modOfi == false)
+            if (Operations.modOfi == false)
             {
-                Operaciones.modOfi = true;
+                Operations.modOfi = true;
             }
-            else if (Operaciones.modOfi == true)
+            else if (Operations.modOfi == true)
             {
-                Operaciones.modOfi = false;
+                Operations.modOfi = false;
             }
         }
 
@@ -230,7 +228,13 @@ namespace Lync
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
-        }   
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            Process.Start("https://www.youtube.com/watch?v=MkASgMdSfmk");
+        }        
+
 
         #endregion
 
@@ -273,7 +277,7 @@ namespace Lync
         {
             if (comboBox1.SelectedItem != null && comboBox1.SelectedItem != "Sin Autopot")
             {
-                if (Operaciones.valuesSET == true)
+                if (Operations.valuesSET == true)
                 {
                     if (timer3.Enabled == false)
                     {
@@ -290,9 +294,9 @@ namespace Lync
                         int originalX, originalY;
                         originalX = Cursor.Position.X;
                         originalY = Cursor.Position.Y;
-                        Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
-                        Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);  //Rojas
-                        Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y);  //Hechizos 
+                        Operations.Clickear(Configuration.coordInventario.X, Configuration.coordInventario.Y);  //Inventario
+                        Operations.Clickear(Configuration.coordRojas.X, Configuration.coordRojas.Y);  //Rojas
+                        Operations.Clickear(Configuration.coordHechizos.X, Configuration.coordHechizos.Y);  //Hechizos 
                         Cursor.Position = new Point(originalX, originalY);
                     }
                     else if (timer2.Enabled == true)
@@ -310,8 +314,8 @@ namespace Lync
             {
                 MessageBox.Show("Solo se activara el Remo/Invi + AutoLanzar");          
             }      
-            Win32._hookID = Win32.SetHook(Win32._proc2);
-            Config.AutolanzarON = true;
+            Win32Libraries._hookID = Win32Libraries.SetHook(Win32Libraries._proc2);
+            Configuration.AutolanzarON = true;
             if (CheatON)
             {
                 CheatON = false;
@@ -329,8 +333,7 @@ namespace Lync
 
         private void timer2_Tick(object sender, EventArgs e)     // TIMER AUTOPOTAS
         {
-            #region Autopot PIXEL VIEJO
-            //InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);   // PARA TESTEAR AMIGO  
+            #region Autopotas Pixel -- VIEJO --
             //if (Config.Pixel)
             //{
             //    #region autopotas Pixel             
@@ -377,81 +380,81 @@ namespace Lync
             //}
             #endregion
 
-            #region autopotas Mem
+            #region Autopotas Memoria
 
             int originalX, originalY;
 
-            Process process = Process.GetProcessesByName(Config.AOProcessName)[0]; // Abre el proceso del AO seleccionado en el combo box
-            IntPtr processHandle = OpenProcess(0x001F0FFF, false, process.Id);
+            Process process = Process.GetProcessesByName(Configuration.AOProcessName)[0];
+            IntPtr processHandle = MemoryManagement.OpenProcess(0x001F0FFF, false, process.Id); // Abre el proceso del AO seleccionado en el combo box
 
-            int structAddress = Config.Address; //  Puntero a la struct donde se guardan todas las variables
+            int structAddress = Configuration.Address; //  Puntero a la struct donde se guardan todas las variables
             
             int life = 0; 
             int mana = 0;
-            if (Config.AOProcessName == "FuriusAO")
+            if (Configuration.AOProcessName == "FuriusAO")
             {
-                int lifeAddress = MemoryManagment.Read(processHandle, structAddress);
-                int manaAddress = MemoryManagment.Read(processHandle, structAddress + 8);
+                int lifeAddress = MemoryManagement.Read(processHandle, structAddress);
+                int manaAddress = MemoryManagement.Read(processHandle, structAddress + 8);
                 life = lifeAddress ;
                 mana = manaAddress ;
             }
             else
             {
-                int lifeAddress = MemoryManagment.Read(processHandle, structAddress);
-                int manaAddress = MemoryManagment.Read(processHandle, structAddress + 4);
+                int lifeAddress = MemoryManagement.Read(processHandle, structAddress);
+                int manaAddress = MemoryManagement.Read(processHandle, structAddress + 4);
                 life = lifeAddress / 65537;
                 mana = manaAddress / 65537;
             }
-            if ((life * 100 / Config.maxLife < 99) && selectAzules == true) // si falta vida y estan seleccionadas las azules, cambiamos a las rojas y tomamos)
+            if ((life * 100 / Configuration.maxLife < 95) && selectAzules == true) // si falta vida y estan seleccionadas las azules, cambiamos a las rojas y tomamos)
             {
                 originalX = Cursor.Position.X;
                 originalY = Cursor.Position.Y;
-                Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
-                Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);  //Rojas               
+                Operations.Clickear(Configuration.coordInventario.X, Configuration.coordInventario.Y);  //Inventario
+                Operations.Clickear(Configuration.coordRojas.X, Configuration.coordRojas.Y);  //Rojas               
                 InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
-                Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);
-                Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);
+                Operations.Clickear(Configuration.coordRojas.X, Configuration.coordRojas.Y);
+                Operations.Clickear(Configuration.coordRojas.X, Configuration.coordRojas.Y);
                 Cursor.Position = new Point(originalX, originalY);
                 faltaVida = true;
                 selectAzules = false;
                 selectRojas = true;
             }
-            else if ((life * 100 / Config.maxLife < 99) && selectRojas == true) // si falta vida y estan seleccionadas las rojas,tomamos)
+            else if ((life * 100 / Configuration.maxLife < 95) && selectRojas == true) // si falta vida y estan seleccionadas las rojas,tomamos)
             {
                 originalX = Cursor.Position.X;
                 originalY = Cursor.Position.Y;
                 InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
-                Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);
-                Operaciones.Clickear(Config.coordRojas.X, Config.coordRojas.Y);
+                Operations.Clickear(Configuration.coordRojas.X, Configuration.coordRojas.Y);
+                Operations.Clickear(Configuration.coordRojas.X, Configuration.coordRojas.Y);
                 Cursor.Position = new Point(originalX, originalY);
                 faltaVida = true;
                 selectAzules = false;
             }
-            else if (Config.maxLife == life)
+            else if (Configuration.maxLife == life)
             {
                 faltaVida = false;
             }
             if (faltaVida == false) // Siempre se prioriza la toma de rojas antes que las de azules, si te moris no hay mana que te sirva :)
             {
-                if ((mana * 100 / Config.maxMana < 99) && selectAzules == true) // si falta mana y estan seleccionadas las azules, tomamos)
+                if ((mana * 100 / Configuration.maxMana < 95) && selectAzules == true) // si falta mana y estan seleccionadas las azules, tomamos)
                 {
                     originalX = Cursor.Position.X;
                     originalY = Cursor.Position.Y;
                     InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
-                    Operaciones.Clickear(Config.coordAzules.X, Config.coordAzules.Y);
-                    Operaciones.Clickear(Config.coordAzules.X, Config.coordAzules.Y);
+                    Operations.Clickear(Configuration.coordAzules.X, Configuration.coordAzules.Y);
+                    Operations.Clickear(Configuration.coordAzules.X, Configuration.coordAzules.Y);
                     Cursor.Position = new Point(originalX, originalY);
                     selectRojas = false;
                 }
-                else if ((mana * 100 / Config.maxMana < 99) && selectAzules == false) // si falta mana y estan seleccionadas las rojas, cambiamos a las azules y tomamos)
+                else if ((mana * 100 / Configuration.maxMana < 95) && selectAzules == false) // si falta mana y estan seleccionadas las rojas, cambiamos a las azules y tomamos)
                 {
                     originalX = Cursor.Position.X;
                     originalY = Cursor.Position.Y;
-                    Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y);  //Inventario
-                    Operaciones.Clickear(Config.coordAzules.X, Config.coordAzules.Y);  //Azules                  
+                    Operations.Clickear(Configuration.coordInventario.X, Configuration.coordInventario.Y);  //Inventario
+                    Operations.Clickear(Configuration.coordAzules.X, Configuration.coordAzules.Y);  //Azules                  
                     InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
-                    Operaciones.Clickear(Config.coordAzules.X, Config.coordAzules.Y);
-                    Operaciones.Clickear(Config.coordAzules.X, Config.coordAzules.Y);
+                    Operations.Clickear(Configuration.coordAzules.X, Configuration.coordAzules.Y);
+                    Operations.Clickear(Configuration.coordAzules.X, Configuration.coordAzules.Y);
                     Cursor.Position = new Point(originalX, originalY);
                     selectRojas = false;
                     selectAzules = true;
@@ -464,42 +467,37 @@ namespace Lync
 
         private void timer3_Tick(object sender, EventArgs e)
         {
-            if (Convert.ToBoolean(Win32.GetAsyncKeyState(Config.remo)))
+            if (Convert.ToBoolean(Win32Libraries.GetAsyncKeyState(Configuration.remo)))
             {
-                Operaciones.AutoRemo();
+                Operations.AutoRemo();
             }
 
-            if (Convert.ToBoolean(Win32.GetAsyncKeyState(Config.invi)))
+            if (Convert.ToBoolean(Win32Libraries.GetAsyncKeyState(Configuration.invi)))
             {
-                Operaciones.AutoInvi();
+                Operations.AutoInvi();
             }
+            Thread.Sleep(100);
         }    // TIMER AUTOREMO/INVI
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox1.Text == "Tierras del Norte")
             {
-                Config.Address = 0x0050E248;
-                Config.AOProcessName = comboBox1.Text;       
+                Configuration.Address = 0x0050E248;              
             }
             if (comboBox1.Text == "Tierras de Lobos")
             {
-                Config.Address = 0x005241F8;
-                Config.AOProcessName = comboBox1.Text;
+                Configuration.Address = 0x005241F8;
             }
             if (comboBox1.Text == "FuriusAO")
             {
-                Config.Address = 0x0079D4BC;
-                Config.AOProcessName = comboBox1.Text;
+                Configuration.Address = 0x0079D4BC;             
             }
-        }        //Combobox With AO Servers
-
+            Configuration.AOProcessName = comboBox1.Text;
+        }    //Combobox With AO Servers
 
         #endregion
 
   
-
-    
-   
     }
 }

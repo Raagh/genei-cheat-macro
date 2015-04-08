@@ -15,7 +15,7 @@ using System.Diagnostics;
 
 namespace Lync
 {
-    sealed class Win32
+    sealed class Win32Libraries
     {
 
       #region PixelDLL && Methods
@@ -80,17 +80,17 @@ namespace Lync
           if (code >= 0 && wParam == (IntPtr)WM_KEYDOWN)
           {
               int vkCode = Marshal.ReadInt32(lParam);
-              if (vkCode.ToString() == Config.TeclaRemo)
+              if (vkCode.ToString() == Configuration.TeclaRemo)
               {
-                  Operaciones.AutoRemo();              
+                  Operations.AutoRemo();              
               }
-              if (vkCode.ToString() == Config.TeclaInvi)
+              if (vkCode.ToString() == Configuration.TeclaInvi)
               {
-                  Operaciones.AutoInvi();
+                  Operations.AutoInvi();
               }
               if ((Keys)vkCode == Keys.F5)
               {
-                  Win32.UnHook();
+                  Win32Libraries.UnHook();
                   Application.Exit();
               }
               return (IntPtr)1;
@@ -146,7 +146,7 @@ namespace Lync
           if (nCode >= 0 && MouseMessages.WM_RBUTTONDOWN == (MouseMessages)wParam)
           {
               MSLLHOOKSTRUCT hookStruct = (MSLLHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUCT));
-              Operaciones.AutoLanzar();
+              Operations.AutoLanzar();
           }
           return CallNextHookEx(_hookID, nCode, wParam, lParam);
       }

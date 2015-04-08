@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft Lync.exe" size="757248">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft Lync.exe" size="867840">
       <assemblyIdentity name="Microsoft Lync" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>nzCK8JcP/NEUpuqMcKsoF0ICxKO7i5hqNStW75A16ZU=</dsig:DigestValue>
+        <dsig:DigestValue>TbtTsMne4/bs8xTlh/4lA6V3SXbowKV8UdvAmVeeIYc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

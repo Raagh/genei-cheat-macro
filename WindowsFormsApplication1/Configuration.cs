@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Lync
 {
-     static class Config
+     static class Configuration
     {
         static public int timerInterval;
         static public Point coordRojas;

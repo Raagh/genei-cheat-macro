@@ -8,13 +8,17 @@ using System.Diagnostics;
 
 namespace Lync
 {
-    public static class MemoryManagment
+    public static class MemoryManagement
     {
+        //Open Process
+        [DllImport("kernel32.dll")]
+        public static extern IntPtr OpenProcess(int dwDesiredAccess, bool bInheritHandle, int dwProcessId);
 
-        //Read DLL
+        //Read Memory
         [DllImport("kernel32.dll", SetLastError = true)]
         public static extern bool ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, [Out] byte[] lpBuffer, int dwSize, out IntPtr lpNumberOfBytesRead);
-        //Write DLL
+
+        //Write Memory
         [DllImport("kernel32.dll")]
         static extern bool WriteProcessMemory(IntPtr hProcess,IntPtr lpBaseAddress,byte[] lpBuffer,int dwSize,out IntPtr lpNumberOfBytesWritten);
 
@@ -40,25 +44,10 @@ namespace Lync
             //2. Read
             ReadProcessMemory(handle, (IntPtr)address, dataBuffer, dataBuffer.Length, out bytesRead);
 
-            //3. Error handling
-            if (bytesRead == IntPtr.Zero)
-            {
-                Console.WriteLine("No se leyo nada!");
-                Console.ReadKey();
-                return 0;
-            }
-            if (bytesRead.ToInt32() < dataBuffer.Length)
-            {
-                Console.WriteLine("Se leyeron {0} de un total de {1} bytes!", bytesRead.ToInt32(), dataBuffer.Length.ToString());
-                Console.ReadKey();
-                return 0;
-            }
-
-            //4. Convert the content of your buffer to int
+            //3. Convert the content of your buffer to int
             return BitConverter.ToInt32(dataBuffer, 0);
         }
 
-        //Writes the given int to memory and returns whether all (4) bytes were written or not
         public static bool Write(IntPtr handle, int address, int value)
         {
             //1. Create buffer and pointer

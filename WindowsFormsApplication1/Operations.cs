@@ -12,10 +12,11 @@ using System.Threading;
 using MouseKeyboardActivityMonitor.HotKeys;
 using MouseKeyboardActivityMonitor;
 using MouseKeyboardActivityMonitor.WinApi;
+using WindowsInput;
 
 namespace Lync
 {
-    static class Operaciones
+    static class Operations
     {
        static public bool valuesSET = true;
        static public bool modOfi = false;
@@ -47,7 +48,7 @@ namespace Lync
                        }
                        else
                        {
-                            Operaciones.SplitDataFile(s);
+                            Operations.SplitDataFile(s);
                        }
                    }
                }
@@ -59,40 +60,36 @@ namespace Lync
        {
            string[] split = s.Split(new Char[] { ';' });
 
-           Config.timerInterval = int.Parse(split[0]);
-           Config.coordRojas.X = int.Parse(split[1]);
-           Config.coordRojas.Y = int.Parse(split[2]);
-           Config.coordAzules.X = int.Parse(split[3]);
-           Config.coordAzules.Y = int.Parse(split[4]);
-           Config.coordHechizos.X = int.Parse(split[5]);
-           Config.coordHechizos.Y = int.Parse(split[6]);
-           Config.coordInventario.X = int.Parse(split[7]);
-           Config.coordInventario.Y = int.Parse(split[8]);
-           Config.coordLanzar.X = int.Parse(split[9]);
-           Config.coordLanzar.Y = int.Parse(split[10]);
-           Config.coordRemo.X = int.Parse(split[11]);
-           Config.coordRemo.Y = int.Parse(split[12]);
-           Config.coordInvi.X = int.Parse(split[13]);
-           Config.coordInvi.Y = int.Parse(split[14]);
-           Config.coordPJ.X = int.Parse(split[15]);
-           Config.coordPJ.Y = int.Parse(split[16]);
-           Config.maxLife = int.Parse(split[17]);
-           Config.maxMana = int.Parse(split[18]);
-           Config.timerInterval2 = int.Parse(split[19]);
-           Config.remo = (Keys) Enum.Parse(typeof(Keys), split[20]);
-           Config.invi = (Keys) Enum.Parse(typeof(Keys), split[21]);
+           Configuration.timerInterval = int.Parse(split[0]);
+           Configuration.coordRojas.X = int.Parse(split[1]);
+           Configuration.coordRojas.Y = int.Parse(split[2]);
+           Configuration.coordAzules.X = int.Parse(split[3]);
+           Configuration.coordAzules.Y = int.Parse(split[4]);
+           Configuration.coordHechizos.X = int.Parse(split[5]);
+           Configuration.coordHechizos.Y = int.Parse(split[6]);
+           Configuration.coordInventario.X = int.Parse(split[7]);
+           Configuration.coordInventario.Y = int.Parse(split[8]);
+           Configuration.coordLanzar.X = int.Parse(split[9]);
+           Configuration.coordLanzar.Y = int.Parse(split[10]);
+           Configuration.coordRemo.X = int.Parse(split[11]);
+           Configuration.coordRemo.Y = int.Parse(split[12]);
+           Configuration.coordInvi.X = int.Parse(split[13]);
+           Configuration.coordInvi.Y = int.Parse(split[14]);
+           Configuration.coordPJ.X = int.Parse(split[15]);
+           Configuration.coordPJ.Y = int.Parse(split[16]);
+           Configuration.maxLife = int.Parse(split[17]);
+           Configuration.maxMana = int.Parse(split[18]);
+           Configuration.timerInterval2 = int.Parse(split[19]);
+           Configuration.remo = (Keys) Enum.Parse(typeof(Keys), split[20]);
+           Configuration.invi = (Keys) Enum.Parse(typeof(Keys), split[21]);
        }
 
        static public void Clickear(int x, int y)
        {
-           //int originalX,originalY;
-           //originalX = Cursor.Position.X;
-           //originalY = Cursor.Position.Y;
            Cursor.Position = new Point(x, y);
            MouseEventArgs Click = new MouseEventArgs(MouseButtons.Left,1,x,y,0);
            mouse_event(MOUSEEVENTF_LEFTDOWN, (uint)x,(uint) y, 0, 0);
            mouse_event(MOUSEEVENTF_LEFTUP, (uint)x, (uint)y, 0, 0);
-          // Cursor.Position = new Point(originalX, originalY);
        }
 
        static public void BorrarCartel()
@@ -109,13 +106,13 @@ namespace Lync
                int originalX, originalY;
                originalX = Cursor.Position.X;
                originalY = Cursor.Position.Y;
-               Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
-               Operaciones.Clickear(Config.coordRemo.X, Config.coordRemo.Y); //Remo
-               Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar
+               Operations.Clickear(Configuration.coordHechizos.X, Configuration.coordHechizos.Y); //Hechizos
+               Operations.Clickear(Configuration.coordRemo.X, Configuration.coordRemo.Y); //Remo
+               Operations.Clickear(Configuration.coordLanzar.X, Configuration.coordLanzar.Y); //Lanzar
                Thread.Sleep(70);
-               Operaciones.Clickear(Config.coordPJ.X, Config.coordPJ.Y); //PJ
+               Operations.Clickear(Configuration.coordPJ.X, Configuration.coordPJ.Y); //PJ
                Cursor.Position = new Point(originalX, originalY);
-               Operaciones.BorrarCartel();
+               Operations.BorrarCartel();
                
            }
            if (modOfi == false)
@@ -123,12 +120,12 @@ namespace Lync
                int originalX, originalY;
                originalX = Cursor.Position.X;
                originalY = Cursor.Position.Y;
-               Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
-               Operaciones.Clickear(Config.coordRemo.X, Config.coordRemo.Y); //Remo
-               Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar
-               Operaciones.Clickear(Config.coordPJ.X, Config.coordPJ.Y); //PJ
+               Operations.Clickear(Configuration.coordHechizos.X, Configuration.coordHechizos.Y); //Hechizos
+               Operations.Clickear(Configuration.coordRemo.X, Configuration.coordRemo.Y); //Remo
+               Operations.Clickear(Configuration.coordLanzar.X, Configuration.coordLanzar.Y); //Lanzar
+               Operations.Clickear(Configuration.coordPJ.X, Configuration.coordPJ.Y); //PJ
                Cursor.Position = new Point(originalX, originalY);
-               Operaciones.BorrarCartel();              
+               Operations.BorrarCartel();              
            }
 
        }
@@ -140,12 +137,12 @@ namespace Lync
                int originalX, originalY;
                originalX = Cursor.Position.X;
                originalY = Cursor.Position.Y;
-               Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
-               Operaciones.Clickear(Config.coordInvi.X, Config.coordInvi.Y); //Invi
-               Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar
+               Operations.Clickear(Configuration.coordHechizos.X, Configuration.coordHechizos.Y); //Hechizos
+               Operations.Clickear(Configuration.coordInvi.X, Configuration.coordInvi.Y); //Invi
+               Operations.Clickear(Configuration.coordLanzar.X, Configuration.coordLanzar.Y); //Lanzar
                Thread.Sleep(70);
-               Operaciones.Clickear(Config.coordPJ.X, Config.coordPJ.Y); //PJ
-               Operaciones.BorrarCartel();
+               Operations.Clickear(Configuration.coordPJ.X, Configuration.coordPJ.Y); //PJ
+               Operations.BorrarCartel();
                Cursor.Position = new Point(originalX, originalY);
                
            }
@@ -154,11 +151,11 @@ namespace Lync
                int originalX, originalY;
                originalX = Cursor.Position.X;
                originalY = Cursor.Position.Y;
-               Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
-               Operaciones.Clickear(Config.coordInvi.X, Config.coordInvi.Y); //Invi
-               Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar
-               Operaciones.Clickear(Config.coordPJ.X, Config.coordPJ.Y); //PJ
-               Operaciones.BorrarCartel();
+               Operations.Clickear(Configuration.coordHechizos.X, Configuration.coordHechizos.Y); //Hechizos
+               Operations.Clickear(Configuration.coordInvi.X, Configuration.coordInvi.Y); //Invi
+               Operations.Clickear(Configuration.coordLanzar.X, Configuration.coordLanzar.Y); //Lanzar
+               Operations.Clickear(Configuration.coordPJ.X, Configuration.coordPJ.Y); //PJ
+               Operations.BorrarCartel();
                Cursor.Position = new Point(originalX, originalY);
            }
 
@@ -171,10 +168,10 @@ namespace Lync
                int originalX, originalY;
                originalX = Cursor.Position.X;
                originalY = Cursor.Position.Y;
-               Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
-               Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar           
-               Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y); // Inventario            
-               Operaciones.Clickear(originalX, originalY);
+               Operations.Clickear(Configuration.coordHechizos.X, Configuration.coordHechizos.Y); //Hechizos
+               Operations.Clickear(Configuration.coordLanzar.X, Configuration.coordLanzar.Y); //Lanzar           
+               Operations.Clickear(Configuration.coordInventario.X, Configuration.coordInventario.Y); // Inventario            
+               Operations.Clickear(originalX, originalY);
                Thread.Sleep(70);
                //Cursor.Position = new Point(originalX, originalY);              
            }
@@ -183,10 +180,10 @@ namespace Lync
                int originalX, originalY;
                originalX = Cursor.Position.X;
                originalY = Cursor.Position.Y;
-               Operaciones.Clickear(Config.coordHechizos.X, Config.coordHechizos.Y); //Hechizos
-               Operaciones.Clickear(Config.coordLanzar.X, Config.coordLanzar.Y); //Lanzar
-               Operaciones.Clickear(Config.coordInventario.X, Config.coordInventario.Y); // Inventario
-               Operaciones.Clickear(originalX, originalY);
+               Operations.Clickear(Configuration.coordHechizos.X, Configuration.coordHechizos.Y); //Hechizos
+               Operations.Clickear(Configuration.coordLanzar.X, Configuration.coordLanzar.Y); //Lanzar
+               Operations.Clickear(Configuration.coordInventario.X, Configuration.coordInventario.Y); // Inventario
+               Operations.Clickear(originalX, originalY);
                //Cursor.Position = new Point(originalX, originalY);
            }
        }
