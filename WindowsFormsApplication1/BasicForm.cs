@@ -267,7 +267,7 @@ namespace Lync
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            EstadoCheats();
+            //EstadoCheats();
             textBox1.Text = Convert.ToString(timer2.Interval);
             textBox2.Text = Convert.ToString(timer3.Interval);
             comboBox1.SelectedItem = "Sin Autopot";
@@ -314,7 +314,7 @@ namespace Lync
             {
                 MessageBox.Show("Solo se activara el Remo/Invi + AutoLanzar");          
             }      
-            Win32Libraries._hookID = Win32Libraries.SetHook(Win32Libraries._proc2);
+            //Win32Libraries._hookID = Win32Libraries.SetHook(Win32Libraries._proc2);
             Configuration.AutolanzarON = true;
             if (CheatON)
             {
@@ -424,8 +424,6 @@ namespace Lync
                 originalX = Cursor.Position.X;
                 originalY = Cursor.Position.Y;
                 InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
-                Operations.Clickear(Configuration.coordRojas.X, Configuration.coordRojas.Y);
-                Operations.Clickear(Configuration.coordRojas.X, Configuration.coordRojas.Y);
                 Cursor.Position = new Point(originalX, originalY);
                 faltaVida = true;
                 selectAzules = false;
@@ -441,8 +439,6 @@ namespace Lync
                     originalX = Cursor.Position.X;
                     originalY = Cursor.Position.Y;
                     InputSimulator.SimulateKeyPress(VirtualKeyCode.VK_U);
-                    Operations.Clickear(Configuration.coordAzules.X, Configuration.coordAzules.Y);
-                    Operations.Clickear(Configuration.coordAzules.X, Configuration.coordAzules.Y);
                     Cursor.Position = new Point(originalX, originalY);
                     selectRojas = false;
                 }

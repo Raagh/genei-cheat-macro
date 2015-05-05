@@ -87,7 +87,6 @@ namespace Lync
        static public void Clickear(int x, int y)
        {
            Cursor.Position = new Point(x, y);
-           MouseEventArgs Click = new MouseEventArgs(MouseButtons.Left,1,x,y,0);
            mouse_event(MOUSEEVENTF_LEFTDOWN, (uint)x,(uint) y, 0, 0);
            mouse_event(MOUSEEVENTF_LEFTUP, (uint)x, (uint)y, 0, 0);
        }
