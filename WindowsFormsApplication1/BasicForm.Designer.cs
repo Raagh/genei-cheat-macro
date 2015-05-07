@@ -332,7 +332,6 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Sin Autopot",
             "Tierras del Norte",
-            "Tierras de Lobos",
             "FuriusAO"});
             this.comboBox1.Location = new System.Drawing.Point(12, 88);
             this.comboBox1.Name = "comboBox1";

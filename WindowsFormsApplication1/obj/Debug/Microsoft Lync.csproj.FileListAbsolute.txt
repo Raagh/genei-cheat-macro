@@ -1,10 +1,3 @@
-C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Microsoft Lync.exe.config
-C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Microsoft Lync.exe.manifest
-C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Microsoft Lync.application
-C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Microsoft Lync.exe
-C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Microsoft Lync.pdb
-C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\InputSimulator.dll
-C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\MouseKeyboardActivityMonitor.dll
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\InputSimulator.pdb
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\InputSimulator.xml
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\MouseKeyboardActivityMonitor.xml
@@ -12,10 +5,6 @@ C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplic
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Lync.ConfigForm.resources
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Lync.Properties.Resources.resources
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Microsoft Lync.csproj.GenerateResource.Cache
-C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Microsoft Lync.exe.manifest
-C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Microsoft Lync.application
-C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Microsoft Lync.exe
-C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Microsoft Lync.pdb
 C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Microsoft Lync.csprojResolveAssemblyReference.cache
 C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Microsoft Lync.exe.config
 C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Microsoft Lync.exe.manifest
@@ -36,3 +25,12 @@ C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\De
 C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\InputSimulator.xml
 C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\MouseKeyboardActivityMonitor.xml
 C:\Users\Pato\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Lync.BasicForm.resources
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Skype for Business.exe.config
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Skype for Business.exe.manifest
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Skype for Business.application
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Skype for Business.exe
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\bin\Debug\Skype for Business.pdb
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Skype for Business.exe.manifest
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Skype for Business.application
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Skype for Business.exe
+C:\Users\patricio.ferraggi\Documents\GitHub\RaaghCheat-AO-App\WindowsFormsApplication1\obj\Debug\Skype for Business.pdb

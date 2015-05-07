@@ -394,14 +394,14 @@ namespace Lync
             if (Configuration.AOProcessName == "FuriusAO")
             {
                 int lifeAddress = MemoryManagement.Read(processHandle, structAddress);
-                int manaAddress = MemoryManagement.Read(processHandle, structAddress + 8);
+                int manaAddress = MemoryManagement.Read(processHandle, structAddress + 8);  // Variables derechas no camufladas
                 life = lifeAddress ;
                 mana = manaAddress ;
             }
             else
             {
                 int lifeAddress = MemoryManagement.Read(processHandle, structAddress);
-                int manaAddress = MemoryManagement.Read(processHandle, structAddress + 4);
+                int manaAddress = MemoryManagement.Read(processHandle, structAddress + 4); // Mod 13.0 variables camufladas
                 life = lifeAddress / 65537;
                 mana = manaAddress / 65537;
             }
@@ -463,11 +463,11 @@ namespace Lync
 
         private void timer3_Tick(object sender, EventArgs e)
         {
-            if (Convert.ToBoolean(Win32Libraries.GetAsyncKeyState(Configuration.remo)))
+            if (Win32Libraries.GetAsyncKeyState(Configuration.remo) == -32767)
             {
                 Operations.AutoRemo();
             }
-            if (Convert.ToBoolean(Win32Libraries.GetAsyncKeyState(Configuration.invi)))
+            if (Win32Libraries.GetAsyncKeyState(Configuration.invi) == -32767)
             {
                 Operations.AutoInvi();
             }
